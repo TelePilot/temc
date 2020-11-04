@@ -4,14 +4,16 @@ import sanityClient from '../Client'
 export const ProjectContext = createContext()
 
 const ProjectContextProvider = props => {
-	const [project, setProject] = useState('')
+	const [project, setProject] = useState([])
 	useEffect(() => {
-		const projectQuery = `*[_type == "project"]
-       `
+		const projectQuery = `*[_type == "client"]`
+
 		sanityClient.fetch(projectQuery).then(project => {
+			const projectArray = []
 			project.forEach(project => {
-				setProject(project)
+				projectArray.push(project)
 			})
+			setProject(projectArray)
 		})
 		return
 	}, [])
