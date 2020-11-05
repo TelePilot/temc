@@ -4,9 +4,7 @@ import { TaglineContext } from '../store/Tagline.context'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../Client'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -45,41 +43,36 @@ const TaglineImage = styled.img`
 const Tagline = () => {
 	const { tagline } = useContext(TaglineContext)
 	const taglinetext = document.querySelector(TaglineText)
-	const taglinetext2 = document.querySelector(Title)
+	const taglinetitle = document.querySelector(Title)
+	gsap.registerPlugin(ScrollTrigger)
 
-	gsap.fromTo(taglinetext, {
+	gsap.to(taglinetitle, {
 		autoAlpha: 0,
-		y: -100,
-	},{ 
-		autoAlpha: 1,
-		ease: 'Power1.out',
-		duration: 1,
-		y: 0,
 		scrollTrigger: {
-			trigger: TaglineText,
-			start: 'top center+=100',
-			markers: true
+			trigger: '#image',
+			scrub: true,
+			ease: 'Power1.out',
+			duration: 3,
+			start: 'top center',
 	}})
 
-	gsap.fromTo(taglinetext2, {
+	gsap.to(taglinetext, {
 		autoAlpha: 0,
-		y: -100,
-	},{
-		autoAlpha: 1,
-		ease: 'Power1.out',
-		duration: 1,
-		y: 0,
 		scrollTrigger: {
-			trigger: Title,
-			start: 'top center+=100',
-			marker: true
+			trigger: '#image',
+			scrub: true,
+			ease: 'Power1.out',
+			duration: 3,
+			start: 'top center'
 	}})
+
+
 
 	
 	return (
 		<Container>
-			<InnerContainer><TaglineImage alt='hero image' src={urlFor(tagline.image).url()} /></InnerContainer>
-			<Title>{tagline.title}</Title>
+			<InnerContainer><TaglineImage id='image' alt='hero image' src={urlFor(tagline.image).url()} /></InnerContainer>
+			<Title id='text'>{tagline.title}</Title>
 			<TaglineText>{tagline.tagline}</TaglineText>
 		</Container>
 	)

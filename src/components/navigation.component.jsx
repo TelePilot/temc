@@ -17,14 +17,14 @@ const Container = styled.div`
 
 const LogoBox = styled.img`
 	width: 100px;
-	padding: 25px;
+	padding: 25px 50px;
 	height: auto;
 `
 
 const NavBox = styled.div`
 	display: flex;
 	right: 0;
-	padding: 25px;
+	padding: 25px 50px;
 	gap: 15px;
 `
 
@@ -39,12 +39,14 @@ const Navigation = () => {
 
 	gsap.fromTo(menu, {
 		opacity: 0,
+		x: 100
 	},
 	{
 		opacity: 1,
-		duration: 1,
-		ease: 'Power1.out',
-		delay: 1
+		duration: 0.7,
+		ease: 'Power4.out',
+		delay: 0.7,
+		x: 0
 	}
 	)
 
@@ -71,7 +73,7 @@ const Navigation = () => {
 		return
 	}, [])
 	return (
-		<Container>
+		<Container id='navbar'>
 			<LogoBox alt='TEMC Logo' src={urlFor(header.logo).url()} />
 			<NavBox>
 				{header.menu
