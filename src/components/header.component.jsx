@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import sanityClient from '../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import CTA from './cta.component'
+import { gsap } from 'gsap'
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -17,6 +18,12 @@ const Container = styled.div`
 	align-items: flex-start;
 	flex-flow: column;
 `
+const HeaderContentContainer = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+`
+
 const HeaderText = styled.h1`
 	color: white;
 	font-size: 72px;
@@ -34,6 +41,20 @@ const HeroImage = styled.img`
 `
 
 const Header = () => {
+
+	const headerText = document.querySelector(HeaderText)
+
+	gsap.fromTo(headerText, {
+		x: -100,
+		autoAlpha: 0,
+	},{
+		x: 75,
+		autoAlpha: 1,
+		ease: 'Power1.easeInOut',
+		duration: 0.7,
+		delay: 1
+	})
+
 	const [header, setHeader] = useState('')
 
 	useEffect(() => {
@@ -47,9 +68,11 @@ const Header = () => {
 	}, [])
 	return (
 		<Container>
+			<HeaderContentContainer>
 			<HeroImage alt='hero image' src={urlFor(header.heroImage).url()} />
 			<HeaderText>{header.title}</HeaderText>
 			<CTA />
+			</HeaderContentContainer>
 		</Container>
 	)
 }

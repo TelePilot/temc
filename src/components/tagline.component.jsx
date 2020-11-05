@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import { TaglineContext } from '../store/Tagline.context'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../Client'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -40,6 +44,38 @@ const TaglineImage = styled.img`
 
 const Tagline = () => {
 	const { tagline } = useContext(TaglineContext)
+	const taglinetext = document.querySelector(TaglineText)
+	const taglinetext2 = document.querySelector(Title)
+
+	gsap.fromTo(taglinetext, {
+		autoAlpha: 0,
+		y: -100,
+	},{ 
+		autoAlpha: 1,
+		ease: 'Power1.out',
+		duration: 1,
+		y: 0,
+		scrollTrigger: {
+			trigger: TaglineText,
+			start: 'top center+=100',
+			markers: true
+	}})
+
+	gsap.fromTo(taglinetext2, {
+		autoAlpha: 0,
+		y: -100,
+	},{
+		autoAlpha: 1,
+		ease: 'Power1.out',
+		duration: 1,
+		y: 0,
+		scrollTrigger: {
+			trigger: Title,
+			start: 'top center+=100',
+			marker: true
+	}})
+
+	
 	return (
 		<Container>
 			<InnerContainer><TaglineImage alt='hero image' src={urlFor(tagline.image).url()} /></InnerContainer>

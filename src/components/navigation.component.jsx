@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import sanityClient from '../Client'
 import imageUrlBuilder from '@sanity/image-url'
+import { gsap } from 'gsap'
 
 const Container = styled.div`
 	display: flex;
@@ -16,10 +17,16 @@ const Container = styled.div`
 
 const LogoBox = styled.img`
 	width: 100px;
+	padding: 25px;
 	height: auto;
 `
 
-const NavBox = styled.div``
+const NavBox = styled.div`
+	display: flex;
+	right: 0;
+	padding: 25px;
+	gap: 15px;
+`
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -27,6 +34,29 @@ function urlFor(source) {
 }
 
 const Navigation = () => {
+	const menu = document.querySelector(NavBox)
+	const logo = document.querySelector(LogoBox)
+
+	gsap.fromTo(menu, {
+		opacity: 0,
+	},
+	{
+		opacity: 1,
+		duration: 1,
+		ease: 'Power1.out',
+		delay: 1
+	}
+	)
+
+	gsap.fromTo(logo, {
+		opacity: 0,
+	},{
+		opacity: 1,
+		duration: 1,
+		ease: 'Power1.out',
+		delay: 1	}
+	)
+
 	const [header, setHeader] = useState('')
 
 	useEffect(() => {
