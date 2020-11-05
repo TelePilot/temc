@@ -4,6 +4,7 @@ import sanityClient from '../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import CTA from './cta.component'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -41,8 +42,10 @@ const HeroImage = styled.img`
 `
 
 const Header = () => {
-
 	const headerText = document.querySelector(HeaderText)
+	const heroimage = document.querySelector('.heroimage')
+	console.log(heroimage)
+	gsap.registerPlugin(ScrollTrigger)
 
 	gsap.fromTo(headerText, {
 		x: -100,
@@ -69,7 +72,7 @@ const Header = () => {
 	return (
 		<Container>
 			<HeaderContentContainer>
-			<HeroImage alt='hero image' src={urlFor(header.heroImage).url()} />
+			<HeroImage alt='hero image' className='heroimage' id='heroimage' src={urlFor(header.heroImage).url()} />
 			<HeaderText>{header.title}</HeaderText>
 			<CTA />
 			</HeaderContentContainer>

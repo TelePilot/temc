@@ -11,7 +11,6 @@ function urlFor(source) {
 const Container = styled.div`
 	width: 100%;
 	height: 100%;
-	margin-top: 25vh;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 `
@@ -21,6 +20,15 @@ const Card = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 0 1em 2em 1em;
+`
+
+const ContainerTitle = styled.h2`
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 46px:
+	margin-top: 25vh;
 `
 
 const Title = styled.h2`
@@ -42,20 +50,23 @@ const ProjectImage = styled.img`
 const Project = () => {
 	const { project } = useContext(ProjectContext)
 	return (
+		<div>
+		<ContainerTitle>PROJECTS</ContainerTitle>
 		<Container>
 			{project
 				? project.map((item, id) => (
-						<Card key={id}>
+					<Card key={id}>
 							<ProjectImage
 								alt='website image'
 								src={urlFor(item.websiteImage).url()}
-							/>
+								/>
 							<Title>{item.clientName}</Title>
 							<ProjectText>{item.description}</ProjectText>
 						</Card>
 				  ))
-				: null}
+				  : null}
 		</Container>
+		</div>
 	)
 }
 

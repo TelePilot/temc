@@ -7,12 +7,14 @@ const Button = styled.button`
 	justify-content: center;
 	align-items: center;
 	background: #d5599e;
-	border-radius: 10px;
+	border-radius: 12px 7px;
 	border: none;
 	max-width: 120px; 
 	max-height: 60px;
 	margin: 0 30px;
+	cursor: pointer;
 	`
+
 const Text = styled.p`
 	color: white;
 `
@@ -31,7 +33,6 @@ const CTA = () => {
 		duration: 0.7,
 		delay: 2
 	})
-
 	return (
 		<Button>
 			<Text>Kontakta Oss</Text>
