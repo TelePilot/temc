@@ -6,6 +6,8 @@ import TaglineContextProvider from './store/Tagline.context'
 import ProjectContextProvider from './store/Project.context'
 import Footer from './components/footer.component'
 import Navigation from './components/navigation.component'
+import TextBubble from './components/textbubble.component'
+
 
 function App() {
 	return (
@@ -18,7 +20,7 @@ function App() {
 			<ProjectContextProvider>
 				<Project />
 			</ProjectContextProvider>
-
+			<TextBubble />
 			<Footer />
 		</div>
 	)
