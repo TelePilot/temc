@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import sanityClient from '../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import { gsap } from 'gsap'
-
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -36,19 +35,39 @@ function urlFor(source) {
 const Navigation = () => {
 	const menu = document.querySelector(NavBox)
 	const logo = document.querySelector(LogoBox)
+	const tl = gsap.timeline({
+		delay: 0.5,
+		stagger:0.1,
 
-	gsap.fromTo(menu, {
-		opacity: 0,
-		x: 100
-	},
-	{
-		opacity: 1,
-		duration: 0.7,
-		ease: 'Power4.out',
-		delay: 0.7,
-		x: 0
-	}
-	)
+		defaults: { // children inherit these defaults
+		  duration: 1,
+		  ease: "none" 
+		},
+		smoothChildTiming: true,
+		autoRemoveChildren: true,
+		
+		// other callbacks: 
+		// onStart, onUpdate, onRepeat, onReverseComplete
+		// Each callback has a params property as well
+		// i.e. onUpdateParams (Array)
+	  });
+	  
+	 tl.fromTo(
+		menu,   
+		 0.5, 
+		 {
+			opacity: 0,
+			x: 100
+		},   //"from" values
+		{
+			opacity: 1,
+			duration: 0.7,
+			ease: 'Power4.out',
+			delay: 0.7,
+			x: 0
+		},  //"to" values
+		 -0.15    //stagger amount (seconds between each start time)
+	  );
 
 	gsap.fromTo(logo, {
 		opacity: 0,

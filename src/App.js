@@ -6,9 +6,8 @@ import Footer from './components/footer.component'
 import Navigation from './components/navigation.component'
 import TextBubble from './components/textbubble.component'
 import Movie from './components/movie.component'
-import HomepageProject from './components/homepageProject.component'
-
-
+import ProjectContextProvider from './store/Project.context'
+import Sample from './components/sample.component'
 function App() {
 	return (
 		<div className='App'>
@@ -17,9 +16,12 @@ function App() {
 			<TaglineContextProvider>
 				<Tagline />
 			</TaglineContextProvider>
-			<HomepageProject />
+			<ProjectContextProvider>
+				<Sample />
+			</ProjectContextProvider>
 			<TextBubble />
 			<Movie />
+			
 			<Footer />
 		</div>
 	)
