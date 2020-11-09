@@ -6,19 +6,24 @@ import Footer from './components/footer.component'
 import Navigation from './components/navigation.component'
 import TextBubble from './components/textbubble.component'
 import Movie from './components/movie.component'
-import ProjectContextProvider from './store/Project.context'
-import Sample from './components/sample.component'
+import { Route } from 'react-router-dom'
+import Kontakt from './components/pages/kontakt.component'
+// import ProjectContextProvider from './store/Project.context'
+// import Sample from './components/sample.component'
 function App() {
 	return (
 		<div className='App'>
 			<Navigation />
+			<Route path={'/kontakt'}>
+			<Kontakt />
+			</Route>
 			<Header />
 			<TaglineContextProvider>
 				<Tagline />
 			</TaglineContextProvider>
-			<ProjectContextProvider>
+			{/* <ProjectContextProvider>
 				<Sample />
-			</ProjectContextProvider>
+			</ProjectContextProvider> */}
 			<TextBubble />
 			<Movie />
 			

@@ -14,15 +14,13 @@ const FooterTextLeft = styled.p`
 	font-size: 16px;
 	text-align: left;
 	width: 450px;
-	border: 2px solid white;
 `
 
 const FooterTextRight = styled.p`
 	color: white;
 	font-size: 16px;
-	text-align: left;
+	text-align: right;
 	width: 450px;
-	border: 2px solid white;
 `
 
 const Footer = () => {
