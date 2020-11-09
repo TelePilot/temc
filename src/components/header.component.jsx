@@ -43,20 +43,23 @@ const HeroImage = styled.img`
 
 const Header = () => {
 	const headerText = document.querySelector(HeaderText)
-	const heroimage = document.querySelector('.heroimage')
-	console.log(heroimage)
+
 	gsap.registerPlugin(ScrollTrigger)
 
-	gsap.fromTo(headerText, {
-		x: -100,
-		autoAlpha: 0,
-	},{
-		x: 75,
-		autoAlpha: 1,
-		ease: 'Power1.easeInOut',
-		duration: 0.7,
-		delay: 1
-	})
+	gsap.fromTo(
+		headerText,
+		{
+			x: -100,
+			autoAlpha: 0,
+		},
+		{
+			x: 75,
+			autoAlpha: 1,
+			ease: 'Power1.easeInOut',
+			duration: 0.7,
+			delay: 1,
+		}
+	)
 
 	const [header, setHeader] = useState('')
 
@@ -72,9 +75,14 @@ const Header = () => {
 	return (
 		<Container>
 			<HeaderContentContainer>
-			<HeroImage alt='hero image' className='heroimage' id='heroimage' src={urlFor(header.heroImage).url()} />
-			<HeaderText>{header.title}</HeaderText>
-			<CTA />
+				<HeroImage
+					alt='hero image'
+					className='heroimage'
+					id='heroimage'
+					src={urlFor(header.heroImage).url()}
+				/>
+				<HeaderText>{header.title}</HeaderText>
+				<CTA />
 			</HeaderContentContainer>
 		</Container>
 	)

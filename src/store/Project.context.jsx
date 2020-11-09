@@ -8,10 +8,8 @@ const ProjectContextProvider = props => {
 	const [loaded, setLoaded] = useState(false)
 	useEffect(() => {
 		const projectQuery = `*[_type == "client"]`
-		console.log(projectQuery)
 		sanityClient.fetch(projectQuery).then(project => {
 			const projectArray = []
-			console.log(project)
 			project.forEach(project => {
 				projectArray.push(project)
 			})
@@ -20,8 +18,6 @@ const ProjectContextProvider = props => {
 		})
 		return
 	}, [])
-	console.log(loaded)
-	console.log(project)
 	return (
 		<ProjectContext.Provider value={{ project }}>
 			{loaded ? props.children : null}

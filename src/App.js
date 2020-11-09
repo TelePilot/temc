@@ -1,33 +1,27 @@
 import './App.css'
-import Header from './components/header.component'
-import Tagline from './components/tagline.component'
+
 import TaglineContextProvider from './store/Tagline.context'
+import ProjectContextProvider from './store/Project.context'
 import Footer from './components/footer.component'
 import Navigation from './components/navigation.component'
-import TextBubble from './components/textbubble.component'
-import Movie from './components/movie.component'
 import { Route } from 'react-router-dom'
-import Kontakt from './components/pages/kontakt.component'
-import ProjectContextProvider from './store/Project.context'
-import Sample from './components/sample.component'
-import Projects from './components/pages/projects.component'
+import Kontakt from './pages/kontakt.component'
+
+import Home from './pages/home.component'
 function App() {
 	return (
 		<div className='App'>
 			<Navigation />
+			<Route path={'/'} exact>
+				<TaglineContextProvider>
+					<ProjectContextProvider>
+						<Home />
+					</ProjectContextProvider>
+				</TaglineContextProvider>
+			</Route>
 			<Route path={'/kontakt'}>
 				<Kontakt />
 			</Route>
-			<Header />
-			<TaglineContextProvider>
-				<Tagline />
-			</TaglineContextProvider>
-			<ProjectContextProvider>
-				<Sample />
-				<Projects />
-			</ProjectContextProvider>
-			<TextBubble />
-			<Movie />
 
 			<Footer />
 		</div>

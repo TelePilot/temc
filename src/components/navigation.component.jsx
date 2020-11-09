@@ -37,45 +37,50 @@ const Navigation = () => {
 	const logo = document.querySelector(LogoBox)
 	const tl = gsap.timeline({
 		delay: 0.5,
-		stagger:0.1,
+		stagger: 0.1,
 
-		defaults: { // children inherit these defaults
-		  duration: 1,
-		  ease: "none" 
+		defaults: {
+			// children inherit these defaults
+			duration: 1,
+			ease: 'none',
 		},
 		smoothChildTiming: true,
 		autoRemoveChildren: true,
-		
-		// other callbacks: 
+
+		// other callbacks:
 		// onStart, onUpdate, onRepeat, onReverseComplete
 		// Each callback has a params property as well
 		// i.e. onUpdateParams (Array)
-	  });
-	  
-	 tl.fromTo(
-		menu,   
-		 0.5, 
-		 {
+	})
+
+	tl.fromTo(
+		menu,
+		0.5,
+		{
 			opacity: 0,
-			x: 100
-		},   //"from" values
+			x: 100,
+		}, //"from" values
 		{
 			opacity: 1,
 			duration: 0.7,
 			ease: 'Power4.out',
 			delay: 0.7,
-			x: 0
-		},  //"to" values
-		 -0.15    //stagger amount (seconds between each start time)
-	  );
+			x: 0,
+		}, //"to" values
+		-0.15 //stagger amount (seconds between each start time)
+	)
 
-	gsap.fromTo(logo, {
-		opacity: 0,
-	},{
-		opacity: 1,
-		duration: 1,
-		ease: 'Power1.out',
-		delay: 1	}
+	gsap.fromTo(
+		logo,
+		{
+			opacity: 0,
+		},
+		{
+			opacity: 1,
+			duration: 1,
+			ease: 'Power1.out',
+			delay: 1,
+		}
 	)
 
 	const [header, setHeader] = useState('')

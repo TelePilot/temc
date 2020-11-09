@@ -25,9 +25,8 @@ const Text = styled.p``
 const Header = styled.h2``
 
 const Sample = () => {
-	const { project, loaded } = useContext(ProjectContext)
+	const { project } = useContext(ProjectContext)
 	const sample = project[0]
-	console.log(project)
 	return (
 		<Container>
 			<Image alt='client Image' src={urlFor(sample.websiteImage).url()} />
