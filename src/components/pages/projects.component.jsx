@@ -25,7 +25,7 @@ const Projects = () => {
 	return (
 		<Container>
 			<Grid>
-				{project
+				{/* {project
 					? project.map((item, id) => (
 							<Card key={id}>
 								<ProjectImage
@@ -36,7 +36,7 @@ const Projects = () => {
 								<ProjectText>{item.description}</ProjectText>
 							</Card>
 					  ))
-					: null}
+					: null} */}
 			</Grid>
 		</Container>
 	)

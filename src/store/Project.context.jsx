@@ -20,10 +20,11 @@ const ProjectContextProvider = props => {
 		})
 		return
 	}, [])
+	console.log(loaded)
 	console.log(project)
 	return (
 		<ProjectContext.Provider value={{ project }}>
-			{props.children}
+			{loaded ? props.children : null}
 		</ProjectContext.Provider>
 	)
 }
