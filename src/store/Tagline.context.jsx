@@ -6,8 +6,7 @@ export const TaglineContext = createContext()
 const TaglineContextProvider = props => {
 	const [tagline, setTagline] = useState('')
 	useEffect(() => {
-		const taglineQuery = `*[_type == "tagline"]
-       `
+		const taglineQuery = `*[_type == "tagline"]`
 		sanityClient.fetch(taglineQuery).then(tagline => {
 			tagline.forEach(tagline => {
 				setTagline(tagline)

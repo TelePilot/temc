@@ -8,25 +8,27 @@ import TextBubble from './components/textbubble.component'
 import Movie from './components/movie.component'
 import { Route } from 'react-router-dom'
 import Kontakt from './components/pages/kontakt.component'
-// import ProjectContextProvider from './store/Project.context'
-// import Sample from './components/sample.component'
+import ProjectContextProvider from './store/Project.context'
+import Sample from './components/sample.component'
+import Projects from './components/pages/projects.component'
 function App() {
 	return (
 		<div className='App'>
 			<Navigation />
 			<Route path={'/kontakt'}>
-			<Kontakt />
+				<Kontakt />
 			</Route>
 			<Header />
 			<TaglineContextProvider>
 				<Tagline />
 			</TaglineContextProvider>
-			{/* <ProjectContextProvider>
+			<ProjectContextProvider>
 				<Sample />
-			</ProjectContextProvider> */}
+				<Projects />
+			</ProjectContextProvider>
 			<TextBubble />
 			<Movie />
-			
+
 			<Footer />
 		</div>
 	)
