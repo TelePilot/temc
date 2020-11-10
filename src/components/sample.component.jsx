@@ -72,7 +72,7 @@ const Sample = () => {
 				<TextContainer>
 					<HeaderText>{sample.clientName}</HeaderText>
 					<Text>{sample.description}</Text>
-					<CTA />
+					<CTA>Kontakt</CTA>
 				</TextContainer>
 			</Container>
 		</div>

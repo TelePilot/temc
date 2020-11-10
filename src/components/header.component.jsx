@@ -82,7 +82,7 @@ const Header = () => {
 					src={urlFor(header.heroImage).url()}
 				/>
 				<HeaderText>{header.title}</HeaderText>
-				<CTA />
+				<CTA>Kontakt</CTA>
 			</HeaderContentContainer>
 		</Container>
 	)
