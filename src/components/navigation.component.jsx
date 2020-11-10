@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import sanityClient from '../Client'
 import imageUrlBuilder from '@sanity/image-url'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 const Container = styled.div`
 	display: flex;
@@ -25,6 +26,10 @@ const NavBox = styled.div`
 	right: 0;
 	padding: 25px 50px;
 	gap: 15px;
+`
+
+const MenuLink = styled(Link)`
+	text-decoration: none;
 `
 
 const builder = imageUrlBuilder(sanityClient)
@@ -96,12 +101,17 @@ const Navigation = () => {
 		})
 		return
 	}, [])
+
 	return (
 		<Container id='navbar'>
 			<LogoBox alt='TEMC Logo' src={urlFor(header.logo).url()} />
 			<NavBox>
 				{header.menu
-					? header.menu.map((item, id) => <p key={id}>{item.name}</p>)
+					? header.menu.map((item, id) => (
+							<MenuLink to={item.link} key={id}>
+								{item.name}
+							</MenuLink>
+					  ))
 					: null}
 			</NavBox>
 		</Container>
