@@ -15,8 +15,8 @@ const Header = styled.h2`
 		background: rgba(64, 109, 245, 0.63);
 	}
 `
-const HeaderText = ({ text }) => {
-	return <Header>{text}</Header>
+const HeaderText = props => {
+	return <Header>{props.children}</Header>
 }
 
 export default HeaderText
