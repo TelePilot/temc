@@ -13,7 +13,7 @@ function urlFor(source) {
 const Container = styled.div`
 	width: 100%;
 	height: 60vh;
-	margin-top: 25vh;
+	margin: 25vh 0;
 	display: flex;
 	flex-flow: column;
 	justify-content: center;

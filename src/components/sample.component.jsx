@@ -13,29 +13,69 @@ function urlFor(source) {
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	width: 80%;
+	width: 100%;
+	height: 400px;
+	margin-top: 10vh;
 `
 const Image = styled.img`
-	width: 40%;
-	height: auto;
+	width: 427px;
+	height: 367px;
 `
-const TextContainer = styled.div``
-const Text = styled.p``
+const TextContainer = styled.div`
+	width: 50%;
+`
+const Text = styled.p`
+text-align: right;
+width: 500px;
+padding-bottom: 25px;
+`
 const Header = styled.h2``
+
+const ColoredBoxBlue = styled.div`
+	position: relative;
+	width: 215px;
+	top: 62px;
+	height: 23px;
+	background: rgba(64, 109, 245, 0.63);
+	margin: 0 auto;
+	z-index: -1;
+`
+// SORRY TEO
+const ColoredBoxBlueSmall = styled.div`
+	position: relative;
+	width: 140px;
+	top: 62px;
+	height: 23px;
+	background: rgba(64, 109, 245, 0.63);
+	margin: 0 auto;
+	z-index: -1;
+`
+
+const ColoredBoxPink = styled.div`
+	position: relative;
+	width: 360px;
+	height: 300px;
+	bottom: 240px;
+	right: 85px;
+	margin: 0 auto;
+	background: #FF847F;
+	z-index: -1;
+`
 
 const Sample = () => {
 	const { project } = useContext(ProjectContext)
-	const sample = project[0]
+	const sample = project[1]
 	return (
+		<div><ColoredBoxBlueSmall /><Header>PROJECTS</Header>
 		<Container>
-			<Image alt='client Image' src={urlFor(sample.websiteImage).url()} />
+			<TextContainer><Image alt='client Image' src={urlFor(sample.websiteImage).url()} /><ColoredBoxPink /></TextContainer>
 			<TextContainer>
-				<Header>{sample.clientName}</Header>
+				<ColoredBoxBlue /><Header>{sample.clientName}</Header>
 				<Text>{sample.description}</Text>
 				<CTA />
 			</TextContainer>
 		</Container>
+		</div>
 	)
 }
 
