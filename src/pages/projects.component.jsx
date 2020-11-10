@@ -18,6 +18,30 @@ const Grid = styled.div`
     grid-template-column: repeat(auto-fill, minmax(300px, 1fr))
     gap: 10px;
 `
+const Card = styled.div`
+	display: flex;
+	height: 400px;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 1em 2em 1em;
+`
+
+const Title = styled.h2`
+	position: absolute;
+	padding-top: 60px;
+`
+const ProjectText = styled.h3`
+	position: absolute;
+	padding-top: 10px;
+`
+const ProjectImage = styled.img`
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border: 2px solid white;
+`
+
 
 const Projects = () => {
 	const { project } = useContext(ProjectContext)
@@ -25,7 +49,7 @@ const Projects = () => {
 	return (
 		<Container>
 			<Grid>
-				{/* {project
+				{project
 					? project.map((item, id) => (
 							<Card key={id}>
 								<ProjectImage
@@ -36,7 +60,7 @@ const Projects = () => {
 								<ProjectText>{item.description}</ProjectText>
 							</Card>
 					  ))
-					: null} */}
+					: null}
 			</Grid>
 		</Container>
 	)
