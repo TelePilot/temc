@@ -62,7 +62,7 @@ const Sample = () => {
 	const sample = project[1]
 	return (
 		<div>
-			<HeaderText text='Projects' />
+			<HeaderText>Projects</HeaderText>
 
 			<Container>
 				<TextContainer>
@@ -70,7 +70,7 @@ const Sample = () => {
 					<ColoredBoxPink />
 				</TextContainer>
 				<TextContainer>
-					<HeaderText text={sample.clientName} />
+					<HeaderText>{sample.clientName}</HeaderText>
 					<Text>{sample.description}</Text>
 					<CTA />
 				</TextContainer>

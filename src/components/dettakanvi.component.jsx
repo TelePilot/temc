@@ -26,7 +26,7 @@ const Grid = styled.div`
 const Dettakanvi = () => {
 	return (
 		<div>
-			<HeaderText text='Detta kan vi' />
+			<HeaderText>Detta kan vi</HeaderText>
 			<Container></Container>
 		</div>
 	)
