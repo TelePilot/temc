@@ -4,7 +4,7 @@ import CTA from './cta.component'
 import { ProjectContext } from '../store/Project.context'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../Client'
-
+import HeaderText from './header-text.component'
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
 	return builder.image(source)
@@ -25,30 +25,25 @@ const TextContainer = styled.div`
 	width: 50%;
 `
 const Text = styled.p`
-text-align: right;
-width: 500px;
-padding-bottom: 25px;
+	text-align: right;
+	width: 500px;
+	padding-bottom: 25px;
 `
-const Header = styled.h2``
 
-const ColoredBoxBlue = styled.div`
+const Header = styled.h2`
+	display: inline;
 	position: relative;
-	width: 215px;
-	top: 62px;
-	height: 23px;
-	background: rgba(64, 109, 245, 0.63);
-	margin: 0 auto;
-	z-index: -1;
-`
-// SORRY TEO
-const ColoredBoxBlueSmall = styled.div`
-	position: relative;
-	width: 140px;
-	top: 62px;
-	height: 23px;
-	background: rgba(64, 109, 245, 0.63);
-	margin: 0 auto;
-	z-index: -1;
+	&::after {
+		position: absolute;
+		left: -25%;
+		top: 50%;
+		z-index: -1;
+		content: '';
+		display: block;
+		width: 150%;
+		height: 23px;
+		background: rgba(64, 109, 245, 0.63);
+	}
 `
 
 const ColoredBoxPink = styled.div`
@@ -58,7 +53,7 @@ const ColoredBoxPink = styled.div`
 	bottom: 240px;
 	right: 85px;
 	margin: 0 auto;
-	background: #FF847F;
+	background: #ff847f;
 	z-index: -1;
 `
 
@@ -66,15 +61,20 @@ const Sample = () => {
 	const { project } = useContext(ProjectContext)
 	const sample = project[1]
 	return (
-		<div><ColoredBoxBlueSmall /><Header>PROJECTS</Header>
-		<Container>
-			<TextContainer><Image alt='client Image' src={urlFor(sample.websiteImage).url()} /><ColoredBoxPink /></TextContainer>
-			<TextContainer>
-				<ColoredBoxBlue /><Header>{sample.clientName}</Header>
-				<Text>{sample.description}</Text>
-				<CTA />
-			</TextContainer>
-		</Container>
+		<div>
+			<HeaderText text='Projects' />
+
+			<Container>
+				<TextContainer>
+					<Image alt='client Image' src={urlFor(sample.websiteImage).url()} />
+					<ColoredBoxPink />
+				</TextContainer>
+				<TextContainer>
+					<HeaderText text={sample.clientName} />
+					<Text>{sample.description}</Text>
+					<CTA />
+				</TextContainer>
+			</Container>
 		</div>
 	)
 }
