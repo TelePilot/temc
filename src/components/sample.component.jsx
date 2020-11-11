@@ -22,7 +22,7 @@ const Container = styled.div`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding-top: 20vh;
+		padding: 15vh 0;
 		gap: 12vh;
 	}
 `
