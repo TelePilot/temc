@@ -30,6 +30,10 @@ const HeaderText = styled.h1`
 	font-size: 72px;
 	text-align: left;
 	width: 450px;
+
+	@media screen and (max-width: 700) {
+		font-size: 10vw;
+	}
 `
 
 const HeroImage = styled.img`
@@ -53,7 +57,7 @@ const Header = () => {
 			autoAlpha: 0,
 		},
 		{
-			x: 75,
+			x: 0,
 			autoAlpha: 1,
 			ease: 'Power1.easeInOut',
 			duration: 0.7,

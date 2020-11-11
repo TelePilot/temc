@@ -28,10 +28,18 @@ const InnerContainer = styled.div`
 const Title = styled.h2`
 position: absolute;
 padding-bottom: 70px;
+
+@media screen and (max-width: 700) {
+		font-size: 5vw;
+	}
 `
 const TaglineText = styled.h3`
 position: absolute;
 margin-top: 20px;
+
+@media screen and (max-width: 700) {
+		font-size: 4vw;
+	}
 `
 const TaglineImage = styled.img`
 	width: 500px;

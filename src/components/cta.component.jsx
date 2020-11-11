@@ -17,10 +17,11 @@ const Button = styled.button`
 	@media screen and (max-width: 700px) {
 	position: fixed;
     top: 90vh;
-	left: 5%;
+	left: 0;
     width: 80%;
 	height: 5vh;
-	box-shadow: 0 5px 2px rgba(0, 0, 255, .2);
+	background: rgba(64, 109, 245, 1);
+	box-shadow: 0 5px 2px rgba(40, 40, 255, .2);
 	z-index: 1;
 	}
 `

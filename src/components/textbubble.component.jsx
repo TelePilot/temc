@@ -17,6 +17,10 @@ const RightContainer = styled.div`
     text-align: center;
     bottom: 0;
     right: 0;
+
+    @media screen and (max-width: 700px) {
+		margin: 10px 0 10px 30%;        
+	}
 `
 
 const LeftContainer = styled.div`
@@ -24,20 +28,28 @@ const LeftContainer = styled.div`
     justify-content: flex-start;
     margin: 50px 150px;
     left: 0;
+
+    @media screen and (max-width: 700px) {
+		margin: 10px 30% 10px 0;        
+	}
 `
 
 const SVG = styled.svg`
     padding: 15px;
+
+    @media screen and (max-width: 700px) {
+    padding: 0;
+	}
 `
 
 const Text = styled.h4`
-    font-size: 25px;
+    font-size: 4vw;
     margin: 0;
     padding-top: 80px;
     display: flex;
 `
 const Text1 = styled.h4`
-    font-size: 25px;
+    font-size: 4vw;
     top: 0;
     margin: 0;
 `

@@ -16,18 +16,48 @@ const Container = styled.div`
 	width: 100%;
 	height: 400px;
 	margin-top: 10vh;
+	gap: 20px;
+
+	@media screen and (max-width: 700px) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-top: 20vh;
+		gap: 12vh;
+	}
 `
 const Image = styled.img`
-	width: 427px;
-	height: 367px;
+	width: 100%;
+	height: 100%;
 `
 const TextContainer = styled.div`
-	width: 50%;
+	width: 50vw;
+	height: auto;
+	&::after {
+		position: relative;
+		top: -55%;
+		right: 10%;
+		z-index: -1;
+		content: '';
+		display: block;
+		width: 70%;
+		height: 70%;
+		background: #ff847f;
+	}
+
+	@media screen and (max-width: 700px) {
+		width: 80%;
+		height: 80%;
+	}
 `
 const Text = styled.p`
 	text-align: right;
-	width: 500px;
+	width: 50vw;
 	padding-bottom: 25px;
+
+	@media screen and (max-width: 700px) {
+		text-align: center;
+	}
 `
 
 const Header = styled.h2`
@@ -46,16 +76,16 @@ const Header = styled.h2`
 	}
 `
 
-const ColoredBoxPink = styled.div`
-	position: relative;
-	width: 360px;
-	height: 300px;
-	bottom: 240px;
-	right: 85px;
-	margin: 0 auto;
-	background: #ff847f;
-	z-index: -1;
-`
+// const ColoredBoxPink = styled.div`
+// 	position: relative;
+// 	width: 100%;
+// 	height: 50%;
+// 	bottom: 170px;
+// 	right: 30px;
+// 	margin: 0 auto;
+// 	background: #ff847f;
+// 	z-index: -1;
+// `
 
 const Sample = () => {
 	const { project } = useContext(ProjectContext)
@@ -67,13 +97,12 @@ const Sample = () => {
 			<Container>
 				<TextContainer>
 					<Image alt='client Image' src={urlFor(sample.websiteImage).url()} />
-					<ColoredBoxPink />
 				</TextContainer>
-				<TextContainer>
+				<div>
 					<HeaderText>{sample.clientName}</HeaderText>
 					<Text>{sample.description}</Text>
 					<CTA>Kontakt</CTA>
-				</TextContainer>
+				</div>
 			</Container>
 		</div>
 	)
