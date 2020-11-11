@@ -20,7 +20,6 @@ const LogoBox = styled.img`
 	width: 100px;
 	padding: 25px 50px;
 	height: auto;
-
 	@media screen and (max-width: 700px) {
 		padding: 10px 25px;
 	}
