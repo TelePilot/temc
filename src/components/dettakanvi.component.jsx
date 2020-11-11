@@ -19,7 +19,7 @@ const Grid = styled.div`
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-column: repeat(auto-fill, minmax(300px, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 10px;
 `
 

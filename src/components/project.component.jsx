@@ -27,7 +27,7 @@ const ContainerTitle = styled.h2`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 46px:
+	font-size: 46px;
 	margin-top: 25vh;
 `
 

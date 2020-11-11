@@ -13,6 +13,16 @@ const Button = styled.button`
 	max-height: 60px;
 	margin: 0 30px;
 	cursor: pointer;
+
+	@media screen and (max-width: 700px) {
+	position: fixed;
+    top: 90vh;
+	left: 5%;
+    width: 80%;
+	height: 5vh;
+	box-shadow: 0 5px 2px rgba(0, 0, 255, .2);
+	z-index: 1;
+	}
 `
 
 const Text = styled.p`
@@ -31,7 +41,7 @@ const CTA = props => {
 			opacity: 0,
 		},
 		{
-			x: 75,
+			x: 0,
 			opacity: 1,
 			ease: 'Power2.easeInOut',
 			duration: 0.7,
@@ -39,7 +49,7 @@ const CTA = props => {
 		}
 	)
 	return (
-		<Button>
+		<Button id='button'>
 			<Text>{props.children}</Text>
 			<svg
 				width='8'
