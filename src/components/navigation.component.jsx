@@ -4,6 +4,7 @@ import sanityClient from '../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
+
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -19,6 +20,10 @@ const LogoBox = styled.img`
 	width: 100px;
 	padding: 25px 50px;
 	height: auto;
+
+	@media screen and (max-width: 700px) {
+		padding: 10px 25px;
+	}
 `
 
 const NavBox = styled.div`
@@ -26,6 +31,10 @@ const NavBox = styled.div`
 	right: 0;
 	padding: 25px 50px;
 	gap: 15px;
+
+	@media screen and (max-width: 700px) {
+		padding: 10px 25px;
+	}
 `
 
 const MenuLink = styled(Link)`
