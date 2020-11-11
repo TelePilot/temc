@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import CTA from './cta.component'
+import SampleCTA from './samplecta.component'
 import { ProjectContext } from '../store/Project.context'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../Client'
@@ -101,7 +101,7 @@ const Sample = () => {
 				<div>
 					<HeaderText>{sample.clientName}</HeaderText>
 					<Text>{sample.description}</Text>
-					<CTA>Kontakt</CTA>
+					<SampleCTA>Kontakt</SampleCTA>
 				</div>
 			</Container>
 		</div>
