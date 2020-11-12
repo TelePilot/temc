@@ -45,7 +45,11 @@ const InfoContainer = styled.div`
 	height: auto;
 `
 const InfoHeader = styled.h4``
-const InfoText = styled.p``
+const InfoText = styled.p`
+top: 0;
+margin: 0;
+padding-bottom: 8px;
+`
 const InfoLink = styled(Link)`
 	text-decoration: none;
 	color: white;
