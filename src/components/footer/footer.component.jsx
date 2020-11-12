@@ -8,6 +8,7 @@ const Container = styled.div`
 	padding-top: 100px;
 	height: auto;
 	width: 100%;
+	height: 100px;
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
@@ -15,6 +16,7 @@ const Container = styled.div`
 
 const NavContainer = styled.div`
 display: flex;
+width: 100%;
 justify-content: space-between;
 height: auto;
 
@@ -26,10 +28,9 @@ height: auto;
 
 const Socials = styled.div`
 	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-	padding: 15px;
-	height: 125px;
+	align-items: left;
+	justify-content: left;
+	text-align: left;
 	flex-direction: column;
 `
 
@@ -39,7 +40,6 @@ const Img = styled.img`
 	padding: 2px;
 `
 const InfoContainer = styled.div`
-	padding: 15px;
 	display: flex;
 	flex-flow: column;
 	height: auto;
@@ -69,16 +69,18 @@ const Footer = () => {
 				<NavContainer>
 					<InfoContainer>
 						<InfoHeader>{footer.companyInfo}</InfoHeader>
-						<InfoText>
-							Måndag - fredag 10.00 - 18.30 <br></br> Lördag 10.00 - 16.00
-						</InfoText>
-					</InfoContainer>
-					<InfoContainer>
-						<InfoHeader></InfoHeader>
+						<Socials>
 						<InfoLink to='/buketter'>Buketter</InfoLink>
 						<InfoLink to='/begravning'>Begravning</InfoLink>
 						<InfoLink to='/brollop'>Bröllop</InfoLink>
 						<InfoLink to='/kontakt'>Kontakt</InfoLink>
+						</Socials>
+					</InfoContainer>
+					<InfoContainer>
+						<InfoHeader>{footer.companyInfo}</InfoHeader>
+						<InfoText>
+							Måndag - fredag <br /> 10.00 - 18.30 <br></br> Lördag 10.00 - 16.00 <br /> Söndag STÄNGT
+						</InfoText>
 					</InfoContainer>
 					<InfoContainer>
 						<InfoHeader>{footer.companyInfo}</InfoHeader>
@@ -88,20 +90,21 @@ const Footer = () => {
 					<InfoContainer>
 						<InfoHeader>{footer.companyInfo}</InfoHeader>
 						<InfoText>
-							Strauss Blommor <br></br>
-							Rosenlundsgatan 32 C <br></br>
+							Strauss Blommor <br />
+							Rosenlundsgatan 32 C <br />
 							118 53 Stockholm
 						</InfoText>
 					</InfoContainer>
-				</NavContainer>
+					<InfoContainer>
 				<Socials>
-					<h2>{footer.companyInfo}</h2>
-					<div>
-						 <a href='https://www.facebook.com/straussblommor'> <Img alt='hej' src='/images/facebook.png'></Img> </a>
-						 <a href='https://www.instagram.com/straussblommor/?hl=sv'><Img alt='hej' src='/images/instagram.png'></Img> </a>
-						{/* <Img alt='hej' src='/images/linkedin.png'></Img> */}
-					</div>
+				<InfoHeader>{footer.companyInfo}</InfoHeader>
+					<InfoText>
+						 <a href='/'><Img alt='hej' src='/media/facebook.png'></Img></a>
+						 <a href='/'><Img alt='hej' src='/media/instagram.png'></Img></a>					
+					</InfoText>
 				</Socials>
+				</InfoContainer>
+				</NavContainer>
 			</Container>
 	
 	)
