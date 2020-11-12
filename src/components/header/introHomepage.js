@@ -34,6 +34,7 @@ width: 100px;
 const IntroText = styled.div`
 font-size: 3rem;
 color: blanchedalmond;
+max-width: 90%;
 
 @media screen and (max-width: 1200px) {
     font-size: 2.4rem;
@@ -60,6 +61,8 @@ background: black;
 overflow: hidden;
 `
 
+
+// försökte göra blur animation.. iaf detta e slidern för intropage
 const Blur = styled.div`
     background: #201B3D;
     position: fixed;
@@ -70,40 +73,6 @@ const Blur = styled.div`
     z-index: 3;
     transform: translateY(-150%);
 `
-
-const Button = styled.button`
-    font-weight: 100;
-    color: black;
-    font-size: 1rem;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    margin: 3rem 0;
-    border-radius: 2rem;
-    background: black;
-    outline: none;
-    color: white;
-    cursor: pointer;
-    padding: 1rem 0.5rem;
-    animation: animate 2s linear infinite;
-
-    @keyframes animate {
-        10%{
-            box-shadow: 0 0 0 0 #fbfcfd;
-        }
-        45%{
-            box-shadow: 0 0 0 0 #fbfcfd, 0 0 4px 0 #fbfcfd;
-        }
-        75%{
-            box-shadow: 0 0 0 0 #fbfcfd, 0 0 8px 0 #fbfcfd;
-        }
-        100%{
-            box-shadow: 0 0 0 #fbfcfd;
-        }
-    }
-    
-`
-
 const IntroHomePage = () => {
 	           const logo = useRef(null)
     const introAnimation1 = useRef(null)
@@ -212,8 +181,6 @@ const tl = gsap.timeline({paused: false})
                 <HideText>
                 <Text ref={introAnimation3}>pretty cheap.</Text>
                 </HideText>
-            <Button href={introAnimation4} onClick={() => setPlay(!play)}>
-            Enter </Button>
             </IntroText>
 <Blur ref={introSlider}></Blur>
         </Container>
