@@ -8,6 +8,7 @@ const Container = styled.div`
 	padding-top: 100px;
 	height: auto;
 	width: 100%;
+	height: 200px;
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
@@ -29,7 +30,7 @@ const Socials = styled.div`
 	align-items: flex-start;
 	justify-content: flex-start;
 	padding: 15px;
-	height: 125px;
+	height: 150px;
 	flex-direction: column;
 `
 
@@ -97,10 +98,8 @@ const Footer = () => {
 				<Socials>
 					<h2>{footer.companyInfo}</h2>
 					<div>
-						 <a href='https://www.facebook.com/straussblommor'> <Img alt='hej' src='/images/facebook.png'></Img> </a>
-						 <a href='https://www.instagram.com/straussblommor/?hl=sv'><Img alt='hej' src='/images/instagram.png'></Img> </a>
-						{/* <Img alt='hej' src='/images/linkedin.png'></Img> */}
-					</div>
+						 <a href='/'><Img alt='hej' src='/media/facebook.png'></Img></a>
+						 <a href='/'><Img alt='hej' src='/media/instagram.png'></Img></a>					</div>
 				</Socials>
 			</Container>
 	
