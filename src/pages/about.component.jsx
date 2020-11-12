@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import { motion } from 'framer-motion'
 const Container = styled.div`
 	width: 100wv;
 	height: 385px;
@@ -45,7 +45,11 @@ const Text = styled.div`
 
 const About = () => {
 	return (
-		<div>
+		<motion.div
+			exit={{ opactiy: 0 }}
+			animate={{ opacity: 1 }}
+			initial={{ opacity: 0 }}
+		>
 			<Container>
 				<h1>Abouta oss!</h1>
 			</Container>
@@ -59,7 +63,7 @@ const About = () => {
 					<Photo />
 				</Segment>
 			</SegmentContainer>
-		</div>
+		</motion.div>
 	)
 }
 export default About

@@ -15,6 +15,7 @@ const Container = styled.div`
 	left: 0;
 	width: 100%;
 	height: 100px;
+	z-index: 999;
 `
 
 const LogoBox = styled.img`
@@ -39,7 +40,6 @@ const NavBox = styled.div`
 	font-size: 16.4px;
 	height: 22px;
 
-	
 	@media screen and (max-width: 800px) {
 		width: 0;
 	}
@@ -53,11 +53,11 @@ const HamburgerContainer = styled.div`
 const MenuLink = styled(Link)`
 	text-decoration: none;
 	padding-top: 20px;
-	
+
 	@media screen and (max-width: 800px) {
 		opacity: none;
 		visibility: hidden;
-		}
+	}
 `
 
 const builder = imageUrlBuilder(sanityClient)
@@ -86,7 +86,8 @@ const Navigation = () => {
 		// i.e. onUpdateParams (Array)
 	})
 
-	tl.fromTo(menu,
+	tl.fromTo(
+		menu,
 		0.5,
 		{
 			opacity: 0,
@@ -138,10 +139,11 @@ const Navigation = () => {
 							<MenuLink to={item.link} key={id}>
 								{item.name}
 							</MenuLink>
-					   ))
+					  ))
 					: null}
-								<HamburgerContainer><Hamburger /></HamburgerContainer>
-
+				<HamburgerContainer>
+					<Hamburger />
+				</HamburgerContainer>
 			</NavBox>
 		</Container>
 	)

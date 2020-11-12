@@ -13,8 +13,10 @@ function urlFor(source) {
 const Container = styled.div`
 	height: auto;
 	min-height: 100vh;
-	width: 100%;
+
 	display: flex;
+
+	width: 100%;
 	justify-content: center;
 	align-items: flex-start;
 	flex-flow: column;
@@ -23,6 +25,7 @@ const HeaderContentContainer = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
+
 	@media screen and (min-width: 1000px) {
 		padding-left: 110px;
 	}
@@ -62,7 +65,7 @@ const HeroImage = styled.img`
 	@media screen and (max-width: 500px) {
 		height: 73%;
 	}
-	`
+`
 
 const Header = () => {
 	const headerText = document.querySelector(HeaderText)
@@ -104,8 +107,7 @@ const Header = () => {
 					id='heroimage'
 					src={urlFor(header.heroImage).url()}
 				/>
-				<HeaderText>{header.title}
-				</HeaderText>
+				<HeaderText>{header.title}</HeaderText>
 				<CTA>Kontakt</CTA>
 			</HeaderContentContainer>
 		</Container>
