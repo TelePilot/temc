@@ -15,6 +15,35 @@ const FooterTextLeft = styled.p`
 	text-align: left;
 	width: 450px;
 `
+const FooterMiddle = styled.div`
+
+`
+const Placeholder = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+background: rgba(64, 109, 245, 0.63);
+border-radius: 12px 7px;
+border: none;
+width: 160px;
+max-height: 60px;
+margin: 0 30px;
+cursor: pointer;
+
+@media screen and (max-width: 700px) {
+position: fixed;
+top: 90vh;
+left: 15%;
+width: 60%;
+height: 5vh;
+background: rgba(64, 109, 245, 1);
+box-shadow: 0 5px 2px rgba(40, 40, 255, .2);
+}
+@media screen and (max-width: 400px) {
+	left: 0;
+	width: 80%;
+	}
+`
 
 const FooterTextRight = styled.p`
 	color: white;
@@ -38,6 +67,7 @@ const Footer = () => {
 	return (
 		<Container>
 			<FooterTextLeft>{footer.companyInfo}</FooterTextLeft>
+			<FooterMiddle><Placeholder /></FooterMiddle>
 			<FooterTextRight>{footer.companyInfo}</FooterTextRight>
 		</Container>
 	)

@@ -34,7 +34,9 @@ const NavBox = styled.div`
 	justify-content: center;
 	right: 0;
 	padding: 30px 30px;
-	gap: 5px;
+	gap: 7px;
+	align-items: center;
+	font-size: 16.4px;
 	height: 22px;
 
 	
