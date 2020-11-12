@@ -4,11 +4,15 @@ import Header from '../components/header/header.component'
 import Tagline from '../components/misc/tagline.component'
 import TextBubble from '../components/misc/textbubble.component'
 import Movie from '../components/misc/movie.component'
-import IntroHomePage from '../components/header/introHomepage'
+import { motion } from 'framer-motion'
 
 const Home = () => {
 	return (
-		<div>
+		<motion.div
+			exit={{ opactiy: 0 }}
+			animate={{ opacity: 1 }}
+			initial={{ opacity: 0 }}
+		>
 			<Header />
 
 			<Tagline />
@@ -17,8 +21,7 @@ const Home = () => {
 
 			<TextBubble />
 			<Movie />
-			<IntroHomePage />
-		</div>
+		</motion.div>
 	)
 }
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import SampleCTA from '../cta/samplecta.component'
 import { ProjectContext } from '../../store/Project.context'
@@ -19,7 +19,7 @@ const Container = styled.div`
 	gap: 20px;
 
 	@media screen and (min-width: 1300px) {
-	justify-content: space-around;
+		justify-content: space-around;
 		margin-bottom: 5vh;
 	}
 	@media screen and (max-width: 700px) {
@@ -99,9 +99,9 @@ const Text = styled.p`
 		text-align: center;
 		padding: 0;
 	}
-    @media screen and (max-width: 400px) {
-        font-size: 14px;
-        }
+	@media screen and (max-width: 400px) {
+		font-size: 14px;
+	}
 `
 
 // const Header = styled.h2`
@@ -134,7 +134,7 @@ const Text = styled.p`
 const Sample = () => {
 	const { project } = useContext(ProjectContext)
 	let sample = project[0]
-
+	const [count, setCount] = useState(0)
 
 	return (
 		<div>
@@ -142,10 +142,13 @@ const Sample = () => {
 
 			<Container>
 				<ImgContainer>
-					<Image onClick={() => {
-						console.log(urlFor(sample.websiteImage.count++).url())
-					}}
-						alt='client Image' src={urlFor(sample.websiteImage).url()} />
+					<Image
+						onClick={() => {
+							setCount(count + 1)
+						}}
+						alt='client Image'
+						src={urlFor(project[count].websiteImage).url()}
+					/>
 				</ImgContainer>
 				<TextContainer>
 					<HeaderText>{sample.clientName}</HeaderText>
