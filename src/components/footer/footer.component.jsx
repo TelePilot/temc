@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import sanityClient from '../Client'
+import sanityClient from '../../Client'
 
 const Container = styled.div`
 	height: 200px;

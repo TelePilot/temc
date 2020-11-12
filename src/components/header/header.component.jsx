@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import sanityClient from '../Client'
+import sanityClient from '../../Client'
 import imageUrlBuilder from '@sanity/image-url'
-import CTA from './cta.component'
+import CTA from '../cta/cta.component'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -23,6 +23,9 @@ const HeaderContentContainer = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
+	@media screen and (min-width: 1000px) {
+		padding-left: 110px;
+	}
 `
 
 const HeaderText = styled.h1`
@@ -31,19 +34,35 @@ const HeaderText = styled.h1`
 	text-align: left;
 	width: 450px;
 
-	@media screen and (max-width: 700) {
-		font-size: 10vw;
+	@media screen and (min-width: 1550px) {
+		font-size: 5vw;
+	}
+	@media screen and (max-width: 1000px) {
+		font-size: 55px;
+		position: relative;
+		top: -10%;
+	}
+	@media screen and (max-width: 700px) {
+	}
+	@media screen and (max-width: 500px) {
+		font-size: 46px;
+		width: 300px;
+		padding-left: 0;
 	}
 `
 
 const HeroImage = styled.img`
 	position: absolute;
-	width: 200%;
-	height: auto;
-	right: -30%;
+	width: auto;
+	height: 80%;
+	right: 0;
 	top: 0;
 	z-index: -1;
-`
+
+	@media screen and (max-width: 500px) {
+		height: 73%;
+	}
+	`
 
 const Header = () => {
 	const headerText = document.querySelector(HeaderText)
@@ -85,7 +104,8 @@ const Header = () => {
 					id='heroimage'
 					src={urlFor(header.heroImage).url()}
 				/>
-				<HeaderText>{header.title}</HeaderText>
+				<HeaderText>{header.title}
+				</HeaderText>
 				<CTA>Kontakt</CTA>
 			</HeaderContentContainer>
 		</Container>

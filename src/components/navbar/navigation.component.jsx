@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import sanityClient from '../Client'
+import sanityClient from '../../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
+import Hamburger from './hamburger.component'
 
 const Container = styled.div`
 	display: flex;
@@ -17,27 +18,44 @@ const Container = styled.div`
 `
 
 const LogoBox = styled.img`
-	width: 100px;
+	width: 200px;
 	padding: 25px 50px;
 	height: auto;
 	@media screen and (max-width: 700px) {
 		padding: 10px 25px;
 	}
+	@media screen and (max-width: 400px) {
+		padding: 5px 0 10px 25px;
+	}
 `
 
 const NavBox = styled.div`
 	display: flex;
+	justify-content: center;
 	right: 0;
-	padding: 25px 50px;
-	gap: 15px;
+	padding: 30px 30px;
+	gap: 5px;
+	height: 22px;
 
-	@media screen and (max-width: 700px) {
-		padding: 10px 25px;
+	
+	@media screen and (max-width: 800px) {
+		width: 0;
 	}
+`
+const HamburgerContainer = styled.div`
+	position: absolute;
+	top: 0;
+	right: 0;
 `
 
 const MenuLink = styled(Link)`
 	text-decoration: none;
+	padding-top: 20px;
+	
+	@media screen and (max-width: 800px) {
+		opacity: none;
+		visibility: hidden;
+		}
 `
 
 const builder = imageUrlBuilder(sanityClient)
@@ -66,8 +84,7 @@ const Navigation = () => {
 		// i.e. onUpdateParams (Array)
 	})
 
-	tl.fromTo(
-		menu,
+	tl.fromTo(menu,
 		0.5,
 		{
 			opacity: 0,
@@ -119,8 +136,10 @@ const Navigation = () => {
 							<MenuLink to={item.link} key={id}>
 								{item.name}
 							</MenuLink>
-					  ))
+					   ))
 					: null}
+								<HamburgerContainer><Hamburger /></HamburgerContainer>
+
 			</NavBox>
 		</Container>
 	)

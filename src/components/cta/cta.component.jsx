@@ -17,19 +17,26 @@ const Button = styled.button`
 	@media screen and (max-width: 700px) {
 	position: fixed;
     top: 90vh;
-	left: 0;
+	left: 5%;
     width: 80%;
 	height: 5vh;
 	background: rgba(64, 109, 245, 1);
 	box-shadow: 0 5px 2px rgba(40, 40, 255, .2);
 	z-index: 1;
 	}
+	@media screen and (max-width: 700px) {
+		left: 0;
+		}
 `
 
 const Text = styled.p`
 	color: white;
 	font-size: 16px;
 	padding-right: 20px;
+
+	@media screen and (max-width: 700px) {
+	font-size: 3.5vw;
+	}
 `
 const Icon = styled.img``
 const CTA = props => {
