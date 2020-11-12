@@ -5,7 +5,10 @@ import { ProjectContext } from '../../store/Project.context'
 import imageUrlBuilder from '@sanity/image-url'
 import sanityClient from '../../Client'
 import HeaderText from '../misc/header-text.component'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 const builder = imageUrlBuilder(sanityClient)
+
 function urlFor(source) {
 	return builder.image(source)
 }
@@ -34,12 +37,19 @@ const Container = styled.div`
 	@media screen and (max-width: 450px) {
 	}
 `
-const Image = styled.img`
-	width: 100%;
-	height: 100%;
+const Image = styled(motion.img)`
+	width: 560px;
+	height: auto;
+`
+const ImageResizeCont = styled.div`
+	overflow: hidden;
+	max-height: 330px;
+	width: 560px;
+	display: flex;
 `
 const ImgContainer = styled.div`
 	height: auto;
+	width: 100%;
 	max-width: 600px;
 	padding: 0 50px;
 
@@ -131,10 +141,11 @@ const Text = styled.p`
 // 	z-index: -1;
 // `
 
+const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
+
 const Sample = () => {
 	const { project } = useContext(ProjectContext)
 	let sample = project[0]
-	const [count, setCount] = useState(0)
 
 	return (
 		<div>
@@ -142,13 +153,16 @@ const Sample = () => {
 
 			<Container>
 				<ImgContainer>
-					<Image
-						onClick={() => {
-							setCount(count + 1)
-						}}
-						alt='client Image'
-						src={urlFor(project[count].websiteImage).url()}
-					/>
+					<Link to={`/project/${sample.clientName.toLowerCase()}`}>
+						<ImageResizeCont>
+							<Image
+								whileHover={{ scale: 1.1 }}
+								transition={transition}
+								alt='client Image'
+								src={urlFor(sample.websiteImage).url()}
+							/>
+						</ImageResizeCont>
+					</Link>
 				</ImgContainer>
 				<TextContainer>
 					<HeaderText>{sample.clientName}</HeaderText>

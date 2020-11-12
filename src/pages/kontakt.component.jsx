@@ -42,13 +42,15 @@ const Text = styled.div`
 	margin: 15px;
 	text-align: center;
 `
+const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 
 const Kontakt = () => {
 	return (
 		<motion.div
-			exit={{ opactiy: 0 }}
+			exit={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			initial={{ opacity: 0 }}
+			transition={transition}
 		>
 			<Container>
 				<h1>Kontakta oss!</h1>
