@@ -4,7 +4,7 @@ import Header from '../components/header/header.component'
 import Tagline from '../components/misc/tagline.component'
 import TextBubble from '../components/misc/textbubble.component'
 import Movie from '../components/misc/movie.component'
-// import IntroHomePage from '../components/header/introHomepage'
+import IntroHomePage from '../components/header/introHomepage'
 
 const Home = () => {
 	return (
@@ -17,7 +17,7 @@ const Home = () => {
 
 			<TextBubble />
 			<Movie />
-			{/* <IntroHomePage /> */}
+			<IntroHomePage />
 		</div>
 	)
 }
