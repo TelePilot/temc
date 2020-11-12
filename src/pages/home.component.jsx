@@ -6,12 +6,14 @@ import TextBubble from '../components/misc/textbubble.component'
 import Movie from '../components/misc/movie.component'
 import { motion } from 'framer-motion'
 
+const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 const Home = () => {
 	return (
 		<motion.div
-			exit={{ opactiy: 0 }}
+			exit={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			initial={{ opacity: 0 }}
+			transition={transition}
 		>
 			<Header />
 

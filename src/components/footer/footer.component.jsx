@@ -15,15 +15,15 @@ const Container = styled.div`
 `
 
 const NavContainer = styled.div`
-display: flex;
-width: 100%;
-justify-content: space-between;
-height: auto;
-
-@media screen and (max-width: 700px) {
 	display: flex;
-	flex-direction: column;
-}
+	width: 100%;
+	justify-content: space-between;
+	height: auto;
+
+	@media screen and (max-width: 700px) {
+		display: flex;
+		flex-direction: column;
+	}
 `
 
 const Socials = styled.div`
@@ -46,15 +46,14 @@ const InfoContainer = styled.div`
 `
 const InfoHeader = styled.h4``
 const InfoText = styled.p`
-top: 0;
-margin: 0;
-padding-bottom: 8px;
+	top: 0;
+	margin: 0;
+	padding-bottom: 8px;
 `
 const InfoLink = styled(Link)`
 	text-decoration: none;
 	color: white;
 `
-
 
 const Footer = () => {
 	const [footer, setFooter] = useState('')
@@ -70,47 +69,51 @@ const Footer = () => {
 	}, [])
 	return (
 		<Container>
-				<NavContainer>
-					<InfoContainer>
-						<InfoHeader>{footer.companyInfo}</InfoHeader>
-						<Socials>
+			<NavContainer>
+				<InfoContainer>
+					<InfoHeader>{footer.companyInfo}</InfoHeader>
+					<Socials>
 						<InfoLink to='/buketter'>Buketter</InfoLink>
 						<InfoLink to='/begravning'>Begravning</InfoLink>
 						<InfoLink to='/brollop'>Bröllop</InfoLink>
 						<InfoLink to='/kontakt'>Kontakt</InfoLink>
-						</Socials>
-					</InfoContainer>
-					<InfoContainer>
-						<InfoHeader>{footer.companyInfo}</InfoHeader>
-						<InfoText>
-							Måndag - fredag <br /> 10.00 - 18.30 <br></br> Lördag 10.00 - 16.00 <br /> Söndag STÄNGT
-						</InfoText>
-					</InfoContainer>
-					<InfoContainer>
-						<InfoHeader>{footer.companyInfo}</InfoHeader>
-						<InfoLink to='/bestallningar'>Beställningar</InfoLink>
-						<InfoLink to='/event'>Event</InfoLink>
-					</InfoContainer>
-					<InfoContainer>
-						<InfoHeader>{footer.companyInfo}</InfoHeader>
-						<InfoText>
-							Strauss Blommor <br />
-							Rosenlundsgatan 32 C <br />
-							118 53 Stockholm
-						</InfoText>
-					</InfoContainer>
-					<InfoContainer>
-				<Socials>
-				<InfoHeader>{footer.companyInfo}</InfoHeader>
-					<InfoText>
-						 <a href='/'><Img alt='hej' src='/media/facebook.png'></Img></a>
-						 <a href='/'><Img alt='hej' src='/media/instagram.png'></Img></a>					
-					</InfoText>
-				</Socials>
+					</Socials>
 				</InfoContainer>
-				</NavContainer>
-			</Container>
-	
+				<InfoContainer>
+					<InfoHeader>{footer.companyInfo}</InfoHeader>
+					<InfoText>
+						Måndag - fredag <br /> 10.00 - 18.30 <br></br> Lördag 10.00 - 16.00{' '}
+						<br /> Söndag STÄNGT
+					</InfoText>
+				</InfoContainer>
+				<InfoContainer>
+					<InfoHeader>{footer.companyInfo}</InfoHeader>
+					<InfoLink to='/bestallningar'>Beställningar</InfoLink>
+					<InfoLink to='/event'>Event</InfoLink>
+				</InfoContainer>
+				<InfoContainer>
+					<InfoHeader>{footer.companyInfo}</InfoHeader>
+					<InfoText>
+						Strauss Blommor <br />
+						Rosenlundsgatan 32 C <br />
+						118 53 Stockholm
+					</InfoText>
+				</InfoContainer>
+				<InfoContainer>
+					<Socials>
+						<InfoHeader>{footer.companyInfo}</InfoHeader>
+						<InfoText>
+							<a href='/'>
+								<Img alt='hej' src='/media/facebook.png'></Img>
+							</a>
+							<a href='/'>
+								<Img alt='hej' src='/media/instagram.png'></Img>
+							</a>
+						</InfoText>
+					</Socials>
+				</InfoContainer>
+			</NavContainer>
+		</Container>
 	)
 }
 
