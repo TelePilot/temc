@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import sanityClient from '../../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import CTA from '../cta/cta.component'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
@@ -13,9 +11,7 @@ function urlFor(source) {
 const Container = styled.div`
 	height: auto;
 	min-height: 100vh;
-
 	display: flex;
-
 	width: 100%;
 	justify-content: center;
 	align-items: flex-start;
@@ -49,7 +45,7 @@ const HeaderText = styled.h1`
 	}
 	@media screen and (max-width: 500px) {
 		font-size: 46px;
-		width: 300px;
+		width: 301px;
 		padding-left: 0;
 	}
 `
@@ -69,23 +65,6 @@ const HeroImage = styled.img`
 
 const Header = () => {
 	const headerText = document.querySelector(HeaderText)
-
-	gsap.registerPlugin(ScrollTrigger)
-
-	gsap.fromTo(
-		headerText,
-		{
-			x: -100,
-			autoAlpha: 0,
-		},
-		{
-			x: 0,
-			autoAlpha: 1,
-			ease: 'Power1.easeInOut',
-			duration: 0.7,
-			delay: 1,
-		}
-	)
 
 	const [header, setHeader] = useState('')
 
