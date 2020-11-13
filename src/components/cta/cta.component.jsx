@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { gsap } from 'gsap'
 
 const Button = styled.button`
 	display: flex;
@@ -43,20 +42,6 @@ const Icon = styled.img``
 const CTA = props => {
 	const button = document.querySelector(Button)
 
-	gsap.fromTo(
-		button,
-		{
-			x: -200,
-			opacity: 0,
-		},
-		{
-			x: 0,
-			opacity: 1,
-			ease: 'Power2.easeInOut',
-			duration: 0.7,
-			delay: 2,
-		}
-	)
 	return (
 		<Button id='button'>
 			<Text>{props.children}</Text>
