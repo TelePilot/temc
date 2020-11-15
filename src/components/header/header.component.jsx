@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
+import { HeaderContext } from '../../store/Header.context'
 import styled from 'styled-components'
 import sanityClient from '../../Client'
 import imageUrlBuilder from '@sanity/image-url'
@@ -69,7 +70,7 @@ const HeroImage = styled.img`
 
 const Header = () => {
 	const headerText = document.querySelector(HeaderText)
-
+	const { header } = useContext(HeaderContext)
 	gsap.registerPlugin(ScrollTrigger)
 
 	gsap.fromTo(
@@ -87,17 +88,6 @@ const Header = () => {
 		}
 	)
 
-	const [header, setHeader] = useState('')
-
-	useEffect(() => {
-		const headerQuery = `*[_type == "header"]`
-		sanityClient.fetch(headerQuery).then(header => {
-			header.forEach(header => {
-				setHeader(header)
-			})
-		})
-		return
-	}, [])
 	return (
 		<Container>
 			<HeaderContentContainer>

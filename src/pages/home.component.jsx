@@ -9,12 +9,7 @@ import { motion } from 'framer-motion'
 const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 const Home = () => {
 	return (
-		<motion.div
-			exit={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			initial={{ opacity: 0 }}
-			transition={transition}
-		>
+		<motion.div>
 			<Header />
 
 			<Tagline />
