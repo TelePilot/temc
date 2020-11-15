@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import styled from 'styled-components'
 import SampleCTA from '../cta/samplecta.component'
 import { ProjectContext } from '../../store/Project.context'
@@ -7,6 +7,7 @@ import sanityClient from '../../Client'
 import HeaderText from '../misc/header-text.component'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { ImageSizeContext } from '../../store/image.context'
 const builder = imageUrlBuilder(sanityClient)
 
 function urlFor(source) {
@@ -38,13 +39,13 @@ const Container = styled.div`
 	}
 `
 const Image = styled(motion.img)`
-	width: 560px;
+	width: 600px;
 	height: auto;
 `
 const ImageResizeCont = styled.div`
 	overflow: hidden;
-	max-height: 330px;
-	width: 560px;
+	max-height: 280px;
+	width: 600px;
 	display: flex;
 `
 const ImgContainer = styled.div`
@@ -87,7 +88,7 @@ const ImgContainer = styled.div`
 	}
 }
 `
-const TextContainer = styled.div`
+const TextContainer = styled(motion.div)`
 	max-width: 600px;
 	margin-right: 20px;
 	@media screen and (max-width: 1000px) {
@@ -100,7 +101,7 @@ const TextContainer = styled.div`
 	}
 `
 
-const Text = styled.p`
+const Text = styled(motion.p)`
 	text-align: right;
 	max-width: 600px;
 	padding-bottom: 25px;
@@ -145,7 +146,20 @@ const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 
 const Sample = () => {
 	const { project } = useContext(ProjectContext)
+	const { pos, setPos } = useContext(ImageSizeContext)
 	let sample = project[0]
+	const image = useRef(null)
+	function isInViewport(element) {
+		const rect = element.current.getBoundingClientRect()
+		console.log('setting Position')
+		setPos({
+			position: {
+				x: `${rect.x}px`,
+				y: `${rect.y}px`,
+			},
+			width: '600px',
+		})
+	}
 
 	return (
 		<div>
@@ -153,20 +167,36 @@ const Sample = () => {
 
 			<Container>
 				<ImgContainer>
-					<Link to={`/project/${sample.clientName.toLowerCase()}`}>
+					<Link
+						onClick={() => isInViewport(image)}
+						to={`/project/${sample.clientName.toLowerCase()}`}
+					>
 						<ImageResizeCont>
 							<Image
-								whileHover={{ scale: 1.1 }}
+								ref={image}
+								id='image'
 								transition={transition}
 								alt='client Image'
-								src={urlFor(sample.websiteImage).url()}
+								src={sample.imageUrl}
 							/>
 						</ImageResizeCont>
 					</Link>
 				</ImgContainer>
-				<TextContainer>
+				<TextContainer
+					exit={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					initial={{ opacity: 0 }}
+					transition={transition}
+				>
 					<HeaderText>{sample.clientName}</HeaderText>
-					<Text>{sample.description}</Text>
+					<Text
+						exit={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						initial={{ opacity: 0 }}
+						transition={transition}
+					>
+						{sample.description}
+					</Text>
 					<SampleCTA>Kontakt</SampleCTA>
 				</TextContainer>
 			</Container>

@@ -127,6 +127,7 @@ const Navigation = () => {
 				setHeader(header)
 			})
 		})
+
 		return
 	}, [])
 
