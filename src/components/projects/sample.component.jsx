@@ -151,13 +151,14 @@ const Sample = () => {
 	const image = useRef(null)
 	function isInViewport(element) {
 		const rect = element.current.getBoundingClientRect()
-		console.log('setting Position')
+
 		setPos({
 			position: {
 				x: `${rect.x}px`,
 				y: `${rect.y}px`,
 			},
 			width: '600px',
+			imageUrl: sample.imageUrl,
 		})
 	}
 

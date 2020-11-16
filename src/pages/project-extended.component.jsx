@@ -30,31 +30,27 @@ const ProjectExtended = () => {
 	}, [id, project])
 	console.log(projectExt.imageUrl)
 	return (
-		<>
-			{project ? (
-				<motion.div
-					exit={{ opacity: 1 }}
-					animate={{ opacity: 1 }}
-					initial={{ opacity: 1 }}
-					transition={transition}
-				>
-					<h1 style={{ zIndex: 99, position: 'relative' }}>
-						{projectExt.clientName}
-					</h1>
+		<motion.div
+			exit={{ opacity: 1 }}
+			animate={{ opacity: 1 }}
+			initial={{ opacity: 1 }}
+			transition={transition}
+		>
+			<h1 style={{ zIndex: 99, position: 'relative' }}>
+				{projectExt.clientName}
+			</h1>
 
-					<ImageResizeCont
-						initial={{
-							left: pos.position.x,
-							top: pos.position.y,
-						}}
-						animate={{ width: '100%', left: '0', top: '0', height: '330px' }}
-						transition={transition}
-					>
-						<Image src={projectExt.imageUrl} />
-					</ImageResizeCont>
-				</motion.div>
-			) : null}
-		</>
+			<ImageResizeCont
+				initial={{
+					left: pos.position.x,
+					top: pos.position.y,
+				}}
+				animate={{ width: '100%', left: '0', top: '0', height: '330px' }}
+				transition={transition}
+			>
+				<Image src={pos.imageUrl} />
+			</ImageResizeCont>
+		</motion.div>
 	)
 }
 
