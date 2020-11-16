@@ -158,7 +158,7 @@ const Sample = () => {
 				y: `${rect.y}px`,
 			},
 			width: '600px',
-			imageUrl: sample.imageUrl,
+			project: sample,
 		})
 	}
 

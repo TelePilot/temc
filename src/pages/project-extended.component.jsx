@@ -19,16 +19,16 @@ const ImageResizeCont = styled(motion.div)`
 `
 const transition = { duration: 1, ease: [0.8, 0.013, 0.23, 0.96] }
 const ProjectExtended = () => {
-	const { project } = useContext(ProjectContext)
+	// const { project } = useContext(ProjectContext)
 	const { pos } = useContext(ImageSizeContext)
-	let id = useParams()
+	// let id = useParams()
 
-	const [projectExt, setProject] = useState('')
-	useEffect(() => {
-		const index = project.findIndex(x => x.clientName.toLowerCase() === id.id)
-		setProject(project[index])
-	}, [id, project])
-	console.log(projectExt.imageUrl)
+	// const [projectExt, setProject] = useState('')
+	// useEffect(() => {
+	// 	const index = project.findIndex(x => x.clientName.toLowerCase() === id.id)
+	// 	setProject(project[index])
+	// }, [id, project])
+	// console.log(projectExt.imageUrl)
 	return (
 		<motion.div
 			exit={{ opacity: 1 }}
@@ -37,7 +37,7 @@ const ProjectExtended = () => {
 			transition={transition}
 		>
 			<h1 style={{ zIndex: 99, position: 'relative' }}>
-				{projectExt.clientName}
+				{pos.project.clientName}
 			</h1>
 
 			<ImageResizeCont
@@ -48,7 +48,7 @@ const ProjectExtended = () => {
 				animate={{ width: '100%', left: '0', top: '0', height: '330px' }}
 				transition={transition}
 			>
-				<Image src={pos.imageUrl} />
+				<Image src={pos.project.imageUrl} />
 			</ImageResizeCont>
 		</motion.div>
 	)
