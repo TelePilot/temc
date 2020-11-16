@@ -8,6 +8,7 @@ const ImageSizeProvider = props => {
 			y: '',
 		},
 		width: '560px;',
+		imageUrl: '',
 	})
 	console.log(pos)
 	return (
