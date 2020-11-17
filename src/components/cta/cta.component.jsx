@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Button = styled.button`
 	display: flex;
@@ -21,18 +22,22 @@ const Button = styled.button`
 	height: 5vh;
 	background: rgba(64, 109, 245, 1);
 	box-shadow: 0 5px 2px rgba(40, 40, 255, .2);
-	z-index: 1;
+	z-index: 999;
 	}
 	@media screen and (max-width: 400px) {
 		left: 0;
 		width: 80%;
 		}
 `
+const MenuLink = styled(Link)`
+	text-decoration: none;
+`
 
 const Text = styled.p`
 	color: white;
 	font-size: 16px;
 	padding-right: 20px;
+	text-decoration: none;
 
 	@media screen and (max-width: 700px) {
 	font-size: 3.5vw;
@@ -44,7 +49,7 @@ const CTA = props => {
 
 	return (
 		<Button id='button'>
-			<Text>{props.children}</Text>
+			<MenuLink to='/kontakt'><Text>{props.children}</Text></MenuLink>
 			<svg
 				width='8'
 				height='18'

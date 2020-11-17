@@ -66,25 +66,7 @@ const HeroImage = styled.img`
 
 const Header = () => {
 	const headerText = document.querySelector(HeaderText)
-
 	const { header } = useContext(HeaderContext)
-	// gsap.registerPlugin(ScrollTrigger)
-
-	// gsap.fromTo(
-	// 	headerText,
-	// 	{
-	// 		x: -100,
-	// 		autoAlpha: 0,
-	// 	},
-	// 	{
-	// 		x: 0,
-	// 		autoAlpha: 1,
-	// 		ease: 'Power1.easeInOut',
-	// 		duration: 0.7,
-	// 		delay: 1,
-	// 	}
-	// )
-
 	return (
 		<Container>
 			<HeaderContentContainer>

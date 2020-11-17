@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
 import styled from 'styled-components'
 import sanityClient from '../../Client'
+import FooterInfo from './different.footers.jsx/footer.info'
+import imageUrlBuilder from '@sanity/image-url'
+
+const builder = imageUrlBuilder(sanityClient)
+function urlFor(source) {
+	return builder.image(source)
+}
 
 const Container = styled.div`
 	padding-top: 100px;
@@ -12,6 +18,10 @@ const Container = styled.div`
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
+
+	@media screen and (max-width: 700px) {
+		margin-bottom: 60px;
+	}
 `
 
 const NavContainer = styled.div`
@@ -23,6 +33,7 @@ const NavContainer = styled.div`
 	@media screen and (max-width: 700px) {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 60px;
 	}
 `
 
@@ -44,6 +55,12 @@ const InfoContainer = styled.div`
 	flex-flow: column;
 	height: auto;
 `
+const LastInfoContainer = styled.div`
+	display: flex;
+	flex-flow: column;
+	height: auto;
+	margin-bottom: 8em;
+`
 const InfoHeader = styled.h4``
 const InfoText = styled.p`
 	top: 0;
@@ -53,6 +70,16 @@ const InfoText = styled.p`
 const InfoLink = styled(Link)`
 	text-decoration: none;
 	color: white;
+`
+
+const HeroImage = styled.img`
+	width: auto;
+	height: 80%;
+	z-index: -1;
+
+	@media screen and (max-width: 500px) {
+		height: 73%;
+	}
 `
 
 const Footer = () => {
@@ -70,14 +97,15 @@ const Footer = () => {
 	return (
 		<Container>
 			<NavContainer>
+			{footer.menu
+					? footer.menu.map((item, id) => (
+							<InfoLink to={item.link} key={id}>
+								{item.name}
+							</InfoLink>
+					  ))
+					: null}
 				<InfoContainer>
 					<InfoHeader>{footer.companyInfo}</InfoHeader>
-					<Socials>
-						<InfoLink to='/buketter'>Buketter</InfoLink>
-						<InfoLink to='/begravning'>Begravning</InfoLink>
-						<InfoLink to='/brollop'>Bröllop</InfoLink>
-						<InfoLink to='/kontakt'>Kontakt</InfoLink>
-					</Socials>
 				</InfoContainer>
 				<InfoContainer>
 					<InfoHeader>{footer.companyInfo}</InfoHeader>
@@ -87,9 +115,7 @@ const Footer = () => {
 					</InfoText>
 				</InfoContainer>
 				<InfoContainer>
-					<InfoHeader>{footer.companyInfo}</InfoHeader>
-					<InfoLink to='/bestallningar'>Beställningar</InfoLink>
-					<InfoLink to='/event'>Event</InfoLink>
+					<FooterInfo />
 				</InfoContainer>
 				<InfoContainer>
 					<InfoHeader>{footer.companyInfo}</InfoHeader>
@@ -99,19 +125,23 @@ const Footer = () => {
 						118 53 Stockholm
 					</InfoText>
 				</InfoContainer>
-				<InfoContainer>
-					<Socials>
+				<LastInfoContainer>
 						<InfoHeader>{footer.companyInfo}</InfoHeader>
 						<InfoText>
-							<a href='/'>
-								<Img alt='hej' src='/media/facebook.png'></Img>
-							</a>
-							<a href='/'>
-								<Img alt='hej' src='/media/instagram.png'></Img>
-							</a>
+						<HeroImage
+					alt='hero image'
+					className='heroimage'
+					id='heroimage'
+					src={urlFor(footer.socialMedia).url()}
+				/>
+						<HeroImage
+					alt='hero image'
+					className='heroimage'
+					id='heroimage'
+					src={urlFor(footer.socialMedia).url()}
+				/>
 						</InfoText>
-					</Socials>
-				</InfoContainer>
+				</LastInfoContainer>
 			</NavContainer>
 		</Container>
 	)

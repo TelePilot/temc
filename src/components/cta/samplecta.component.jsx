@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { gsap } from 'gsap'
+import { Link } from 'react-router-dom'
 
 const Button = styled.button`
 	display: flex;
@@ -31,26 +31,20 @@ const Text = styled.p`
 	font-size: 16px;
 	padding-right: 20px;
 `
+
+const MenuLink = styled(Link)`
+	text-decoration: none;
+	width: 150px;
+	height: 100%;
+`
+
+
 const Icon = styled.img``
 const SampleCTA = props => {
-	const button = document.querySelector(Button)
-
-	gsap.fromTo(
-		button,
-		{
-			x: -200,
-			opacity: 0,
-		},
-		{
-			x: 0,
-			opacity: 1,
-			ease: 'Power2.easeInOut',
-			duration: 0.7,
-			delay: 2,
-		}
-	)
 	return (
-		<Button id='button'>
+		<>
+		<MenuLink to='/projects'>
+			<Button id='button'>
 			<Text>{props.children}</Text>
 			<svg
 				width='8'
@@ -66,8 +60,9 @@ const SampleCTA = props => {
 					stroke-linejoin='round'
 				/>
 			</svg>
-			<Icon src='' />
 		</Button>
+	</MenuLink>
+	</>
 	)
 }
 

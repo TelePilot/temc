@@ -39,7 +39,7 @@ const Container = styled.div`
 	}
 `
 const Image = styled(motion.img)`
-	width: 600px;
+	width: 100%;
 	height: auto;
 `
 const ImageResizeCont = styled.div`
@@ -47,6 +47,18 @@ const ImageResizeCont = styled.div`
 	max-height: 280px;
 	width: 600px;
 	display: flex;
+
+	@media screen and (max-width: 1000px) {
+		width: 100%;
+		height: 100%;
+	}
+	@media screen and (max-width: 900px) {
+		width: 100%;
+		padding: 0;
+	}
+	@media screen and (max-width: 700px) {
+		height: 100%;
+	}
 `
 const ImgContainer = styled.div`
 	height: auto;
@@ -63,7 +75,7 @@ const ImgContainer = styled.div`
 		padding: 0;
 	}
 	@media screen and (max-width: 700px) {
-		height: height: 100%;
+		height: 100%;
 	}
 	&::after {
 		position: relative;
@@ -114,33 +126,6 @@ const Text = styled(motion.p)`
 		font-size: 14px;
 	}
 `
-
-// const Header = styled.h2`
-// 	display: inline;
-// 	position: relative;
-// 	&::after {
-// 		position: absolute;
-// 		left: -25%;
-// 		top: 50%;
-// 		z-index: -1;
-// 		content: '';
-// 		display: block;
-// 		width: 150%;
-// 		height: 23px;
-// 		background: rgba(64, 109, 245, 0.63);
-// 	}
-// `
-
-// const ColoredBoxPink = styled.div`
-// 	position: relative;
-// 	width: 100%;
-// 	height: 50%;
-// 	bottom: 170px;
-// 	right: 30px;
-// 	margin: 0 auto;
-// 	background: #ff847f;
-// 	z-index: -1;
-// `
 
 const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 
