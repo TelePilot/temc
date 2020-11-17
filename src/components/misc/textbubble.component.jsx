@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { gsap } from 'gsap'
-
 
 const Container = styled.div`
     width: 100%;
@@ -103,58 +101,6 @@ const Text1 = styled.h4`
 `
 
 const TextBubble = () => {
-
-    const animation = document.querySelector('.Text')
-    const animation2 = document.querySelector('.Text1')
-    const animation3 = document.querySelector('.Text3')
-    const animation4 = document.querySelector('.Text2')
-
-    
-
-	gsap.fromTo(animation, {
-		opacity: 0,
-	},
-	{
-        x: 50,
-		opacity: 1,
-		duration: 0.7,
-		ease: 'Power1.out',
-		delay: 0.7,
-	}
-	)
-
-	gsap.fromTo(animation2, {
-		opacity: 0,
-    },
-    {
-		opacity: 1,
-		duration: 1,
-		ease: 'Power1.out',
-		delay: 1	}
-	)
-	gsap.fromTo(animation3, {
-		opacity: 0,
-    },
-    {
-		opacity: 1,
-		duration: 1,
-		ease: 'Power1.out',
-        delay: 1
-    },
-    )
-	gsap.fromTo(animation4, {
-        autoAlpha: 0,
-        y:-100,
-        x:-50,
-    },
-    {
-        y:0,
-        x:0,
-		autoAlpha: 1,
-		duration: 1,
-		ease: 'Power4.out',
-        delay: 1
-    })
     return (
         <Container>
         <RightContainer>

@@ -5,12 +5,12 @@ html,
 	-moz-osx-font-smoothing: grayscale;
 	color: white;
 }
+
 body {
 	margin: 0;
 	overflow-x: hidden;
 	background: #201b3d;
 	box-sizing: border-box;
-	padding: 0 50px;
 }
 
 code {

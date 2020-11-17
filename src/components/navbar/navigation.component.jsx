@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import sanityClient from '../../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-import Hamburger from './hamburger.component'
+// import { Example } from './hamburger/Example'
 
 const Container = styled.div`
 	display: flex;
@@ -16,6 +15,9 @@ const Container = styled.div`
 	width: 100%;
 	height: 100px;
 	z-index: 999;
+	@media screen and (max-width: 700px) {
+		transition: 0.8s all ease;
+	}
 `
 
 const LogoBox = styled.img`
@@ -23,6 +25,7 @@ const LogoBox = styled.img`
 	padding: 25px 50px;
 	height: auto;
 	@media screen and (max-width: 700px) {
+		transition: 0.8s all ease;
 		padding: 10px 25px;
 	}
 	@media screen and (max-width: 400px) {
@@ -35,7 +38,7 @@ const NavBox = styled.div`
 	justify-content: center;
 	right: 0;
 	padding: 30px 30px;
-	gap: 7px;
+	gap: 12px;
 	align-items: center;
 	font-size: 16.4px;
 	height: 22px;
@@ -48,6 +51,9 @@ const HamburgerContainer = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 const MenuLink = styled(Link)`
@@ -57,6 +63,10 @@ const MenuLink = styled(Link)`
 	@media screen and (max-width: 800px) {
 		opacity: none;
 		visibility: hidden;
+	}
+
+	&.active {
+		
 	}
 `
 
@@ -68,53 +78,6 @@ function urlFor(source) {
 const Navigation = () => {
 	const menu = document.querySelector(NavBox)
 	const logo = document.querySelector(LogoBox)
-	const tl = gsap.timeline({
-		delay: 0.5,
-		stagger: 0.1,
-
-		defaults: {
-			// children inherit these defaults
-			duration: 1,
-			ease: 'none',
-		},
-		smoothChildTiming: true,
-		autoRemoveChildren: true,
-
-		// other callbacks:
-		// onStart, onUpdate, onRepeat, onReverseComplete
-		// Each callback has a params property as well
-		// i.e. onUpdateParams (Array)
-	})
-
-	tl.fromTo(
-		menu,
-		0.5,
-		{
-			opacity: 0,
-			x: 100,
-		}, //"from" values
-		{
-			opacity: 1,
-			duration: 0.7,
-			ease: 'Power4.out',
-			delay: 0.7,
-			x: 0,
-		}, //"to" values
-		-0.15 //stagger amount (seconds between each start time)
-	)
-
-	gsap.fromTo(
-		logo,
-		{
-			opacity: 0,
-		},
-		{
-			opacity: 1,
-			duration: 1,
-			ease: 'Power1.out',
-			delay: 1,
-		}
-	)
 
 	const [header, setHeader] = useState('')
 
@@ -133,7 +96,7 @@ const Navigation = () => {
 
 	return (
 		<Container id='navbar'>
-			<LogoBox alt='TEMC Logo' src={urlFor(header.logo).url()} />
+			<Link to='/'><LogoBox alt='TEMC Logo' src={urlFor(header.logo).url()} /></Link>
 			<NavBox>
 				{header.menu
 					? header.menu.map((item, id) => (
@@ -142,9 +105,9 @@ const Navigation = () => {
 							</MenuLink>
 					  ))
 					: null}
-				<HamburgerContainer>
-					<Hamburger />
-				</HamburgerContainer>
+					<HamburgerContainer>
+			{/* <Example /> */}
+			</HamburgerContainer>
 			</NavBox>
 		</Container>
 	)

@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { AboutContext } from '../store/about.context'
+import imageUrlBuilder from '@sanity/image-url'
+import sanityClient from '../Client'
+
+const builder = imageUrlBuilder(sanityClient)
+function urlFor(source) {
+	return builder.image(source)
+}
 const Container = styled.div`
 	width: 100wv;
 	height: 385px;
@@ -28,7 +36,7 @@ const Segment = styled.div`
 	justify-content: space-evenly;
 `
 
-const Photo = styled.div`
+const Photo = styled.img`
 	width: 300px;
 	height: 300px;
 	margin: 15px;
@@ -37,13 +45,15 @@ const Photo = styled.div`
 	align-items: center;
 	background: grey;
 `
-const Text = styled.div`
+const AboutText = styled.div`
 	padding: 15px;
 	margin: 15px;
 	text-align: center;
 `
 
 const About = () => {
+	const { about } = useContext(AboutContext)
+
 	return (
 		<motion.div
 			exit={{ opactiy: 0 }}
@@ -51,15 +61,17 @@ const About = () => {
 			initial={{ opacity: 0 }}
 		>
 			<Container>
-				<h1>Abouta oss!</h1>
+				<h1>{about.title}</h1>
 			</Container>
 			<SegmentContainer>
 				<Segment>
-					<Photo />
-					<Text />
-				</Segment>
-				<Segment>
-					<Text />
+					<Photo
+					alt='hero image'
+					className='heroimage'
+					id='heroimage'
+					src={urlFor(about.Image).url()}
+				/>
+				<AboutText>{about.title}</AboutText>
 					<Photo />
 				</Segment>
 			</SegmentContainer>

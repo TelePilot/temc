@@ -5,22 +5,25 @@ import ProjectContextProvider from './store/Project.context'
 import HeaderContextProvider from './store/Header.context'
 import ImageSizeProvider from './store/image.context'
 import Footer from './components/footer/footer.component'
-import Navigation from './components/navbar/navigation.component'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Kontakt from './pages/kontakt.component'
 import ProjectExtended from './pages/project-extended.component'
 import { AnimatePresence } from 'framer-motion'
 import Home from './pages/home.component'
+import Example from './components/navbar/hamburger/Example'
+import About from './pages/about.component'
 
 const PageContainer = styled.div`
 	min-height: 110vh;
+	box-sizing: border-box;
+	padding: 0 50px;
 `
 
 function App() {
 	return (
 		<div className='App'>
-			<Navigation />
-
+			{/* <Navigation /> */}
+		<Example />
 			<PageContainer>
 				<ImageSizeProvider>
 					<ProjectContextProvider>
@@ -41,6 +44,9 @@ function App() {
 										</Route>
 										<Route path={'/project/:id'}>
 											<ProjectExtended key={location.id} />
+										</Route>
+										<Route exact path={'/about'}>
+											<About key={location.id} />
 										</Route>
 										<Route exact path={'/kontakt'}>
 											<Kontakt key={location.id} />
