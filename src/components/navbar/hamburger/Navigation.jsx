@@ -52,16 +52,17 @@ const linkVariants = {
 const Navigation = ({ isOpen, toggle }) => {
 	const [header, setHeader] = useState('')
 	const menuList = useRef(null)
-	let timer
+
 	useEffect(() => {
+		let timer
 		window.clearTimeout(timer)
 		let style = menuList.current.style
-		if (style.display === 'block') {
+		if (style.display === 'none') {
+			style.display = 'block'
+		} else {
 			timer = window.setTimeout(() => {
 				style.display = 'none'
 			}, 300)
-		} else {
-			style.display = 'block'
 		}
 	}, [isOpen])
 
