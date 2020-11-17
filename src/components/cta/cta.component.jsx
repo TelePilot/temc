@@ -15,19 +15,19 @@ const Button = styled.button`
 	cursor: pointer;
 
 	@media screen and (max-width: 700px) {
-	position: fixed;
-    top: 90vh;
-	left: 15%;
-    width: 60%;
-	height: 5vh;
-	background: rgba(64, 109, 245, 1);
-	box-shadow: 0 5px 2px rgba(40, 40, 255, .2);
-	z-index: 999;
+		position: fixed;
+		top: 90vh;
+		left: 15%;
+		width: 60%;
+		height: 5vh;
+		background: rgba(64, 109, 245, 1);
+		box-shadow: 0 5px 2px rgba(40, 40, 255, 0.2);
+		z-index: 999;
 	}
 	@media screen and (max-width: 400px) {
 		left: 0;
 		width: 80%;
-		}
+	}
 `
 const MenuLink = styled(Link)`
 	text-decoration: none;
@@ -40,16 +40,16 @@ const Text = styled.p`
 	text-decoration: none;
 
 	@media screen and (max-width: 700px) {
-	font-size: 3.5vw;
+		font-size: 3.5vw;
 	}
 `
 const Icon = styled.img``
 const CTA = props => {
-	const button = document.querySelector(Button)
-
 	return (
 		<Button id='button'>
-			<MenuLink to='/kontakt'><Text>{props.children}</Text></MenuLink>
+			<MenuLink to='/kontakt'>
+				<Text>{props.children}</Text>
+			</MenuLink>
 			<svg
 				width='8'
 				height='18'

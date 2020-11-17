@@ -65,7 +65,6 @@ const HeroImage = styled.img`
 `
 
 const Header = () => {
-	const headerText = document.querySelector(HeaderText)
 	const { header } = useContext(HeaderContext)
 	return (
 		<Container>

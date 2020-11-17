@@ -27,9 +27,11 @@ const sidebar = {
 }
 
 const Container = styled.div`
-	position: absolute;
-	height: 100%;
+	position: fixed;
+	height: 100vh;
+	width: 100%;
 	z-index: 9;
+	display: none;
 `
 
 const Nav = styled(motion.nav)`
@@ -60,10 +62,13 @@ const Example = () => {
 	const BackgroundToggle = useRef(null)
 	return (
 		<>
-			<Container onClick={() => (isOpen ? toggleOpen() : null)}></Container>
+			<Container
+				style={isOpen ? { display: 'block' } : { display: 'none' }}
+				onClick={() => (isOpen ? toggleOpen() : null)}
+			></Container>
 			<Nav initial={false} animate={isOpen ? 'open' : 'closed'}>
 				<Background ref={BackgroundToggle} variants={sidebar} />
-				<Navigation />
+				<Navigation toggle={() => toggleOpen()} />
 				<MenuToggle toggle={() => toggleOpen()} />
 			</Nav>
 		</>

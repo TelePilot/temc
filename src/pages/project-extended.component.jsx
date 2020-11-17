@@ -1,6 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { ProjectContext } from '../store/Project.context'
-import { useParams } from 'react-router-dom'
+import React, { useContext } from 'react'
+
 import { ImageSizeContext } from '../store/image.context'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'

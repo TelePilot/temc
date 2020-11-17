@@ -66,7 +66,6 @@ const MenuLink = styled(Link)`
 	}
 
 	&.active {
-		
 	}
 `
 
@@ -76,9 +75,6 @@ function urlFor(source) {
 }
 
 const Navigation = () => {
-	const menu = document.querySelector(NavBox)
-	const logo = document.querySelector(LogoBox)
-
 	const [header, setHeader] = useState('')
 
 	useEffect(() => {
@@ -96,7 +92,9 @@ const Navigation = () => {
 
 	return (
 		<Container id='navbar'>
-			<Link to='/'><LogoBox alt='TEMC Logo' src={urlFor(header.logo).url()} /></Link>
+			<Link to='/'>
+				<LogoBox alt='TEMC Logo' src={urlFor(header.logo).url()} />
+			</Link>
 			<NavBox>
 				{header.menu
 					? header.menu.map((item, id) => (
@@ -105,9 +103,7 @@ const Navigation = () => {
 							</MenuLink>
 					  ))
 					: null}
-					<HamburgerContainer>
-			{/* <Example /> */}
-			</HamburgerContainer>
+				<HamburgerContainer>{/* <Example /> */}</HamburgerContainer>
 			</NavBox>
 		</Container>
 	)

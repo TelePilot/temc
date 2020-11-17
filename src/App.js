@@ -5,7 +5,7 @@ import ProjectContextProvider from './store/Project.context'
 import HeaderContextProvider from './store/Header.context'
 import ImageSizeProvider from './store/image.context'
 import Footer from './components/footer/footer.component'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Kontakt from './pages/kontakt.component'
 import ProjectExtended from './pages/project-extended.component'
 import { AnimatePresence } from 'framer-motion'
@@ -23,7 +23,7 @@ function App() {
 	return (
 		<div className='App'>
 			{/* <Navigation /> */}
-		<Example />
+			<Example />
 			<PageContainer>
 				<ImageSizeProvider>
 					<ProjectContextProvider>

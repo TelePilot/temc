@@ -2,17 +2,11 @@ import React, { useContext, useRef } from 'react'
 import styled from 'styled-components'
 import SampleCTA from '../cta/samplecta.component'
 import { ProjectContext } from '../../store/Project.context'
-import imageUrlBuilder from '@sanity/image-url'
-import sanityClient from '../../Client'
+
 import HeaderText from '../misc/header-text.component'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ImageSizeContext } from '../../store/image.context'
-const builder = imageUrlBuilder(sanityClient)
-
-function urlFor(source) {
-	return builder.image(source)
-}
 
 const Container = styled.div`
 	display: flex;
@@ -88,17 +82,17 @@ const ImgContainer = styled.div`
 		height: 70%;
 		background: #ff847f;
 
-	@media screen and (max-width: 1000px) {
-		width: 80%;
-		height: 80%;
-		top: -70%;
-		padding: 0;
+		@media screen and (max-width: 1000px) {
+			width: 80%;
+			height: 80%;
+			top: -70%;
+			padding: 0;
+		}
+		@media screen and (max-width: 800px) {
+			width: 82%;
+			right: 7%;
+		}
 	}
-	@media screen and (max-width: 800px) {
-		width: 82%;
-		right: 7%;
-	}
-}
 `
 const TextContainer = styled(motion.div)`
 	max-width: 600px;
@@ -131,7 +125,7 @@ const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 
 const Sample = () => {
 	const { project } = useContext(ProjectContext)
-	const { pos, setPos } = useContext(ImageSizeContext)
+	const { setPos } = useContext(ImageSizeContext)
 	let sample = project[0]
 	const image = useRef(null)
 	function isInViewport(element) {

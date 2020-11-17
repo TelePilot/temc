@@ -38,31 +38,29 @@ const MenuLink = styled(Link)`
 	height: 100%;
 `
 
-
-const Icon = styled.img``
 const SampleCTA = props => {
 	return (
 		<>
-		<MenuLink to='/projects'>
-			<Button id='button'>
-			<Text>{props.children}</Text>
-			<svg
-				width='8'
-				height='18'
-				viewBox='0 0 8 18'
-				fill='none'
-				xmlns='http://www.w3.org/2000/svg'
-			>
-				<path
-					d='M1 1C8.62672 8.79006 8.90954 8.75176 1 17'
-					stroke='white'
-					stroke-linecap='round'
-					stroke-linejoin='round'
-				/>
-			</svg>
-		</Button>
-	</MenuLink>
-	</>
+			<MenuLink to='/projects'>
+				<Button id='button'>
+					<Text>{props.children}</Text>
+					<svg
+						width='8'
+						height='18'
+						viewBox='0 0 8 18'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'
+					>
+						<path
+							d='M1 1C8.62672 8.79006 8.90954 8.75176 1 17'
+							stroke='white'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+						/>
+					</svg>
+				</Button>
+			</MenuLink>
+		</>
 	)
 }
 

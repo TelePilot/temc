@@ -37,19 +37,6 @@ const NavContainer = styled.div`
 	}
 `
 
-const Socials = styled.div`
-	display: flex;
-	align-items: left;
-	justify-content: left;
-	text-align: left;
-	flex-direction: column;
-`
-
-const Img = styled.img`
-	height: 50px;
-	width: 50px;
-	padding: 2px;
-`
 const InfoContainer = styled.div`
 	display: flex;
 	flex-flow: column;
@@ -97,7 +84,7 @@ const Footer = () => {
 	return (
 		<Container>
 			<NavContainer>
-			{footer.menu
+				{footer.menu
 					? footer.menu.map((item, id) => (
 							<InfoLink to={item.link} key={id}>
 								{item.name}
@@ -126,21 +113,21 @@ const Footer = () => {
 					</InfoText>
 				</InfoContainer>
 				<LastInfoContainer>
-						<InfoHeader>{footer.companyInfo}</InfoHeader>
-						<InfoText>
+					<InfoHeader>{footer.companyInfo}</InfoHeader>
+					<InfoText>
 						<HeroImage
-					alt='hero image'
-					className='heroimage'
-					id='heroimage'
-					src={urlFor(footer.socialMedia).url()}
-				/>
+							alt='hero image'
+							className='heroimage'
+							id='heroimage'
+							src={urlFor(footer.socialMedia).url()}
+						/>
 						<HeroImage
-					alt='hero image'
-					className='heroimage'
-					id='heroimage'
-					src={urlFor(footer.socialMedia).url()}
-				/>
-						</InfoText>
+							alt='hero image'
+							className='heroimage'
+							id='heroimage'
+							src={urlFor(footer.socialMedia).url()}
+						/>
+					</InfoText>
 				</LastInfoContainer>
 			</NavContainer>
 		</Container>
