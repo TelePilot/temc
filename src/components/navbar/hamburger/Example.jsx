@@ -68,8 +68,11 @@ const Example = () => {
 			></Container>
 			<Nav initial={false} animate={isOpen ? 'open' : 'closed'}>
 				<Background ref={BackgroundToggle} variants={sidebar} />
-				<Navigation toggle={() => toggleOpen()} />
-				<MenuToggle toggle={() => toggleOpen()} />
+				<Navigation isOpen={isOpen} toggle={() => toggleOpen()} />
+				<MenuToggle
+					onMouseEnter={() => console.log('hello')}
+					toggle={() => toggleOpen()}
+				/>
 			</Nav>
 		</>
 	)

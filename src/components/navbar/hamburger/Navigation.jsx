@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -22,6 +22,7 @@ const MenuLink = styled(Link)`
 const UL = styled(motion.ul)`
 padding: 25px;
 position: absolute;
+display: none;
 top: 100px;
 width: 100px;
 transition: 5s all ease;
@@ -48,8 +49,21 @@ const linkVariants = {
 	},
 }
 
-const Navigation = ({ toggle }) => {
+const Navigation = ({ isOpen, toggle }) => {
 	const [header, setHeader] = useState('')
+	const menuList = useRef(null)
+	let timer
+	useEffect(() => {
+		window.clearTimeout(timer)
+		let style = menuList.current.style
+		if (style.display === 'block') {
+			timer = window.setTimeout(() => {
+				style.display = 'none'
+			}, 300)
+		} else {
+			style.display = 'block'
+		}
+	}, [isOpen])
 
 	useEffect(() => {
 		const headerQuery = `*[_type == "header"]{
@@ -65,7 +79,7 @@ const Navigation = ({ toggle }) => {
 	}, [])
 
 	return (
-		<UL variants={variants}>
+		<UL ref={menuList} variants={variants}>
 			{header.menu
 				? header.menu.map((item, id) => (
 						<List
