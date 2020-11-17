@@ -51,15 +51,8 @@ const Background = styled(motion.div)`
   width: 300px;
   background: #fff;
   opacity: 0.4;
-  transition: 4s all ease;
-
-    &:hover {
-      trigger: Container;
-      opacity: 0.8;
-    }
   
     @media screen and (max-width: 700px) {
-      transition: 1.5s all ease;
       opacity: 0.7;
     }
 `
