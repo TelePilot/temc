@@ -128,16 +128,29 @@ const Sample = () => {
 	const { setPos } = useContext(ImageSizeContext)
 	let sample = project[0]
 	const image = useRef(null)
-	function isInViewport(element) {
-		const rect = element.current.getBoundingClientRect()
+	const headerLoc = useRef(null)
+	const textLoc = useRef(null)
+
+	function isInViewport(image, textLoc) {
+		const img = image.current.getBoundingClientRect()
+		const txt = textLoc.current.getBoundingClientRect()
 
 		setPos({
+			project: sample,
+			image: {
 			position: {
-				x: `${rect.x}px`,
-				y: `${rect.y}px`,
+				x: `${img.x}px`,
+				y: `${img.y}px`,
 			},
 			width: '600px',
-			project: sample,
+			},
+		
+			text: {
+				position: {
+				x: `${txt.x}px`,
+				y: `${txt.y}px`,
+			},},
+		
 		})
 	}
 
@@ -148,7 +161,7 @@ const Sample = () => {
 			<Container>
 				<ImgContainer>
 					<Link
-						onClick={() => isInViewport(image)}
+						onClick={() => isInViewport(image, textLoc)}
 						to={`/project/${sample.clientName.toLowerCase()}`}
 					>
 						<ImageResizeCont>
@@ -163,17 +176,12 @@ const Sample = () => {
 					</Link>
 				</ImgContainer>
 				<TextContainer
-					exit={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					initial={{ opacity: 0 }}
-					transition={transition}
+				ref={textLoc}
+			
 				>
 					<HeaderText>{sample.clientName}</HeaderText>
 					<Text
-						exit={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						initial={{ opacity: 0 }}
-						transition={transition}
+					
 					>
 						{sample.description}
 					</Text>

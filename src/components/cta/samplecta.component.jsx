@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-
-const Button = styled.button`
+import { motion} from 'framer-motion'
+const Button = styled(motion.button)`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -38,11 +38,15 @@ const MenuLink = styled(Link)`
 	height: 100%;
 `
 
+const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 const SampleCTA = props => {
 	return (
 		<>
 			<MenuLink to='/projects'>
-				<Button id='button'>
+				<Button 	exit={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					initial={{ opacity: 0 }}
+					transition={transition} id='button'>
 					<Text>{props.children}</Text>
 					<svg
 						width='8'
