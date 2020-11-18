@@ -10,40 +10,50 @@ function urlFor(source) {
 	return builder.image(source)
 }
 const Container = styled.div`
-	width: 100wv;
-	height: 385px;
-	font-size: 36px;
+	width: 100%;
+	height: 100vh;
+	display: flex;
 	text-align: center;
 	justify-content: center;
 	color: #4a1f1f;
 	font-family: poppins;
 
 	h1 {
-		padding-top: 35px;
+		padding: 0 35px 0 0;
 	}
 `
 
 const SegmentContainer = styled.div`
-	display: grid;
-	grid-template-rows: auto;
-	gap: 10px;
+	display: flex;
+	flex-direction: column;
+	height: 50vh;
+	gap: 100px;
 	padding: 15px;
 	margin: 15px;
 `
 
 const Segment = styled.div`
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+`
+
+const Textcontainer = styled.div`
+	display: flex;
 	justify-content: space-evenly;
+	width: 100%;
+	height: 50vh;
 `
 
 const Photo = styled.img`
-	width: 300px;
-	height: 300px;
+	width: auto;
+	height: 50vh;
 	margin: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: grey;
 `
 const AboutText = styled.div`
 	padding: 15px;
@@ -60,22 +70,22 @@ const About = () => {
 			animate={{ opacity: 1 }}
 			initial={{ opacity: 0 }}
 		>
-			<Container>
-				<h1>{about.title}</h1>
-			</Container>
+	<Container>
 			<SegmentContainer>
+			<h1>{about.title}</h1>
 				<Segment>
 					<Photo
 					alt='hero image'
 					className='heroimage'
 					id='heroimage'
-					src={urlFor(about.Image).url()}
-				/>
-				<AboutText>{about.title}</AboutText>
-					<Photo />
+					src={urlFor(about.image).url()}/>
 				</Segment>
-			</SegmentContainer>
-		</motion.div>
+				<Textcontainer>
+				<AboutText>{about.description}</AboutText>
+			</Textcontainer>
+		</SegmentContainer>
+	</Container>
+</motion.div>
 	)
 }
 export default About

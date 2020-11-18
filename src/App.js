@@ -12,9 +12,10 @@ import { AnimatePresence } from 'framer-motion'
 import Home from './pages/home.component'
 import Example from './components/navbar/hamburger/Example'
 import About from './pages/about.component'
+import AboutContextProvider from './store/about.context'
 
 const PageContainer = styled.div`
-	min-height: 110vh;
+	min-height: 150vh;
 	box-sizing: border-box;
 	padding: 0 50px;
 `
@@ -46,7 +47,10 @@ function App() {
 											<ProjectExtended key={location.id} />
 										</Route>
 										<Route exact path={'/about'}>
+											<AboutContextProvider>
 											<About key={location.id} />
+											</AboutContextProvider>
+											
 										</Route>
 										<Route exact path={'/kontakt'}>
 											<Kontakt key={location.id} />
@@ -58,7 +62,7 @@ function App() {
 					</ProjectContextProvider>
 				</ImageSizeProvider>
 			</PageContainer>
-
+			
 			<Footer />
 		</div>
 	)
