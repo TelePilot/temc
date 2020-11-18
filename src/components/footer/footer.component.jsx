@@ -2,19 +2,24 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import sanityClient from '../../Client'
-import FooterInfo from './different.footers.jsx/footer.info'
 import imageUrlBuilder from '@sanity/image-url'
+import Footersocials from './different.footers.jsx/footer.socials'
 
 const builder = imageUrlBuilder(sanityClient)
 function urlFor(source) {
 	return builder.image(source)
 }
 
+const MenuLink = styled(Link)`
+text-decoration: none;
+`
+
 const Container = styled.div`
-	padding-top: 100px;
+	padding-top: 15vh;
 	height: auto;
-	width: 100%;
+	width: 90%;
 	height: 100px;
+	padding: 0 50px;
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
@@ -39,7 +44,7 @@ const NavContainer = styled.div`
 
 const InfoContainer = styled.div`
 	display: flex;
-	flex-flow: column;
+	flex-direction: column;
 	height: auto;
 `
 const LastInfoContainer = styled.div`
@@ -48,6 +53,9 @@ const LastInfoContainer = styled.div`
 	height: auto;
 	margin-bottom: 8em;
 `
+const Image = styled.img`
+`
+
 const InfoHeader = styled.h4``
 const InfoText = styled.p`
 	top: 0;
@@ -81,9 +89,13 @@ const Footer = () => {
 		})
 		return
 	}, [])
+
 	return (
 		<Container>
 			<NavContainer>
+				<InfoContainer>
+				<InfoHeader>navigation</InfoHeader>
+
 				{footer.menu
 					? footer.menu.map((item, id) => (
 							<InfoLink to={item.link} key={id}>
@@ -91,46 +103,47 @@ const Footer = () => {
 							</InfoLink>
 					  ))
 					: null}
-				<InfoContainer>
-					<InfoHeader>{footer.companyInfo}</InfoHeader>
-				</InfoContainer>
-				<InfoContainer>
-					<InfoHeader>{footer.companyInfo}</InfoHeader>
-					<InfoText>
-						Måndag - fredag <br /> 10.00 - 18.30 <br></br> Lördag 10.00 - 16.00{' '}
-						<br /> Söndag STÄNGT
-					</InfoText>
-				</InfoContainer>
-				<InfoContainer>
-					<FooterInfo />
-				</InfoContainer>
-				<InfoContainer>
-					<InfoHeader>{footer.companyInfo}</InfoHeader>
-					<InfoText>
-						Strauss Blommor <br />
-						Rosenlundsgatan 32 C <br />
-						118 53 Stockholm
-					</InfoText>
-				</InfoContainer>
+</InfoContainer>
+<InfoContainer>
+<InfoHeader>Hitta hit!</InfoHeader>
+				{footer.companyLocation
+    ? footer.companyLocation.map((item, id) => (
+    <MenuLink to={item.link} key={id}>
+		{item.mail} <br />
+		{item.postnr + ' '}
+		{item.stad}
+    </MenuLink>
+    ))
+    : null}				
+	</InfoContainer>
+	<InfoContainer>
+	<InfoHeader>Öppettider</InfoHeader>
+				{footer.companyOpenhours
+    ? footer.companyOpenhours.map((item, id) => (
+    <MenuLink to={item.link} key={id}>
+		{item.vardagar}
+		{item.helger}
+    </MenuLink>
+    ))
+    : null}				
+	</InfoContainer>
 				<LastInfoContainer>
-					<InfoHeader>{footer.companyInfo}</InfoHeader>
 					<InfoText>
-						<HeroImage
-							alt='hero image'
-							className='heroimage'
-							id='heroimage'
-							src={urlFor(footer.socialMedia).url()}
-						/>
-						<HeroImage
-							alt='hero image'
-							className='heroimage'
-							id='heroimage'
-							src={urlFor(footer.socialMedia).url()}
-						/>
-					</InfoText>
-				</LastInfoContainer>
-			</NavContainer>
-		</Container>
+					<InfoHeader>Socials</InfoHeader>
+					{footer.socialMedia
+    ? footer.socialMedia.map((item, id) => (
+    <MenuLink to={item.link} key={id}>
+			<Image
+			id='image'
+			alt='client Image'
+			src={item}/>
+	</MenuLink>
+    ))
+    : null}				
+			</InfoText>
+		</LastInfoContainer>
+	</NavContainer>
+</Container>
 	)
 }
 

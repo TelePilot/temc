@@ -3,18 +3,14 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import sanityClient from '../../../Client'
 
+
 const MenuLink = styled(Link)`
 	text-decoration: none;
 	padding-top: 20px;
+`
 
-	@media screen and (max-width: 800px) {
-		opacity: none;
-		visibility: hidden;
-	}
+const Title = styled.h2`
 
-	&.active {
-		
-	}
 `
 
 const FooterInfo = () => {
@@ -36,8 +32,9 @@ const FooterInfo = () => {
     
     return (
         <>
-    {footer.info
-    ? footer.info.map((item, id) => (
+        <Title>{console.log(footer)}</Title>
+    {footer.companyLocation
+    ? footer.companyLocation.map((item, id) => (
     <MenuLink to={item.link} key={id}>
         {item.name}
     </MenuLink>
