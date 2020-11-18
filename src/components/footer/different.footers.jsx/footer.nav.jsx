@@ -36,10 +36,10 @@ const FooterNav = () => {
     
     return (
         <>
-    {footer.companyInfo
-    ? footer.companyInfo.map((item, id) => (
+    {footer.companyLocation
+    ? footer.companyLocation.map((item, id) => (
     <MenuLink to={item.link} key={id}>
-        {footer.companyInfo}
+        {footer.companyLocation}
     </MenuLink>
     ))
     : null}
