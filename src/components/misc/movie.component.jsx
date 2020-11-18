@@ -15,12 +15,11 @@ const Video = styled.div`
 	}
 `
 
-
 const Movie = () => {
 	return (
 			<Container>
 		<Video>
-			<iframe width="1080" height="480" src="https://www.youtube.com/embed/bkBXiKwahMc?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe width="1080" height="540" src="https://www.youtube.com/embed/bkBXiKwahMc?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</Video>
 	</Container>
 	)
