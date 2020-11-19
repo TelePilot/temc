@@ -9,7 +9,7 @@ const Container = styled.div`
 `
 
 const Iframe = styled.iframe`
-	width: 625px;
+	width: 626px;
 	height: 354px;
 	
 	@media screen and (max-width: 700px) {
