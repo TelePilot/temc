@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react'
 import sanityClient from '../Client'
 
+
 export const AboutContext = createContext()
 
 const AboutContextProvider = props => {

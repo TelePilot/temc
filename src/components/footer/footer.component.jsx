@@ -18,6 +18,16 @@ transition: 0.2s all ease;
 	font-size: 19px;
 }
 `
+const MenuLinkOpenhours = styled(Link)`
+font-size: 20px;
+color: green;
+text-decoration: none;
+transition: 0.2s all ease;
+
+&:hover {
+	font-size: 22px;
+}
+`
 
 const Container = styled.div`
 	padding-top: 15vh;
@@ -26,7 +36,12 @@ const Container = styled.div`
 	display: flex;
 	justify-content: space-around;
 	text-align: center;
-	gap: 20px;
+	gap: 2%;
+
+	@media screen and (max-width: 600px) {
+		flex-direction: column;
+		gap: 1%;
+	}
 `
 
 const NavContainer = styled.div`
@@ -35,20 +50,30 @@ const NavContainer = styled.div`
 	justify-content: left;
 	text-align: left;
 	height: 300px;
+
+	@media screen and (max-width: 600px) {
+		height: 200px;
+	}
 `
 const InfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 300px;
+	@media screen and (max-width: 600px) {
+		height: 200px;
+	}
 `
 const LastInfoContainer = styled.div`
 	display: flex;
 	text-align: right;
 	flex-flow: column;
-	width: 250px;
+	height: 300px;
+	width: 25vw;
 	transition: 0.2s all ease;
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 600px) {
 		margin-bottom: 8em;
+		padding-left: 50px;
+		width: auto;
 	}
 `
 const Image = styled.img`
@@ -79,7 +104,7 @@ const HeroImage = styled.img`
 	height: 80%;
 	z-index: -1;
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 600px) {
 		height: 73%;
 	}
 `
@@ -139,17 +164,17 @@ const Footer = () => {
 				<InfoHeader>Vardagar</InfoHeader>
 							{footer.companyOpenhours
 				? footer.companyOpenhours.map((item, id) => (
-				<MenuLink to={item.link} key={id}>
+				<MenuLinkOpenhours to={item.link} key={id}>
 					{item.vardagar}
-				</MenuLink>
+				</MenuLinkOpenhours>
 				))
 				: null}				
 				<InfoHeader>Helger</InfoHeader>
 							{footer.companyOpenhours
 				? footer.companyOpenhours.map((item, id) => (
-				<MenuLink to={item.link} key={id}>
+				<MenuLinkOpenhours to={item.link} key={id}>
 					{item.helger}
-				</MenuLink>
+				</MenuLinkOpenhours>
 				))
 				: null}				
 	</InfoContainer>

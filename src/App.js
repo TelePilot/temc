@@ -13,6 +13,7 @@ import Home from './pages/home.component'
 import Example from './components/navbar/hamburger/Example'
 import About from './pages/about.component'
 import AboutContextProvider from './store/about.context'
+import NavigationDesktop from './components/navbar/navigation.component'
 
 const PageContainer = styled.div`
 	min-height: 150vh;
@@ -23,7 +24,7 @@ const PageContainer = styled.div`
 function App() {
 	return (
 		<div className='App'>
-			{/* <Navigation /> */}
+			<NavigationDesktop />
 			<Example />
 			<PageContainer>
 				<ImageSizeProvider>
@@ -50,7 +51,6 @@ function App() {
 											<AboutContextProvider>
 											<About key={location.id} />
 											</AboutContextProvider>
-											
 										</Route>
 										<Route exact path={'/kontakt'}>
 											<Kontakt key={location.id} />
