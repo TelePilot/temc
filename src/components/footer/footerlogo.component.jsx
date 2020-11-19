@@ -24,6 +24,9 @@ const Container = styled.div`
 	justify-content: center;
     text-align: center;
     gap: 50px;
+    @media screen and (max-width: 500px) {
+    height: 320px;
+    }
 `
 
 const HeroImage = styled.img`
@@ -36,11 +39,16 @@ const HeroImage = styled.img`
     }
 `
 
+const A = styled.a`
+    transition: 2s all ease;
+`
+
 const FooterLogo = () => {
 	return (
 		<Container>
-            <HeroImage src='https://cdn.sanity.io/images/qpcg4kr6/production/e6dd7cfb1790d7d43e5b4d11c2e99bffebab2be9-427x99.svg?w=1000&h=1000&fit=max'/>
+            <A href='#'><HeroImage className='App-logo' src='https://cdn.sanity.io/images/qpcg4kr6/production/e6dd7cfb1790d7d43e5b4d11c2e99bffebab2be9-427x99.svg?w=1000&h=1000&fit=max'/></A>
             <MenuLink>© Copyright TEMC 2020</MenuLink>
+            <br />
         </Container>
 	)
 }

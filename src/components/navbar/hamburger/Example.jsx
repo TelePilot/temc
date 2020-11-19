@@ -40,7 +40,7 @@ const Nav = styled(motion.nav)`
 	right: 0;
 	bottom: 0;
 	width: 300px;
-	z-index: 999;
+	z-index: 99;
 `
 
 const Background = styled(motion.div)`
@@ -52,6 +52,10 @@ const Background = styled(motion.div)`
 	background: #fff;
 	opacity: 0.4;
 	transition: opacity 0.4s ease-in-out;
+	@media screen and (min-width: 800px) {
+		opacity: 0;
+		display: none;
+	}
 	@media screen and (max-width: 700px) {
 		opacity: 0.7;
 	}

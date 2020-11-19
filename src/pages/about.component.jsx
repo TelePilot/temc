@@ -17,10 +17,12 @@ const Container = styled.div`
 	justify-content: center;
 	color: #4a1f1f;
 	font-family: poppins;
-
 	h1 {
 		padding: 0 35px 0 0;
 	}
+`
+
+const Motion = styled(motion.div)`
 `
 
 const SegmentContainer = styled.div`
@@ -65,13 +67,14 @@ const About = () => {
 	const { about } = useContext(AboutContext)
 
 	return (
-		<motion.div
+		<Motion
 			exit={{ opactiy: 0 }}
 			animate={{ opacity: 1 }}
 			initial={{ opacity: 0 }}
 		>
 	<Container>
 			<SegmentContainer>
+				<br />
 			<h1>{about.title}</h1>
 				<Segment>
 					<Photo
@@ -85,7 +88,7 @@ const About = () => {
 			</Textcontainer>
 		</SegmentContainer>
 	</Container>
-</motion.div>
+</Motion>
 	)
 }
 export default About
