@@ -8,6 +8,8 @@ const Container = styled.div`
 
 `
 
+const Iframe = styled.iframe``
+
 const Video = styled.div`
 	margin-bottom: 10vh;
 	@media screen and (max-width: 700px) {

@@ -12,9 +12,10 @@ const Container = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 90%;
 	height: 100px;
 	z-index: 999;
+
 	@media screen and (max-width: 700px) {
 		transition: 0.8s all ease;
 	}
@@ -43,8 +44,11 @@ const NavBox = styled.div`
 	font-size: 16.4px;
 	height: 22px;
 
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: 968px) {
 		width: 0;
+		opacity: 0;
+		font-size: 0;
+		transition: 0.8s all ease;
 	}
 `
 const HamburgerContainer = styled.div`
@@ -103,7 +107,7 @@ const Navigation = () => {
 							</MenuLink>
 					  ))
 					: null}
-				<HamburgerContainer>{/* <Example /> */}</HamburgerContainer>
+				{/* <HamburgerContainer></HamburgerContainer> */}
 			</NavBox>
 		</Container>
 	)

@@ -32,6 +32,9 @@ const Container = styled.div`
 	width: 100%;
 	z-index: 9;
 	display: none;
+	@media screen and (min-width: 968px) {
+		display: visible;
+	}
 `
 
 const Nav = styled(motion.nav)`
