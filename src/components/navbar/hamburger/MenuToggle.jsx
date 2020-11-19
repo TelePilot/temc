@@ -27,6 +27,11 @@ const Button = styled.button`
 	height: 40px;
 	border-radius: 50%;
 	background: transparent;
+
+	@media screen and (min-width: 800px) {
+		opacity: 0;
+		display: none;
+	}
 `
 
 const MenuToggle = ({ setHover, toggle }) => {

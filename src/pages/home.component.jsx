@@ -5,21 +5,16 @@ import Tagline from '../components/misc/tagline.component'
 import TextBubble from '../components/misc/textbubble.component'
 import Movie from '../components/misc/movie.component'
 import { motion } from 'framer-motion'
-import  VisibilitySensor  from 'react-visibility-sensor'
+import ScrollDetect from '../components/scroll-detect.component'
 const Home = () => {
 	return (
 		<motion.div>
 			<Header />
 
 			<Tagline />
-			<VisibilitySensor partialVisibility>
-			{({ isVisible}) => {
-				
-				return(<Sample inView={{isVisible}} />)}}
-			
-			</VisibilitySensor>
-			
-
+			<ScrollDetect>
+				<Sample />
+			</ScrollDetect>
 			<TextBubble />
 			<Movie />
 		</motion.div>
