@@ -39,7 +39,7 @@ const HeroImage = styled.img`
 const FooterLogo = () => {
 	return (
 		<Container>
-            <HeroImage src='https://cdn.sanity.io/images/qpcg4kr6/production/e6dd7cfb1790d7d43e5b4d11c2e99bffebab2be9-427x99.svg?w=1000&h=1000&fit=max'/>
+            <HeroImage className='App-logo' src='https://cdn.sanity.io/images/qpcg4kr6/production/e6dd7cfb1790d7d43e5b4d11c2e99bffebab2be9-427x99.svg?w=1000&h=1000&fit=max'/>
             <MenuLink>© Copyright TEMC 2020</MenuLink>
         </Container>
 	)
