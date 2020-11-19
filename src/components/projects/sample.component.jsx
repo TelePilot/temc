@@ -1,10 +1,10 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useEffect , useState} from 'react'
 import styled from 'styled-components'
 import SampleCTA from '../cta/samplecta.component'
 import { ProjectContext } from '../../store/Project.context'
 
 import HeaderText from '../misc/header-text.component'
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ImageSizeContext } from '../../store/image.context'
 
@@ -122,15 +122,22 @@ const Text = styled(motion.p)`
 `
 
 const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
+const variants = {
+  visible: { opacity: 1, transition: transition },
+  hidden: { opacity: 0, transition: transition },
+ 
+}
 
-const Sample = () => {
+const Sample = ({inView}) => {
+	
 	const { project } = useContext(ProjectContext)
 	const { setPos } = useContext(ImageSizeContext)
+
+	const [visible, setVisible] = useState(false)
 	let sample = project[0]
 	const image = useRef(null)
 	const headerLoc = useRef(null)
 	const textLoc = useRef(null)
-
 	function isInViewport(image, textLoc) {
 		const img = image.current.getBoundingClientRect()
 		const txt = textLoc.current.getBoundingClientRect()
@@ -155,9 +162,9 @@ const Sample = () => {
 	}
 
 	return (
-		<div>
+		<motion.div variants={variants} initial="hidden" animate={inView.isVisible ? 'visible' : 'hidden'}>
 			<HeaderText>Projects</HeaderText>
-
+			{visible}
 			<Container>
 				<ImgContainer>
 					<Link
@@ -168,7 +175,7 @@ const Sample = () => {
 							<Image
 								ref={image}
 								id='image'
-								transition={transition}
+							
 								alt='client Image'
 								src={sample.imageUrl}
 							/>
@@ -188,7 +195,7 @@ const Sample = () => {
 					<SampleCTA>Kontakt</SampleCTA>
 				</TextContainer>
 			</Container>
-		</div>
+		</motion.div>
 	)
 }
 
