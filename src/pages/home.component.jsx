@@ -5,16 +5,16 @@ import Tagline from '../components/misc/tagline.component'
 import TextBubble from '../components/misc/textbubble.component'
 import Movie from '../components/misc/movie.component'
 import { motion } from 'framer-motion'
-
+import ScrollDetect from '../components/scroll-detect.component'
 const Home = () => {
 	return (
 		<motion.div>
 			<Header />
 
 			<Tagline />
-
-			<Sample />
-
+			<ScrollDetect>
+				<Sample />
+			</ScrollDetect>
 			<TextBubble />
 			<Movie />
 		</motion.div>
