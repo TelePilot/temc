@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { ProjectContext } from '../../store/Project.context'
 // import imageUrlBuilder from '@sanity/image-url'
@@ -59,9 +60,9 @@ const Projects = () => {
 				{project
 					? project.map((item, id) => (
 						<Card key={id}>
+							<Link to={`/project/${item.clientName.toLowerCase()}`}></Link>
 								<ProjectImage scrolling="no"  src={item.websiteLink}/>
 							</Card>
-							
 					  ))
 					: null}
 			</Grid>

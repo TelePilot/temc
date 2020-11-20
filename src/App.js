@@ -14,6 +14,7 @@ import Example from './components/navbar/hamburger/Example'
 import About from './pages/about.component'
 import AboutContextProvider from './store/about.context'
 import NavigationDesktop from './components/navbar/navigation.component'
+import ProjectsContextProvider from './store/projects.context'
 
 const PageContainer = styled.div`
 	min-height: 150vh;
@@ -21,6 +22,9 @@ const PageContainer = styled.div`
 	padding: 0 50px;
 
 	@media screen and (max-width: 968px) {
+		padding: 0 5px;
+	}
+	@media screen and (max-width: 700px) {
 		padding: 0;
 	}
 `
@@ -49,7 +53,9 @@ function App() {
 											</TaglineContextProvider>
 										</Route>
 										<Route path={'/project/:id'}>
+										<ProjectsContextProvider>
 											<ProjectExtended key={location.id} />
+										</ProjectsContextProvider>
 										</Route>
 										<Route exact path={'/about'}>
 											<AboutContextProvider>
