@@ -129,7 +129,7 @@ const variants = {
 }
 
 const Sample = ({inView}) => {
-	
+
 	const { project } = useContext(ProjectContext)
 	const { setPos } = useContext(ImageSizeContext)
 
@@ -162,7 +162,7 @@ const Sample = ({inView}) => {
 	}
 
 	return (
-		<motion.div variants={variants} initial="hidden" animate={inView.isVisible ? 'visible' : 'hidden'}>
+		<motion.div variants={variants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
 			<HeaderText>Projects</HeaderText>
 			{visible}
 			<Container>

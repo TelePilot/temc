@@ -3,21 +3,21 @@ import styled from 'styled-components'
 import sanityClient from '../../Client'
 import imageUrlBuilder from '@sanity/image-url'
 import { Link } from 'react-router-dom'
-// import { Example } from './hamburger/Example'
 
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 90%;
 	height: 100px;
-	z-index: 999;
-
+	z-index: 9999;
 	@media screen and (max-width: 700px) {
 		transition: 0.8s all ease;
+		font-size: 0;
+		width: 50%;
 	}
 `
 
@@ -31,6 +31,7 @@ const LogoBox = styled.img`
 	}
 	@media screen and (max-width: 400px) {
 		padding: 5px 0 10px 25px;
+		width: 150px;
 	}
 `
 
@@ -51,25 +52,15 @@ const NavBox = styled.div`
 		transition: 0.8s all ease;
 	}
 `
-const HamburgerContainer = styled.div`
-	position: absolute;
-	top: 0;
-	right: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`
 
 const MenuLink = styled(Link)`
 	text-decoration: none;
 	padding-top: 20px;
+	z-index: 999;
 
 	@media screen and (max-width: 800px) {
 		opacity: none;
 		visibility: hidden;
-	}
-
-	&.active {
 	}
 `
 
@@ -78,7 +69,7 @@ function urlFor(source) {
 	return builder.image(source)
 }
 
-const Navigation = () => {
+const NavigationDesktop = () => {
 	const [header, setHeader] = useState('')
 
 	useEffect(() => {
@@ -96,8 +87,8 @@ const Navigation = () => {
 
 	return (
 		<Container id='navbar'>
-			<Link to='/'>
-				<LogoBox alt='TEMC Logo' src={urlFor(header.logo).url()} />
+			<Link to='#'>
+				<LogoBox className='App-logo2' alt='TEMC Logo' src={urlFor(header.logo).url()} />
 			</Link>
 			<NavBox>
 				{header.menu
@@ -107,10 +98,9 @@ const Navigation = () => {
 							</MenuLink>
 					  ))
 					: null}
-				{/* <HamburgerContainer></HamburgerContainer> */}
 			</NavBox>
 		</Container>
 	)
 }
 
-export default Navigation
+export default NavigationDesktop
