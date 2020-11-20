@@ -99,16 +99,6 @@ const InfoLink = styled(Link)`
 	}
 `
 
-const HeroImage = styled.img`
-	width: auto;
-	height: 80%;
-	z-index: -1;
-
-	@media screen and (max-width: 600px) {
-		height: 73%;
-	}
-`
-
 const Footer = () => {
 	const [footer, setFooter] = useState('')
 
@@ -130,20 +120,20 @@ const Footer = () => {
 				{footer.menu
 					? footer.menu.map((item, id) => (
 							<InfoLink to={item.link} key={id}>
-												<svg
-						width='10'
-						height='14'
-						viewBox='0 0 8 18'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'
-					>
+						<svg
+							width='10'
+							height='14'
+							viewBox='0 0 8 18'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
 						<path
 							d='M1 4C12.62672 12.79006 12.90954 12.75176 1 17'
 							stroke='white'
 							stroke-linecap='round'
 							stroke-linejoin='round'
-						/>
-					</svg>	{item.name}
+						/></svg>	
+					
+						{item.name}
 							</InfoLink> 
 					  ))
 					: null}
@@ -184,9 +174,15 @@ Vi har öppet dygnet runt alla dagar.
 Ring på telefonnummer <a href="tel:0707972446">070-797 2446</a>
 <InfoText>
 	<InfoHeader>Socials</InfoHeader>
-    <Image src="https://sl.se/globalassets/sociala/facebook.svg" />
-    <Image src="https://sl.se/globalassets/sociala/youtube.svg" />
-    <Image src="https://sl.se/globalassets/sociala/instagram.svg" />
+	{footer.socialMedia
+					? footer.socialMedia.map((item, id) => (
+							<Image to={item.link} key={id}					
+								id='image'
+								alt='client Image'
+								src={urlFor(item.icon).url()}
+							/> 
+					  ))
+					: null}
 		</InfoText>
 	</LastInfoContainer>
 </Container>

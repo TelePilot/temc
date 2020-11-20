@@ -31,7 +31,6 @@ const Container = styled.div`
 
 const HeroImage = styled.img`
     height: 50px;
-    width: auto;
     transition: 0.2s all ease;
 
     &:hover {
