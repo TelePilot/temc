@@ -1,26 +1,34 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { ProjectContext } from '../store/Project.context'
-import imageUrlBuilder from '@sanity/image-url'
-import sanityClient from '../Client'
+import { ProjectContext } from '../../store/Project.context'
+// import imageUrlBuilder from '@sanity/image-url'
+// import sanityClient from '../../Client'
 
-const builder = imageUrlBuilder(sanityClient)
-function urlFor(source) {
-	return builder.image(source)
-}
+// const builder = imageUrlBuilder(sanityClient)
+// function urlFor(source) {
+// 	return builder.image(source)
+// }
 const Container = styled.div`
+	margin-top:  585px;
+	display: flex;
+	justify-content: center;
 	width: 100%;
 	height: 100%;
+
+	@media screen and (max-width: 400px) {
+		margin-top: 100vh;
+	}
 `
 
 const Grid = styled.div`
-    display: grid;
-    grid-template-column: repeat(auto-fill, minmax(300px, 1fr))
-    gap: 10px;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	height: 50%;
 `
 const Card = styled.div`
 	display: flex;
-	height: 400px;
+	height: 300px;
 	flex-direction: column;
 	align-items: center;
 	padding: 0 1em 2em 1em;
@@ -34,12 +42,11 @@ const ProjectText = styled.h3`
 	position: absolute;
 	padding-top: 10px;
 `
-const ProjectImage = styled.img`
+const ProjectImage = styled.iframe`
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
-	border: 2px solid white;
 `
 
 
@@ -48,17 +55,13 @@ const Projects = () => {
 
 	return (
 		<Container>
-			<Grid>
+			<Grid>								
 				{project
 					? project.map((item, id) => (
-							<Card key={id}>
-								<ProjectImage
-									alt='website image'
-									src={urlFor(item.websiteImage).url()}
-								/>
-								<Title>{item.clientName}</Title>
-								<ProjectText>{item.description}</ProjectText>
+						<Card key={id}>
+								<ProjectImage scrolling="no"  src={item.websiteLink}/>
 							</Card>
+							
 					  ))
 					: null}
 			</Grid>

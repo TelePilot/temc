@@ -19,6 +19,10 @@ const PageContainer = styled.div`
 	min-height: 150vh;
 	box-sizing: border-box;
 	padding: 0 50px;
+
+	@media screen and (max-width: 968px) {
+		padding: 0;
+	}
 `
 
 function App() {

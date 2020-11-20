@@ -35,6 +35,7 @@ const Container = styled.div`
 	@media screen and (min-width: 968px) {
 		display: visible;
 	}
+
 `
 
 const Nav = styled(motion.nav)`
@@ -42,7 +43,7 @@ const Nav = styled(motion.nav)`
 	top: 0;
 	right: 0;
 	bottom: 0;
-	width: 300px;
+	width: 0;
 	z-index: 99;
 `
 
@@ -55,7 +56,7 @@ const Background = styled(motion.div)`
 	background: #fff;
 	opacity: 0.4;
 	transition: opacity 0.4s ease-in-out;
-	@media screen and (min-width: 800px) {
+	@media screen and (min-width: 968px) {
 		opacity: 0;
 		display: none;
 	}

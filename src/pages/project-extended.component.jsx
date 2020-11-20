@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-
 import { ImageSizeContext } from '../store/image.context'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import HeaderText from '../components/misc/header-text.component'
+import Projects from '../components/projects/projects.component'
+
 const Image = styled(motion.img)`
 	width: 100%;
 	height: auto;
@@ -19,6 +20,11 @@ const ImageResizeCont = styled(motion.div)`
 const TextContainer = styled(motion.div)`
 	max-width: 600px;
 	position: absolute;
+	padding: 0 100px;
+
+	@media screen and (max-width: 400px) {
+		font-size: 14px;
+	}
 `
 
 const Text = styled(motion.p)`
@@ -29,9 +35,6 @@ const Text = styled(motion.p)`
 	@media screen and (max-width: 700px) {
 		text-align: center;
 		padding: 0;
-	}
-	@media screen and (max-width: 400px) {
-		font-size: 14px;
 	}
 `
 const transition = { duration: 1, ease: [0.8, 0.013, 0.23, 0.96] }
@@ -53,9 +56,9 @@ const ProjectExtended = () => {
 			initial={{ opacity: 1 }}
 			transition={transition}
 		>
-			<h1 style={{ zIndex: 99, position: 'relative' }}>
+			{/* <h1 style={{ zIndex: 99, position: 'relative' }}>
 				{pos.project.clientName}
-			</h1>
+			</h1> */}
 
 			<ImageResizeCont
 				initial={{
@@ -69,8 +72,8 @@ const ProjectExtended = () => {
 			</ImageResizeCont>
 			<TextContainer
 
-					initial={{ left: pos.text.position.x, top: pos.text.position.y}}
-					animate={{ left: '100px', top: '350px'}}
+					initial={{ right: pos.text.position.x, top: pos.text.position.y}}
+					animate={{ right: '10px', top: '350px'}}
 					transition={transition}
 				>
 				<HeaderText>{pos.project.clientName}</HeaderText>
@@ -78,6 +81,7 @@ const ProjectExtended = () => {
 						{pos.project.description}
 					</Text>
 					</TextContainer>
+					<Projects />
 		</motion.div>
 	)
 }

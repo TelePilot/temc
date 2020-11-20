@@ -41,18 +41,17 @@ const HeaderText = styled.h1`
 		font-size: 55px;
 		position: relative;
 		top: -10%;
+		padding: 0 5vw;
 	}
 	@media screen and (max-width: 700px) {
 	}
 	@media screen and (max-width: 500px) {
 		font-size: 46px;
 		width: 301px;
-		padding-left: 0;
 	}
 	@media screen and (max-width: 400px) {
 		font-size: 36px;
 		width: 150px;
-		padding-left: 0;
 	}
 `
 

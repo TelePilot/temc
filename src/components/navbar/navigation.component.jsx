@@ -11,13 +11,13 @@ const Container = styled.div`
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 90%;
+	width: 100%;
 	height: 100px;
 	z-index: 9999;
-	@media screen and (max-width: 700px) {
-		transition: 0.8s all ease;
+	@media screen and (max-width: 968px) {
 		font-size: 0;
 		width: 50%;
+		justify-content: flex-start;
 	}
 `
 
@@ -25,9 +25,9 @@ const LogoBox = styled.img`
 	width: 200px;
 	padding: 25px 50px;
 	height: auto;
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 968px) {
 		transition: 0.8s all ease;
-		padding: 10px 25px;
+		padding: 0 15px;
 	}
 	@media screen and (max-width: 400px) {
 		padding: 5px 0 10px 25px;
@@ -47,16 +47,16 @@ const NavBox = styled.div`
 
 	@media screen and (max-width: 968px) {
 		width: 0;
+		height: 0;
 		opacity: 0;
 		font-size: 0;
-		transition: 0.8s all ease;
 	}
 `
 
 const MenuLink = styled(Link)`
 	text-decoration: none;
 	padding-top: 20px;
-	z-index: 999;
+	z-index: 99;
 
 	@media screen and (max-width: 800px) {
 		opacity: none;
