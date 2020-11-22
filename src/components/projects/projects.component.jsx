@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { ProjectContext } from '../../store/Project.context'
-// import imageUrlBuilder from '@sanity/image-url'
-// import sanityClient from '../../Client'
+ import imageUrlBuilder from '@sanity/image-url'
+ import sanityClient from '../../Client'
 
-// const builder = imageUrlBuilder(sanityClient)
-// function urlFor(source) {
-// 	return builder.image(source)
-// }
+ const builder = imageUrlBuilder(sanityClient)
+ function urlFor(source) {
+	return builder.image(source)
+}
 const Container = styled.div`
 	margin-top:  585px;
 	display: flex;
@@ -43,7 +43,7 @@ const ProjectText = styled.h3`
 	position: absolute;
 	padding-top: 10px;
 `
-const ProjectImage = styled.iframe`
+const ProjectImage = styled.img`
 	width: 100%;
 	height: 100%;
 	top: 0;
@@ -61,8 +61,12 @@ const Projects = () => {
 					? project.map((item, id) => (
 						<Card key={id}>
 							<Link to={`/project/${item.clientName.toLowerCase()}`}></Link>
-								<ProjectImage scrolling="no"  src={item.websiteLink}/>
-							</Card>
+							<ProjectImage 
+								alt='website image'
+								src={urlFor(item.websiteImage).url()}
+								/>
+							<Title>{item.clientName}</Title>
+							<ProjectText>{item.description}</ProjectText>							</Card>
 					  ))
 					: null}
 			</Grid>

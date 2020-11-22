@@ -58,11 +58,17 @@ const HeaderText = styled.h1`
 const HeroImage = styled.img`
 	position: absolute;
 	width: auto;
-	height: 80%;
+	height: 90%;
 	right: 0;
 	top: 0;
 	z-index: -1;
 
+	@media screen and (min-width: 1500px) {
+		height: 100%;
+	}
+	@media screen and (max-width: 800px) {
+		height: 80%;
+	}
 	@media screen and (max-width: 500px) {
 		height: 73%;
 	}

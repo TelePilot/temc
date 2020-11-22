@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import sanityClient from '../../Client'
@@ -30,7 +30,7 @@ const Container = styled.div`
 `
 
 const HeroImage = styled.img`
-    height: 50px;
+    height: 30px;
     transition: 0.2s all ease;
 
     &:hover {
@@ -43,9 +43,26 @@ const A = styled.a`
 `
 
 const FooterLogo = () => {
+
+	const [header, setHeader] = useState('')
+
+	useEffect(() => {
+		const headerQuery = `*[_type == "header"]{
+			logo
+		}`
+		sanityClient.fetch(headerQuery).then(header => {
+			header.forEach(header => {
+				setHeader(header)
+			})
+		})
+
+		return
+	}, [])
+
 	return (
 		<Container>
-            <A href='#'><HeroImage className='App-logo' src='https://cdn.sanity.io/images/qpcg4kr6/production/e6dd7cfb1790d7d43e5b4d11c2e99bffebab2be9-427x99.svg?w=1000&h=1000&fit=max'/></A>
+            <A href='#'><HeroImage className='App-logo' alt='TEMC Logo' src={urlFor(header.logo).url()} /></A>
+
             <MenuLink>© Copyright TEMC 2020</MenuLink>
             <br />
         </Container>

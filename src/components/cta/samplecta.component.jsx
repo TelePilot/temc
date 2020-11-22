@@ -42,7 +42,7 @@ const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 const SampleCTA = props => {
 	return (
 		<>
-			<MenuLink to='/projects'>
+			<MenuLink to='/project'>
 				<Button 	exit={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					initial={{ opacity: 0 }}

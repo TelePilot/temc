@@ -65,15 +65,15 @@ const ProjectExtended = () => {
 					left: pos.image.position.x,
 					top: pos.image.position.y,
 				}}
-				animate={{ width: '100%', left: '0', top: '0', height: '330px' }}
+				animate={{ width: '100%', left: '0', top: '0', height: '700px' }}
 				transition={transition}
 			>
 				<Image src={pos.project.imageUrl} />
 			</ImageResizeCont>
 			<TextContainer
 
-					initial={{ right: pos.text.position.x, top: pos.text.position.y}}
-					animate={{ right: '10px', top: '350px'}}
+					initial={{ left: pos.text.position.x, top: pos.text.position.y}}
+					animate={{ left: '10px', top: '350px'}}
 					transition={transition}
 				>
 				<HeaderText>{pos.project.clientName}</HeaderText>
