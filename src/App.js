@@ -52,6 +52,7 @@ function App() {
 												</HeaderContextProvider>
 											</TaglineContextProvider>
 										</Route>
+
 										<Route path={'/project/:id'}>
 										<ProjectsContextProvider>
 											<ProjectExtended key={location.id} />
@@ -65,14 +66,15 @@ function App() {
 										<Route exact path={'/kontakt'}>
 											<Kontakt key={location.id} />
 										</Route>
+
 									</Switch>
+
 								</AnimatePresence>
 							)}
 						/>
 					</ProjectContextProvider>
 				</ImageSizeProvider>
 			</PageContainer>
-			
 			<Footer />
 		</div>
 	)

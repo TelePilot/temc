@@ -1,18 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+
+
 const Container = styled.div`
 	width: 100%;
-	height: 385px;
+	height: 100%;
 	font-size: 36px;
 	text-align: center;
 	justify-content: center;
-	color: #4a1f1f;
 	font-family: poppins;
-
-	h1 {
-		padding-top: 35px;
-	}
+	background-image: url('/media/about-bg.svg')
 `
 
 const SegmentContainer = styled.div`
@@ -52,9 +50,8 @@ const Kontakt = () => {
 			initial={{ opacity: 0 }}
 			transition={transition}
 		>
-			<Container>
-				<h1>Kontakta oss!</h1>
-			</Container>
+			<Container 					 />
+
 			<SegmentContainer>
 				<Segment>
 					<Photo />

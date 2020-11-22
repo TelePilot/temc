@@ -23,10 +23,10 @@ const ProjectImage = ({ image }) => {
 	return (
 		<ImageResizeCont
 			initial={{
-				left: pos.position.x,
+				right: pos.position.x,
 				top: pos.position.y,
 			}}
-			animate={{ width: '100%', left: '0', top: '0', height: '330px' }}
+			animate={{ width: '100%', right: '0', top: '0', height: '330px' }}
 			transition={transition}
 		>
 			<Image src={`${image}?auto=format&q=60`} />

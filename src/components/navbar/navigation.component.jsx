@@ -87,7 +87,7 @@ const NavigationDesktop = () => {
 
 	return (
 		<Container id='navbar'>
-			<Link to='#'>
+			<Link to=' '>
 				<LogoBox className='App-logo2' alt='TEMC Logo' src={urlFor(header.logo).url()} />
 			</Link>
 			<NavBox>
