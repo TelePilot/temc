@@ -22,6 +22,11 @@ const PrisWrapper = styled.div`
     gap: 15px;
     padding: 0 50px;
 `
+const Icon = styled.img`
+    height: 160px;
+    width: 160px;
+    margin-bottom: 10px;
+`
 
 const Card = styled.div`
     background: #fff;
@@ -41,11 +46,6 @@ const Card = styled.div`
     }
 `
 
-const Icon = styled.img`
-    height: 160px;
-    width: 160px;
-    margin-bottom: 10px;
-`
 
 const H1 = styled.h1`
     font-size: 2.5rem;

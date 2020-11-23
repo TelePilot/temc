@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import ScrollDetect from '../components/scroll-detect.component'
 import TextBubbleLeft from '../components/misc/textbubbleleft'
 import Priskategori from '../components/misc/Priskategori.component'
+import IconDisplayer from '../components/misc/icon-display.component'
 const Home = () => {
 	return (
 		<motion.div>
@@ -16,6 +17,7 @@ const Home = () => {
 			</ScrollDetect>
 			<TextBubbleLeft />
 			<Movie />
+			<IconDisplayer />
 		</motion.div>
 	)
 }
