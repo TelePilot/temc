@@ -46,10 +46,7 @@ const NavBox = styled.div`
 	height: 22px;
 
 	@media screen and (max-width: 968px) {
-		width: 0;
-		height: 0;
-		opacity: 0;
-		font-size: 0;
+		display: none;
 	}
 `
 
@@ -58,10 +55,6 @@ const MenuLink = styled(Link)`
 	padding-top: 20px;
 	z-index: 99;
 
-	@media screen and (max-width: 800px) {
-		opacity: none;
-		visibility: hidden;
-	}
 `
 
 const builder = imageUrlBuilder(sanityClient)
@@ -87,7 +80,7 @@ const NavigationDesktop = () => {
 
 	return (
 		<Container id='navbar'>
-			<Link to=' '>
+			<Link to='/'>
 				<LogoBox className='App-logo2' alt='TEMC Logo' src={urlFor(header.logo).url()} />
 			</Link>
 			<NavBox>

@@ -10,7 +10,7 @@ const Container = styled.div`
 	text-align: center;
 	justify-content: center;
 	font-family: poppins;
-	background-image: url('/media/about-bg.svg')
+	background-image: url('/media/about-bg.svg');
 `
 
 const SegmentContainer = styled.div`
@@ -33,7 +33,7 @@ const Photo = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: grey;
+	outline: 1px solid grey;
 `
 const Text = styled.div`
 	padding: 15px;
@@ -55,10 +55,10 @@ const Kontakt = () => {
 			<SegmentContainer>
 				<Segment>
 					<Photo />
-					<Text />
+					<Text></Text>
 				</Segment>
 				<Segment>
-					<Text />
+					<Text></Text>
 					<Photo />
 				</Segment>
 			</SegmentContainer>

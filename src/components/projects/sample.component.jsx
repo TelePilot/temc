@@ -8,6 +8,10 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ImageSizeContext } from '../../store/image.context'
 
+const OuterContainer = styled.div`
+			margin-top: 5%;
+`
+
 const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -163,6 +167,7 @@ const Sample = ({inView}) => {
 
 	return (
 		<motion.div variants={variants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
+			<OuterContainer>
 			<HeaderText>Tidigare Projekt</HeaderText>
 			{visible}
 			<Container>
@@ -195,6 +200,7 @@ const Sample = ({inView}) => {
 					<SampleCTA>Kontakt</SampleCTA>
 				</TextContainer>
 			</Container>
+			</OuterContainer>
 		</motion.div>
 	)
 }

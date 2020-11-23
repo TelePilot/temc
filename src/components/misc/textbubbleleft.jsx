@@ -21,7 +21,7 @@ const LeftContainer = styled.div`
     left: 0;
 
     @media screen and (max-width: 700px) {
-		margin: 10px 30% 10px 0;        
+		margin: 10px 20% 10px 0;        
 	}
 `
 
@@ -50,7 +50,7 @@ const SVGbubbleLeft = styled.svg`
                 padding: 0;
             }
             @media screen and (max-width: 500px) {
-                width: 80%;
+                width: 100%;
                 padding: 0;
             }
 `

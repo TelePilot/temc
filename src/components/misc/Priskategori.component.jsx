@@ -2,14 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    height: 800px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 
-    @media screen and (max-width: 968px) {
-
+    @media screen and (max-width: 800px) {
+    
     }
     `
 
@@ -21,6 +22,10 @@ const PrisWrapper = styled.div`
     align-items: center;
     gap: 15px;
     padding: 0 50px;
+
+    @media screen and (max-width: 800px) {
+    flex-direction: column;
+}
 `
 const Icon = styled.img`
     height: 160px;
@@ -47,7 +52,7 @@ const Card = styled.div`
 `
 
 
-const H1 = styled.h1`
+const HeaderText = styled.h2`
     font-size: 2.5rem;
     color: #fff;
     margin-bottom: 64px;
@@ -68,10 +73,10 @@ const Priskategori = () => {
     return (
         <>
             <Container id='container'>
-            <H1>Vi erbjuder tre lösningar</H1>
+            <HeaderText>Vi erbjuder tre lösningar</HeaderText>
             <PrisWrapper>
                 <Card>
-                    <Icon src={'/media/bike.svg'} />
+                    <Icon src='/media/bike.svg' />
                     <Title>Enkel</Title>
                     <Text>
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,8 +95,8 @@ const Priskategori = () => {
                         Tillgång till sanity.io </Text>
                 </Card>
                 <Card>
-                <Icon src={'/media/sportscar.svg'} />
-                <Title>Medium</Title>
+                <Icon src='/media/sportscar.svg' />
+                <Title>Standard</Title>
                     <Text>
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -109,7 +114,7 @@ const Priskategori = () => {
                         Tillgång till sanity.io </Text>
                 </Card>
                 <Card>
-                <Icon src={'/media/rocket.svg'} />                    <Title>Custom</Title>
+                <Icon src='/media/rocket.svg' />                    <Title>Skräddarsydd</Title>
                     <Text>
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
