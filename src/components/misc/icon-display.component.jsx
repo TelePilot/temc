@@ -5,6 +5,7 @@ const Container = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 5em;
 `
@@ -16,8 +17,13 @@ const IconContainer = styled.div`
     width: 80%;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     overflow: visible;
     gap: 10px;
+
+    @media screen and (max-width: 400px) {
+        
+    }
 `
 
 const Icons = styled.img`
@@ -33,6 +39,10 @@ const Icons = styled.img`
 
 @media screen and (max-width: 700) {
     opacity: 1;
+}
+@media screen and (max-width: 400px) {
+    height: 50px;
+    width: 50px;        
 }
 `
 

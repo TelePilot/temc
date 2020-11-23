@@ -10,8 +10,8 @@ function urlFor(source) {
 	return builder.image(source)
 }
 const Container = styled.div`
+	height: 100%;
 	width: 100%;
-	height: 100vh;
 	display: flex;
 	text-align: center;
 	justify-content: center;
@@ -28,7 +28,7 @@ const Motion = styled(motion.div)`
 const SegmentContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 50vh;
+	height: 100%;
 	gap: 100px;
 	padding: 15px;
 	margin: 15px;
@@ -38,7 +38,6 @@ const Segment = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
 	height: 100%;
 `
 
@@ -46,20 +45,21 @@ const Textcontainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
-	height: 50vh;
+	height: 100%;
 `
 
 const Photo = styled.img`
 	width: auto;
-	height: 50vh;
+	height: 40vh;
 	margin: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 `
 const AboutText = styled.div`
-	padding: 15px;
-	margin: 15px;
+	height: 100%;
+	padding: 0 15px;
+	margin: 0 15px;
 	text-align: center;
 `
 
