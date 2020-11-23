@@ -1,26 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { ImageSizeContext } from '../store/image.context'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import HeaderText from '../components/misc/header-text.component'
 import Projects from '../components/projects/projects.component'
+import { ProjectContext } from '../store/Project.context'
 
-const Image = styled(motion.img)`
-	width: 100%;
-	height: auto;
-`
 const ImageResizeCont = styled(motion.div)`
-	max-height: 330px;
-	height: 280px;
-	width: 600px;
-	overflow: hidden;
-	display: flex;
 	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	height: 280px;
+	width: 100%;
+	display: flex;
+		background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 `
 const TextContainer = styled(motion.div)`
 	max-width: 600px;
-	position: absolute;
-	padding: 0 100px;
 
 	@media screen and (max-width: 400px) {
 		font-size: 14px;
@@ -39,16 +39,16 @@ const Text = styled(motion.p)`
 `
 const transition = { duration: 1, ease: [0.8, 0.013, 0.23, 0.96] }
 const ProjectExtended = () => {
-	// const { project } = useContext(ProjectContext)
+	const { project } = useContext(ProjectContext)
 	const { pos } = useContext(ImageSizeContext)
-	// let id = useParams()
+	let id = useParams()
 
-	// const [projectExt, setProject] = useState('')
-	// useEffect(() => {
-	// 	const index = project.findIndex(x => x.clientName.toLowerCase() === id.id)
-	// 	setProject(project[index])
-	// }, [id, project])
-	// console.log(projectExt.imageUrl)
+	const [projectExt, setProject] = useState('')
+	useEffect(() => {
+		const index = project.findIndex(x => x.clientName.toLowerCase() === id.id)
+		setProject(project[index])
+	}, [id, project])
+
 	return (
 		<motion.div
 			exit={{ opacity: 1 }}
@@ -60,28 +60,14 @@ const ProjectExtended = () => {
 				{pos.project.clientName}
 			</h1> */}
 
-			<ImageResizeCont
-				initial={{
-					left: pos.image.position.x,
-					top: pos.image.position.y,
-				}}
-				animate={{ width: '100%', left: '0', top: '0', height: '700px' }}
-				transition={transition}
-			>
-				<Image src={pos.project.imageUrl} />
+			<ImageResizeCont style={{backgroundImage: `url(${projectExt.imageUrl})`}}>
+				<HeaderText>{projectExt.clientName}</HeaderText>
 			</ImageResizeCont>
-			<TextContainer
-
-					initial={{ left: pos.text.position.x, top: pos.text.position.y}}
-					animate={{ left: '10px', top: '350px'}}
-					transition={transition}
-				>
-				<HeaderText>{pos.project.clientName}</HeaderText>
-					<Text>
-						{pos.project.description}
-					</Text>
-					</TextContainer>
-					<Projects />
+			<TextContainer>
+			
+				<Text>{projectExt.description}</Text>
+			</TextContainer>
+			<Projects />
 		</motion.div>
 	)
 }
