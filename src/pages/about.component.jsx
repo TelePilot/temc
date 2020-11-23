@@ -16,6 +16,10 @@ const Container = styled.div`
 	text-align: center;
 	justify-content: center;
 	color: #4a1f1f;
+	background-image: url('/media/about-bg.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	font-family: poppins;
 	h1 {
 		padding: 0 35px 0 0;

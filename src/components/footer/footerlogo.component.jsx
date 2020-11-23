@@ -29,17 +29,24 @@ const Container = styled.div`
     }
 `
 
-const HeroImage = styled.img`
-    height: 30px;
+const ImageDiv = styled.div`
+    width: 135px;
+    height: auto;
+    margin: 0 auto;
     transition: 0.2s all ease;
 
     &:hover {
-        height: 55px;
+        transform: scale(1.1);
     }
 `
 
+const HeroImage = styled.img`
+    width: 100%;
+
+  
+`
+
 const A = styled.a`
-    transition: 2s all ease;
 `
 
 const FooterLogo = () => {
@@ -61,7 +68,7 @@ const FooterLogo = () => {
 
 	return (
 		<Container>
-            <A href='#'><HeroImage className='App-logo' alt='TEMC Logo' src={urlFor(header.logo).url()} /></A>
+            <A href='#'><ImageDiv><HeroImage className='App-logo' alt='TEMC Logo' src={urlFor(header.logo).url()} /></ImageDiv></A>
 
             <MenuLink>© Copyright TEMC 2020</MenuLink>
             <br />

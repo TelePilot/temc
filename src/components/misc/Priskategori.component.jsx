@@ -52,7 +52,7 @@ const Card = styled.div`
 `
 
 
-const H1 = styled.h1`
+const HeaderText = styled.h2`
     font-size: 2.5rem;
     color: #fff;
     margin-bottom: 64px;
@@ -73,7 +73,7 @@ const Priskategori = () => {
     return (
         <>
             <Container id='container'>
-            <H1>Vi erbjuder tre lösningar</H1>
+            <HeaderText>Vi erbjuder tre lösningar</HeaderText>
             <PrisWrapper>
                 <Card>
                     <Icon src='/media/bike.svg' />
