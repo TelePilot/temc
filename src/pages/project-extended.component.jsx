@@ -8,20 +8,20 @@ import Projects from '../components/projects/projects.component'
 import { ProjectContext } from '../store/Project.context'
 
 const ImageResizeCont = styled(motion.div)`
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	height: 280px;
+
+	height: 380px;
+	
 	width: 100%;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 		background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 `
 const TextContainer = styled(motion.div)`
 	max-width: 600px;
-
+	
 	@media screen and (max-width: 400px) {
 		font-size: 14px;
 	}
@@ -37,7 +37,7 @@ const Text = styled(motion.p)`
 		padding: 0;
 	}
 `
-const transition = { duration: 1, ease: [0.8, 0.013, 0.23, 0.96] }
+const transition = { duration: 0, ease: [0.8, 0.013, 0.23, 0.96] }
 const ProjectExtended = () => {
 	const { project } = useContext(ProjectContext)
 	const { pos } = useContext(ImageSizeContext)
@@ -55,6 +55,7 @@ const ProjectExtended = () => {
 			animate={{ opacity: 1 }}
 			initial={{ opacity: 1 }}
 			transition={transition}
+			
 		>
 			{/* <h1 style={{ zIndex: 99, position: 'relative' }}>
 				{pos.project.clientName}
