@@ -10,7 +10,7 @@ function urlFor(source) {
 	return builder.image(source)
 }
 const Container = styled.div`
-	margin-top: 585px;
+
 	display: flex;
 	justify-content: center;
 	width: 100%;
