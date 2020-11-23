@@ -54,21 +54,19 @@ function App() {
 										</Route>
 
 										<Route path={'/project/:id'}>
-										<ProjectsContextProvider>
-											<ProjectExtended key={location.id} />
-										</ProjectsContextProvider>
+											<ProjectsContextProvider>
+												<ProjectExtended key={location.id} />
+											</ProjectsContextProvider>
 										</Route>
 										<Route exact path={'/about'}>
 											<AboutContextProvider>
-											<About key={location.id} />
+												<About key={location.id} />
 											</AboutContextProvider>
 										</Route>
 										<Route exact path={'/kontakt'}>
 											<Kontakt key={location.id} />
 										</Route>
-
 									</Switch>
-
 								</AnimatePresence>
 							)}
 						/>
