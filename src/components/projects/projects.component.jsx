@@ -65,8 +65,8 @@ const Projects = () => {
 								alt='website image'
 								src={urlFor(item.websiteImage).url()}
 								/>
-							<Title>{item.clientName}</Title>
-							<ProjectText>{item.description}</ProjectText>							</Card>
+							<Title></Title>
+							<ProjectText></ProjectText>							</Card>
 					  ))
 					: null}
 			</Grid>
