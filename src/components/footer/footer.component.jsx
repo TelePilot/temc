@@ -56,8 +56,10 @@ const InfoContainer = styled.div`
 			text-align: left;
 		}
 		&:nth-child(4) {
-			text-align: right;
 			align-items: center;
+			@media screen and (min-width: 1500px) {
+				padding: 0 50px;
+			}
 		}
 	}
 
@@ -173,8 +175,7 @@ const Footer = () => {
 				</InfoContainer>
 				<InfoContainer>
 					<InfoHeader>Kontakta oss!</InfoHeader>
-					Vi har öppet dygnet runt alla dagar. Ring på telefonnummer
-					<a href='tel:0707972446'>070-797 2446</a>
+					Vi har öppet dygnet runt alla dagar. Hör av er till <a href='tel:0707972446'>070-797 2446</a>
 					<InfoText>
 						<InfoHeader>Socials</InfoHeader>
 						{footer.socialMedia
