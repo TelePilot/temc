@@ -1,11 +1,11 @@
 import './App.css'
-import styled from 'styled-components'
+import PageContainer from './pages/page-container.component'
 import TaglineContextProvider from './store/Tagline.context'
 import ProjectContextProvider from './store/Project.context'
 import HeaderContextProvider from './store/Header.context'
 import ImageSizeProvider from './store/image.context'
 import Footer from './components/footer/footer.component'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useParams } from 'react-router-dom'
 import Kontakt from './pages/kontakt.component'
 import ProjectExtended from './pages/project-extended.component'
 import { AnimatePresence } from 'framer-motion'
@@ -15,19 +15,6 @@ import About from './pages/about.component'
 import AboutContextProvider from './store/about.context'
 import NavigationDesktop from './components/navbar/navigation.component'
 import ProjectsContextProvider from './store/projects.context'
-
-const PageContainer = styled.div`
-	min-height: 150vh;
-	box-sizing: border-box;
-	padding: 0 50px;
-
-	@media screen and (max-width: 968px) {
-		padding: 0 5px;
-	}
-	@media screen and (max-width: 700px) {
-		padding: 0;
-	}
-`
 
 function App() {
 	return (
