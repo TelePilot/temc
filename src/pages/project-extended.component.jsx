@@ -17,7 +17,6 @@ const ImgContainer = styled.div`
 `
 
 const ImageResizeCont = styled(motion.div)`
-
 	width: 77%;
 	height: 70vh;
 	display: flex;
@@ -26,9 +25,8 @@ const ImageResizeCont = styled(motion.div)`
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: top center;
-
 `
-const TextContainer = styled(motion.div)`	
+const TextContainer = styled(motion.div)`
 	max-width: 100%;
 	display: flex;
 	flex-flow: column;
@@ -77,20 +75,20 @@ const ProjectExtended = () => {
 			animate={{ opacity: 1 }}
 			initial={{ opacity: 1 }}
 			transition={transition}
-			
 		>
 			{/* <h1 style={{ zIndex: 99, position: 'relative' }}>
 				{pos.project.clientName}
 			</h1> */}
-		<ImgContainer>
-			<ImageResizeCont style={{backgroundImage: `url(${projectExt.imageUrl})`}}>
-			</ImageResizeCont>
-		</ImgContainer>
+			<ImgContainer>
+				<ImageResizeCont
+					style={{ backgroundImage: `url(${projectExt.imageUrl})` }}
+				></ImageResizeCont>
+			</ImgContainer>
 
-		<TextContainer>
-		<HeaderText>{projectExt.clientName}</HeaderText>
+			<TextContainer>
+				<HeaderText>{projectExt.clientName}</HeaderText>
 				<Text>{projectExt.description}</Text>
-		</TextContainer>
+			</TextContainer>
 
 			<Projects />
 		</motion.div>
