@@ -7,36 +7,58 @@ import HeaderText from '../components/misc/header-text.component'
 import Projects from '../components/projects/projects.component'
 import { ProjectContext } from '../store/Project.context'
 
-const ImageResizeCont = styled(motion.div)`
-
-	height: 380px;
-	
+const ImgContainer = styled.div`
 	width: 100%;
+	height: 100%;
+	margin-top: 12vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-		background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
 `
-const TextContainer = styled(motion.div)`
-	max-width: 600px;
-	
-	@media screen and (max-width: 400px) {
-		font-size: 14px;
+
+const ImageResizeCont = styled(motion.div)`
+
+	width: 77%;
+	height: 70vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top center;
+
+`
+const TextContainer = styled(motion.div)`	
+	max-width: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-right: 20px;
+	@media screen and (max-width: 1000px) {
+		padding: 0;
+		margin-right: 0;
+	}
+	@media screen and (max-width: 900px) {
+		width: 100%;
+		padding: 0;
 	}
 `
 
 const Text = styled(motion.p)`
-	text-align: right;
-	max-width: 600px;
 	padding-bottom: 25px;
+	max-width: 600px;
 
 	@media screen and (max-width: 700px) {
 		text-align: center;
 		padding: 0;
 	}
+	@media screen and (max-width: 400px) {
+		font-size: 14px;
+	}
 `
+
 const transition = { duration: 0, ease: [0.8, 0.013, 0.23, 0.96] }
 const ProjectExtended = () => {
 	const { project } = useContext(ProjectContext)
@@ -60,14 +82,16 @@ const ProjectExtended = () => {
 			{/* <h1 style={{ zIndex: 99, position: 'relative' }}>
 				{pos.project.clientName}
 			</h1> */}
-
+		<ImgContainer>
 			<ImageResizeCont style={{backgroundImage: `url(${projectExt.imageUrl})`}}>
-				<HeaderText>{projectExt.clientName}</HeaderText>
 			</ImageResizeCont>
-			<TextContainer>
-			
+		</ImgContainer>
+
+		<TextContainer>
+		<HeaderText>{projectExt.clientName}</HeaderText>
 				<Text>{projectExt.description}</Text>
-			</TextContainer>
+		</TextContainer>
+
 			<Projects />
 		</motion.div>
 	)
