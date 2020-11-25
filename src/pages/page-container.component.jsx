@@ -16,12 +16,6 @@ const Container = styled.div`
 `
 
 const PageContainer = props => {
-	const [color, setColor] = useState(false)
-	let id = window.location.pathname
-	console.log(id)
-	useEffect(() => {
-		id === '/kontakt' ? setColor(true) : setColor(false)
-	}, [id])
 	return <Container>{props.children}</Container>
 }
 
