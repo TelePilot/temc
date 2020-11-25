@@ -5,6 +5,17 @@ const ArrowDown = styled.svg`
     position: absolute;
     top: 85vh;
     left: 50%;
+    transition: 1s all ease-in-out;
+
+
+    @keyframes ArrowDown{
+    from {
+    transform: translateY(10);
+    }
+    to {
+    transform: translate(-10);
+    }
+}
 `
 
 const Arrow = () => {
