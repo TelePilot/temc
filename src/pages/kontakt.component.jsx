@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import IconDisplayer from '../components/misc/icon-display.component'
 
 const SegmentContainer = styled.div`
 	position: absolute;
-	top: 5vh;
+	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100%;
-	font-size: 36px;
 	text-align: center;
 	justify-content: center;
 	z-index: -1;
@@ -25,8 +25,12 @@ const Container = styled.div`
 	justify-content: center;
 `
 const Segment = styled.div`
+	height: 15vh;
 	display: flex;
 	justify-content: space-evenly;
+`
+const Segment2 = styled.div`
+	padding-top: 35vh;
 `
 
 const Photo = styled.div`
@@ -47,11 +51,16 @@ const TextHöger = styled.div`
 
 const Text = styled.div`
 	padding: 25px;
-	margin: 25px;
+	margin-top: 25px;
 	font-size: 1.5rem;
 	width: 50%;
 	text-align: center;
 	text-decoration: none;
+
+	@media screen and (max-width: 450px) {
+		width: 100%;
+		font-size: 5vw;
+	}
 `
 
 const A = styled.a`
@@ -68,7 +77,7 @@ const Kontakt = () => {
 			initial={{ opacity: 0 }}
 			transition={transition}>
 			<SegmentContainer>
-			<svg width="550" height="551" viewBox="0 0 550 551" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg viewBox="0 0 550 550" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_f)">
 <path d="M275 450.25C371.65 450.25 450 371.9 450 275.25C450 178.6 371.65 100.25 275 100.25C178.35 100.25 100 178.6 100 275.25C100 371.9 178.35 450.25 275 450.25Z" fill="url(#paint0_linear)" fill-opacity="0.32"/>
 </g>
@@ -86,7 +95,8 @@ const Kontakt = () => {
 </svg>
 			</SegmentContainer>
 			<Container>
-			<Text>Vi är en liten studio baserad i Stockholm som bygger hemsidor med hjälp av den senaste tekniken inom webbutveckling. Detta innebär att Du har insyn under arbetets gång, slipper löpande kostnader och har tillgång till ett simpelt redigeringsprogram.</Text>
+
+			<Text>Vi är en liten studio baserad i Stockholm som bygger hemsidor med det senaste inom webbutveckling. Detta innebär mer insyn under arbetets gång, inga löpande kostnader och tillgång till ett lättförståeligt redigeringsprogram.</Text>
 				</Container>
 			<Segment>
 					{/* <Photo />
@@ -97,7 +107,9 @@ const Kontakt = () => {
 					<Photo /> */}
 					<Text>Hör av dig till <A href='tel:0707972446'>070-797 2446</A></Text>
 				</Segment>
-
+			<Segment2>
+			<IconDisplayer />
+			</Segment2>
 		</motion.div>
 	)
 }
