@@ -285,7 +285,7 @@ const Priskategori = () => {
 <path d="M1.91504 3.75L12.79 11.625" stroke="#C4C4C4" stroke-width="2"/>
 </svg> E-handel / Webbshop
                         </Text>
-                        <PricesContainer><Prices>4990</Prices><KR>kr</KR></PricesContainer>
+                        <PricesContainer><Prices>9990</Prices><KR>kr</KR></PricesContainer>
                         <MOMS>EX. MOMS</MOMS>
                         <ButtonYellow><ButtonTitle>Beställ här</ButtonTitle></ButtonYellow>
                 </Card>
@@ -340,7 +340,7 @@ const Priskategori = () => {
 <path d="M1.91504 3.75L12.79 11.625" stroke="#C4C4C4" stroke-width="2"/>
 </svg> E-handel / Webbshop
                         </Text>
-                        <PricesContainer><Prices>9990</Prices><KR>kr</KR></PricesContainer>
+                        <PricesContainer><Prices>14990</Prices><KR>kr</KR></PricesContainer>
                         <MOMS>EX. MOMS</MOMS>
                         <ButtonGreen><ButtonTitle>Beställ här</ButtonTitle></ButtonGreen>
                 </Card>
@@ -395,8 +395,8 @@ const Priskategori = () => {
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 E-handel / Webbshop  </Text>
-<PricesContainer><Prices>19 990</Prices><KR>kr</KR></PricesContainer>
-                        <MOMS>EX. MOMS</MOMS>
+<PricesContainer><Prices><br /></Prices><KR></KR></PricesContainer>
+                        <MOMS><br /></MOMS>
                 <ButtonBlue><ButtonTitle>Kontakta Teo</ButtonTitle></ButtonBlue>
                 </Card>
             </PrisWrapper>

@@ -56,7 +56,7 @@ const TaglineImage = styled.img`
 `
 
 const Tagline = () => {
-	const { tagline } = useContext(TaglineContext)	
+	const { tagline } = useContext(TaglineContext)
 	return (
 		<Container>
 			<InnerContainer><TaglineImage alt='hero image' src={urlFor(tagline.image).url()} /></InnerContainer>
