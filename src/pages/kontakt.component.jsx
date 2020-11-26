@@ -12,6 +12,7 @@ const Background = styled.div`
 	right: 0;
 	z-index: -1;
 	bottom: 0;
+	transition: 1s all ease-in-out;
 	background: radial-gradient(
 		circle at bottom,
 		rgba(234, 109, 145, 0.2) 0%,
@@ -33,7 +34,7 @@ const Segment = styled.div`
 	justify-content: space-evenly;
 `
 const Segment2 = styled.div`
-	padding-top: 35vh;
+	padding-top: 23vh;
 `
 
 const Photo = styled.div`
@@ -52,15 +53,15 @@ const TextHöger = styled.div`
 	text-align: center;
 `
 
-const Text = styled.div`
+const Text = styled.p`
 	padding: 25px;
 	margin-top: 25px;
-	font-size: 1.5rem;
-	width: 50%;
+	font-size: 1rem;
+	width: 40%;
 	text-align: center;
 	text-decoration: none;
 
-	@media screen and (max-width: 450px) {
+	@media screen and (max-width: 670px) {
 		width: 100%;
 		font-size: 5vw;
 	}
@@ -70,7 +71,7 @@ const A = styled.a`
 	text-decoration: none;
 `
 
-const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
+const transition = { duration: 1, ease: [0.43, 0.013, 0.23, 0.96] }
 
 const Kontakt = () => {
 	return (
@@ -84,9 +85,10 @@ const Kontakt = () => {
 			<Container>
 				<Text>
 					Vi är en liten studio baserad i Stockholm som bygger hemsidor med det
-					senaste inom webbutveckling. Detta innebär mer insyn under arbetets
+					senaste inom webbdesign och webbutveckling. Detta innebär mer insyn under arbetets
 					gång, inga löpande kostnader och tillgång till ett lättförståeligt
-					redigeringsprogram.
+					redigeringsprogram. Utöver detta lägger vi stort fokus på användarvänlighet, mobilanpassning, och 
+					kundupplevelsen i utformningen av hemsidan
 				</Text>
 			</Container>
 			<Segment>

@@ -46,6 +46,9 @@ const SegmentContainer = styled.div`
 	gap: 100px;
 	padding: 15px;
 	margin: 15px;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
 `
 
 const Segment = styled.div`
@@ -58,7 +61,7 @@ const Segment = styled.div`
 const Textcontainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
-	width: 100%;
+	width: 80%;
 	height: 100%;
 `
 

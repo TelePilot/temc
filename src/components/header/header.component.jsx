@@ -30,15 +30,41 @@ const HeaderContentContainer = styled.div`
 
 const HeaderText = styled.h1`
 	color: white;
-	font-size: 72px;
+	font-size: 52px;
 	text-align: left;
-	width: 450px;
+	width: 40vw;
+	margin-bottom: 0;
 
 	@media screen and (min-width: 1550px) {
-		font-size: 5vw;
+		font-size: 4vw;
 	}
+	@media screen and (max-width: 1300px) {
+		width: 48vw;
+
+	}
+	@media screen and (max-width: 1100px) {
+		font-size: 45px;
+		position: relative;
+		top: -10%;
+		padding: 0 5vw;
+	}
+	@media screen and (max-width: 700px) {
+		width: auto;
+	}
+	@media screen and (max-width: 500px) {
+		font-size: 36px;
+	}
+	@media screen and (max-width: 400px) {
+		font-size: 36px;
+	}
+`
+const HeaderTagline = styled.p`
+	color: white;
+	font-size: 32px;
+	text-align: left;
+
 	@media screen and (max-width: 1000px) {
-		font-size: 55px;
+		font-size: 22px;
 		position: relative;
 		top: -10%;
 		padding: 0 5vw;
@@ -46,11 +72,11 @@ const HeaderText = styled.h1`
 	@media screen and (max-width: 700px) {
 	}
 	@media screen and (max-width: 500px) {
-		font-size: 46px;
+		font-size: 18px;
 		width: 301px;
 	}
 	@media screen and (max-width: 400px) {
-		font-size: 36px;
+		font-size: 14px;
 		width: 150px;
 	}
 `
@@ -86,6 +112,7 @@ const Header = () => {
 					src={urlFor(header.heroImage).url()}
 				/>
 				<HeaderText>{header.title}</HeaderText>
+				<HeaderTagline>{header.tagline}</HeaderTagline>
 				<CTA>Kontakt</CTA>
 			</HeaderContentContainer>
 		</Container>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -221,7 +222,10 @@ padding-top: 17px;
 padding-left: 2px;
 `
 
-const ButtonTitle = styled.h3`
+const ButtonTitle = styled(Link)`
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
     font-size: 1rem;
     color: white;
     margin: 15px 0;
@@ -231,7 +235,7 @@ const Priskategori = () => {
     return (
         <>
             <Container id='container'>
-            <HeaderText>Vi erbjuder tre lösningar</HeaderText>
+            <HeaderText>Tre olika paket</HeaderText>
             <PrisWrapper>
                 <Card>
                     <CardColorYellow />
@@ -243,11 +247,16 @@ const Priskategori = () => {
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
                         Byggt i Reactjs </Text>
+                    <Text>
+<svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                        kreativ design </Text>
                         <Text>
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                        Möjlighet att redigera </Text>
+                        Kan ändra bild och text </Text>
                     <Text>
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -287,7 +296,7 @@ const Priskategori = () => {
                         </Text>
                         <PricesContainer><Prices>9990</Prices><KR>kr</KR></PricesContainer>
                         <MOMS>EX. MOMS</MOMS>
-                        <ButtonYellow><ButtonTitle>Beställ här</ButtonTitle></ButtonYellow>
+                        <ButtonYellow><ButtonTitle to='/kontakt'>Beställ här</ButtonTitle></ButtonYellow>
                 </Card>
                 <Card>
                 <CardColorGreen />
@@ -303,7 +312,12 @@ const Priskategori = () => {
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                        Möjlighet att redigera </Text>
+                        kreativ design </Text>
+                        <Text>
+<svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                        Kan ändra bild och text </Text>
                     <Text>
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -342,7 +356,7 @@ const Priskategori = () => {
                         </Text>
                         <PricesContainer><Prices>14990</Prices><KR>kr</KR></PricesContainer>
                         <MOMS>EX. MOMS</MOMS>
-                        <ButtonGreen><ButtonTitle>Beställ här</ButtonTitle></ButtonGreen>
+                        <ButtonGreen><ButtonTitle to='/kontakt'>Beställ här</ButtonTitle></ButtonGreen>
                 </Card>
                 <Card>
                     <CardColorBlue />
@@ -359,7 +373,12 @@ const Priskategori = () => {
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-                        Möjlighet att redigera </Text>
+                        kreativ design </Text>
+                        <Text>
+<svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+                        Kan ändra bild och text </Text>
                     <Text>
 <svg width="25" height="25" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20 6L9 17L4 12" stroke="#00ba0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -397,7 +416,7 @@ const Priskategori = () => {
 E-handel / Webbshop  </Text>
 <PricesContainer><Prices><br /></Prices><KR></KR></PricesContainer>
                         <MOMS><br /></MOMS>
-                <ButtonBlue><ButtonTitle>Kontakta Teo</ButtonTitle></ButtonBlue>
+                <ButtonBlue><ButtonTitle to='/kontakt'>Kontakta Teo</ButtonTitle></ButtonBlue>
                 </Card>
             </PrisWrapper>
             </Container>   

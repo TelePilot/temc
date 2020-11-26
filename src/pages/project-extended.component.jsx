@@ -79,11 +79,13 @@ const ProjectExtended = () => {
 			{/* <h1 style={{ zIndex: 99, position: 'relative' }}>
 				{pos.project.clientName}
 			</h1> */}
+			<a href={projectExt.websiteLink}>	
 			<ImgContainer>
-				<ImageResizeCont
+			<ImageResizeCont
 					style={{ backgroundImage: `url(${projectExt.imageUrl})` }}
 				></ImageResizeCont>
 			</ImgContainer>
+			</a>
 
 			<TextContainer>
 				<HeaderText>{projectExt.clientName}</HeaderText>

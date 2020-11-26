@@ -6,14 +6,12 @@ const ArrowDown = styled.svg`
     top: 85vh;
     left: 50%;
     transition: 1s all ease-in-out;
+    animation: mymove 1s infinite;
 
-
-    @keyframes ArrowDown{
-    from {
-    transform: translateY(10);
-    }
-    to {
-    transform: translate(-10);
+    @keyframes mymove{
+    0% {top: 85vh;}
+    50% {top: 86vh;}
+    100% {top: 85vh;
     }
 }
 `

@@ -73,7 +73,7 @@ const ImgContainer = styled.div`
 		padding: 0;
 	}
 	@media screen and (max-width: 700px) {
-		height: 100%;
+		height: auto;
 	}
 	&::after {
 		position: relative;
@@ -95,6 +95,7 @@ const ImgContainer = styled.div`
 		@media screen and (max-width: 800px) {
 			width: 82%;
 			right: 7%;
+			margin-left: 3%;
 		}
 	}
 `
@@ -138,7 +139,7 @@ const Sample = ({inView}) => {
 	const { setPos } = useContext(ImageSizeContext)
 
 	const [visible, setVisible] = useState(false)
-	let sample = project[0]
+	let sample = project[Math.floor(Math.random() * 5)]
 	const image = useRef(null)
 	// const headerLoc = useRef(null)
 	const textLoc = useRef(null)
