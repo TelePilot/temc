@@ -7,9 +7,7 @@ const ProjectContextProvider = props => {
 	const [project, setProject] = useState('')
 	const [loaded, setLoaded] = useState(false)
 	useEffect(() => {
-		const projectQuery = `*[_type == "client"]{
-			clientName, logo, "imageUrl": websiteImage.asset->url, description, websiteLink
-		}`
+		const projectQuery = `*[_type == "client"] | order(date desc)`
 		sanityClient.fetch(projectQuery).then(project => {
 			const projectArray = []
 			project.forEach(project => {

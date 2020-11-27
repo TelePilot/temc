@@ -10,7 +10,6 @@ function urlFor(source) {
 	return builder.image(source)
 }
 const Container = styled.div`
-
 	display: flex;
 	justify-content: center;
 	width: 100%;
@@ -41,12 +40,10 @@ const Card = styled.div`
 
 const Title = styled.h2``
 const ProjectText = styled.p``
-const ProjectImage = styled.div`
+const ProjectImage = styled.img`
 	width: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	height: 200px;
+	height: 250px;
+	object-fit: cover;
 `
 
 const Projects = () => {
@@ -57,23 +54,20 @@ const Projects = () => {
 			<Grid>
 				{project
 					? project.map((item, id) => (
-							<>
-								{item.imageUrl ? (
-									<Card key={id}>
-										<Link
-											style={{ textDecoration: 'none' }}
-											to={`/project/${item.clientName.toLowerCase()}`}
-										>
-											<ProjectImage
-												alt='website image'
-												style={{ backgroundImage: `url(${item.imageUrl})` }}
-											/>
-											<Title>{item.clientName}</Title>
-											<ProjectText>{item.description}</ProjectText>
-										</Link>
-									</Card>
-								) : null}
-							</>
+							<Card key={id}>
+								<Link
+									style={{ textDecoration: 'none' }}
+									to={`/project/${item.clientName.toLowerCase()}`}
+								>
+									<ProjectImage
+										alt='website image'
+										src={urlFor(item.websiteImage).url()}
+									/>
+
+									<Title>{item.clientName}</Title>
+									<ProjectText>{item.description}</ProjectText>
+								</Link>
+							</Card>
 					  ))
 					: null}
 			</Grid>

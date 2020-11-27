@@ -8,9 +8,15 @@ import TextBubbleLeft from '../components/misc/textbubbleleft'
 import Priskategori from '../components/misc/Priskategori.component'
 import IconDisplayer from '../components/misc/icon-display.component'
 import Arrow from '../components/header/arrows.component'
+const transition = { duration: 0.3, ease: [0.43, 0.013, 0.23, 0.96] }
 const Home = () => {
 	return (
-		<motion.div>
+		<motion.div
+			exit={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			initial={{ opacity: 0 }}
+			transition={transition}
+		>
 			<Header />
 			<Arrow />
 			<Priskategori />

@@ -3,7 +3,6 @@ import PageContainer from './pages/page-container.component'
 import TaglineContextProvider from './store/Tagline.context'
 import ProjectContextProvider from './store/Project.context'
 import HeaderContextProvider from './store/Header.context'
-import ImageSizeProvider from './store/image.context'
 import Footer from './components/footer/footer.component'
 import { Route, Switch, useParams } from 'react-router-dom'
 import Kontakt from './pages/kontakt.component'
@@ -22,43 +21,41 @@ function App() {
 			<NavigationDesktop />
 			<Example />
 			<PageContainer>
-				<ImageSizeProvider>
-					<ProjectContextProvider>
-						<Route
-							render={({ location }) => (
-								<AnimatePresence
-									exitBeforeEnter
-									initial={false}
-									onExitComplete={() => window.scrollTo(0, 0)}
-								>
-									<Switch location={location} key={location.pathname}>
-										<Route exact path={'/'}>
-											<TaglineContextProvider>
-												<HeaderContextProvider>
-													<Home key={location.id} />
-												</HeaderContextProvider>
-											</TaglineContextProvider>
-										</Route>
+				<ProjectContextProvider>
+					<Route
+						render={({ location }) => (
+							<AnimatePresence
+								exitBeforeEnter
+								initial={false}
+								onExitComplete={() => window.scrollTo(0, 0)}
+							>
+								<Switch location={location} key={location.pathname}>
+									<Route exact path={'/'}>
+										<TaglineContextProvider>
+											<HeaderContextProvider>
+												<Home key={location.id} />
+											</HeaderContextProvider>
+										</TaglineContextProvider>
+									</Route>
 
-										<Route path={'/project/:id'}>
-											<ProjectsContextProvider>
-												<ProjectExtended key={location.id} />
-											</ProjectsContextProvider>
-										</Route>
-										<Route exact path={'/about'}>
-											<AboutContextProvider>
-												<About key={location.id} />
-											</AboutContextProvider>
-										</Route>
-										<Route exact path={'/kontakt'}>
-											<Kontakt key={location.id} />
-										</Route>
-									</Switch>
-								</AnimatePresence>
-							)}
-						/>
-					</ProjectContextProvider>
-				</ImageSizeProvider>
+									<Route path={'/project/:id'}>
+										<ProjectsContextProvider>
+											<ProjectExtended key={location.id} />
+										</ProjectsContextProvider>
+									</Route>
+									<Route exact path={'/about'}>
+										<AboutContextProvider>
+											<About key={location.id} />
+										</AboutContextProvider>
+									</Route>
+									<Route exact path={'/kontakt'}>
+										<Kontakt key={location.id} />
+									</Route>
+								</Switch>
+							</AnimatePresence>
+						)}
+					/>
+				</ProjectContextProvider>
 			</PageContainer>
 			<Footer />
 		</div>
