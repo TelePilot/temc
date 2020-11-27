@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import SampleCTA from '../cta/samplecta.component'
 import { ProjectContext } from '../../store/Project.context'
@@ -35,28 +35,7 @@ const Container = styled.div`
 	@media screen and (max-width: 450px) {
 	}
 `
-const Image = styled(motion.img)`
-	width: 100%;
-	height: auto;
-`
-const ImageResizeCont = styled.div`
-	overflow: hidden;
-	max-height: 280px;
-	width: 600px;
-	display: flex;
 
-	@media screen and (max-width: 1000px) {
-		width: 100%;
-		height: 100%;
-	}
-	@media screen and (max-width: 900px) {
-		width: 100%;
-		padding: 0;
-	}
-	@media screen and (max-width: 700px) {
-		height: 100%;
-	}
-`
 const ImgContainer = styled.div`
 	height: auto;
 	width: 100%;

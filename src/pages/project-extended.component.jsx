@@ -16,16 +16,6 @@ const ImgContainer = styled.div`
 	align-items: center;
 `
 
-const ImageResizeCont = styled(motion.div)`
-	width: 77%;
-	height: 70vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: top center;
-`
 const TextContainer = styled(motion.div)`
 	max-width: 100%;
 	display: flex;

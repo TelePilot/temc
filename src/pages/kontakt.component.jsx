@@ -37,22 +37,6 @@ const Segment2 = styled.div`
 	padding-top: 23vh;
 `
 
-const Photo = styled.div`
-	width: 300px;
-	height: 300px;
-	margin: 15px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	outline: 1px solid grey;
-`
-const TextHöger = styled.div`
-	width: 350px;
-	padding: 15px;
-	margin: 15px;
-	text-align: center;
-`
-
 const Text = styled.p`
 	padding: 25px;
 	margin-top: 25px;
@@ -85,10 +69,11 @@ const Kontakt = () => {
 			<Container>
 				<Text>
 					Vi är en liten studio baserad i Stockholm som bygger hemsidor med det
-					senaste inom webbdesign och webbutveckling. Detta innebär mer insyn under arbetets
-					gång, inga löpande kostnader och tillgång till ett lättförståeligt
-					redigeringsprogram. Utöver detta lägger vi stort fokus på användarvänlighet, mobilanpassning, och 
-					kundupplevelsen i utformningen av hemsidan
+					senaste inom webbdesign och webbutveckling. Detta innebär mer insyn
+					under arbetets gång, inga löpande kostnader och tillgång till ett
+					lättförståeligt redigeringsprogram. Utöver detta lägger vi stort fokus
+					på användarvänlighet, mobilanpassning, och kundupplevelsen i
+					utformningen av hemsidan
 				</Text>
 			</Container>
 			<Segment>
