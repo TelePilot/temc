@@ -90,16 +90,6 @@ const InfoLink = styled(Link)`
 		font-size: 19px;
 	}
 `
-const LinkCont = styled.div`
-	// display: flex;
-	// justify-content: flex-start;
-	// align-items: flex-start;
-	// text-align: left;
-	// flex-flow: column;
-	// box-sizing: border-box;
-
-	// width: 100%;
-`
 
 const Footer = () => {
 	const [footer, setFooter] = useState('')
@@ -175,7 +165,8 @@ const Footer = () => {
 				</InfoContainer>
 				<InfoContainer>
 					<InfoHeader>Kontakta oss!</InfoHeader>
-					Vi har öppet dygnet runt alla dagar. Hör av er till <a href='tel:0707972446'>070-797 2446</a>
+					Vi har öppet dygnet runt alla dagar. Hör av er till{' '}
+					<a href='tel:0707972446'>070-797 2446</a>
 					<InfoText>
 						<InfoHeader>Socials</InfoHeader>
 						{footer.socialMedia
