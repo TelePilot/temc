@@ -1,15 +1,14 @@
-import React, { useContext, useRef, useState} from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import styled from 'styled-components'
 import SampleCTA from '../cta/samplecta.component'
 import { ProjectContext } from '../../store/Project.context'
-
+import ClientImage from '../misc/client-image.component'
 import HeaderText from '../misc/header-text.component'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ImageSizeContext } from '../../store/image.context'
 
 const OuterContainer = styled.div`
-			margin-top: 5%;
+	margin-top: 5%;
 `
 
 const Container = styled.div`
@@ -128,79 +127,35 @@ const Text = styled(motion.p)`
 
 const transition = { duration: 0.6, ease: [0.43, 0.013, 0.23, 0.96] }
 const variants = {
-  visible: { opacity: 1, transition: transition },
-  hidden: { opacity: 0, transition: transition },
- 
+	visible: { opacity: 1, transition: transition },
+	hidden: { opacity: 0, transition: transition },
 }
 
-const Sample = ({inView}) => {
-
+const Sample = ({ inView }) => {
 	const { project } = useContext(ProjectContext)
-	const { setPos } = useContext(ImageSizeContext)
-
-	const [visible, setVisible] = useState(false)
-	let sample = project[Math.floor(Math.random() * 5)]
-	const image = useRef(null)
-	// const headerLoc = useRef(null)
-	const textLoc = useRef(null)
-	function isInViewport(image, textLoc) {
-		const img = image.current.getBoundingClientRect()
-		const txt = textLoc.current.getBoundingClientRect()
-
-		setPos({
-			project: sample,
-			image: {
-			position: {
-				x: `${img.x}px`,
-				y: `${img.y}px`,
-			},
-			width: '600px',
-			},
-		
-			text: {
-				position: {
-				x: `${txt.x}px`,
-				y: `${txt.y}px`,
-			},},
-		
-		})
-	}
-
+	let sample = project[Math.floor(Math.random() * (project.length - 1))]
+	console.log(sample)
 	return (
-		<motion.div variants={variants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
+		<motion.div
+			variants={variants}
+			initial='hidden'
+			animate={inView ? 'visible' : 'hidden'}
+		>
 			<OuterContainer>
-			<HeaderText>Tidigare Projekt</HeaderText>
-			{visible}
-			<Container>
-				<ImgContainer>
-					<Link
-						onClick={() => isInViewport(image, textLoc)}
-						to={`/project/${sample.clientName.toLowerCase()}`}
-					>
-						<ImageResizeCont>
-							<Image
-								ref={image}
-								id='image'
-							
-								alt='client Image'
-								src={sample.imageUrl}
-							/>
-						</ImageResizeCont>
-					</Link>
-				</ImgContainer>
-				<TextContainer
-				ref={textLoc}
-			
-				>
-					<HeaderText>{sample.clientName}</HeaderText>
-					<Text
-					
-					>
-						{sample.description}
-					</Text>
-					<SampleCTA>Kontakt</SampleCTA>
-				</TextContainer>
-			</Container>
+				<HeaderText>Tidigare Projekt</HeaderText>
+
+				<Container>
+					<ImgContainer>
+						<Link to={`/project/${sample.clientName.toLowerCase()}`}>
+							<ClientImage image={sample.websiteImage} />
+						</Link>
+					</ImgContainer>
+					<TextContainer>
+						<HeaderText>{sample.clientName}</HeaderText>
+						<Text>{sample.description}</Text>
+						<SampleCTA>Kontakt</SampleCTA>
+					</TextContainer>
+				</Container>
 			</OuterContainer>
 		</motion.div>
 	)

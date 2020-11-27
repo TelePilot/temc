@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
-import { ImageSizeContext } from '../store/image.context'
+import ClientImage from '../components/misc/client-image.component'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -57,10 +57,10 @@ const Text = styled(motion.p)`
 	}
 `
 
-const transition = { duration: 0, ease: [0.8, 0.013, 0.23, 0.96] }
+const transition = { duration: 0.35, ease: [0.8, 0.013, 0.23, 0.96] }
 const ProjectExtended = () => {
 	const { project } = useContext(ProjectContext)
-	const { pos } = useContext(ImageSizeContext)
+
 	let id = useParams()
 
 	const [projectExt, setProject] = useState('')
@@ -71,20 +71,18 @@ const ProjectExtended = () => {
 
 	return (
 		<motion.div
-			exit={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			initial={{ opacity: 1 }}
+			initial={{ opacity: 0 }}
 			transition={transition}
 		>
 			{/* <h1 style={{ zIndex: 99, position: 'relative' }}>
 				{pos.project.clientName}
 			</h1> */}
-			<a href={projectExt.websiteLink}>	
-			<ImgContainer>
-			<ImageResizeCont
-					style={{ backgroundImage: `url(${projectExt.imageUrl})` }}
-				></ImageResizeCont>
-			</ImgContainer>
+			<a href={projectExt.websiteLink}>
+				<ImgContainer>
+					<ClientImage image={projectExt.websiteImage} />
+				</ImgContainer>
 			</a>
 
 			<TextContainer>
