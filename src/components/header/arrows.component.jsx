@@ -38,7 +38,9 @@ const ArrowCont = styled.div`
 const Arrow = () => {
 	return (
 		<ArrowCont
-			onClick={() => window.scrollTo({ top: 720, behavior: 'smooth' })}
+			onClick={() =>
+				window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+			}
 		>
 			<ArrowDown
 				width='30'
