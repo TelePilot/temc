@@ -8,7 +8,7 @@ const Container = styled.div`
 	align-items: center;
 `
 
-const Iframe = styled.iframe`
+const Iframe = styled(ReactPlayer)`
 	width: 626px;
 	height: 354px;
 
@@ -26,11 +26,11 @@ const Movie = ({ inView }) => {
 	return (
 		<Container>
 			<Video>
-				<ReactPlayer
+				<Iframe
 					playing={inView ? true : false}
 					url='https://player.vimeo.com/video/485527634'
 					muted='true'
-				></ReactPlayer>
+				></Iframe>
 			</Video>
 		</Container>
 	)
