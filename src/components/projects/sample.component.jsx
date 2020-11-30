@@ -113,7 +113,7 @@ const variants = {
 const Sample = ({ inView }) => {
 	const { project } = useContext(ProjectContext)
 	let sample = project[Math.floor(Math.random() * (project.length - 1))]
-	console.log(sample)
+
 	return (
 		<motion.div
 			variants={variants}

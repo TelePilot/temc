@@ -24,7 +24,10 @@ const Home = () => {
 				<Sample />
 			</ScrollDetect>
 			<TextBubbleLeft />
-			<Movie />
+			<ScrollDetect>
+				<Movie />
+			</ScrollDetect>
+
 			<IconDisplayer />
 		</motion.div>
 	)

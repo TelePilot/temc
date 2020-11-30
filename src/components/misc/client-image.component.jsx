@@ -15,7 +15,6 @@ function urlFor(source) {
 }
 
 const ClientImage = ({ image }) => {
-	console.log(image)
 	return <Image src={urlFor(image).url()} />
 }
 
