@@ -14,6 +14,7 @@ import About from './pages/about.component'
 import AboutContextProvider from './store/about.context'
 import NavigationDesktop from './components/navbar/navigation.component'
 import ProjectsContextProvider from './store/projects.context'
+import CookieConsent from './components/misc/cookie-consent.component'
 
 function App() {
 	return (
@@ -56,6 +57,7 @@ function App() {
 						)}
 					/>
 				</ProjectContextProvider>
+				<CookieConsent />
 			</PageContainer>
 			<Footer />
 		</div>

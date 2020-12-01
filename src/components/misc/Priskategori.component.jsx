@@ -14,6 +14,12 @@ const Container = styled.div`
 	}
 `
 
+const A = styled.a`
+	color: black; 
+	text-decoration: none;
+	font-family: 'Whyte Inktrap',Whyte, sans-serif;
+`
+
 const PrisWrapper = styled.div`
 	max-width: 1200px;
 	margin: 0 auto;
@@ -241,6 +247,7 @@ const TextCont = styled.div`
 	justify-content: flex-start;
 	align-items: flex-start;
 	flex-flow: column;
+	text-decoration: none;
 `
 
 const Priskategori = () => {
@@ -446,8 +453,12 @@ const Priskategori = () => {
 						</Text>
 					</TextCont>
 					<PricesContainer>
-						<Prices>9990</Prices>
-						<KR>kr</KR>
+						<Prices>
+								9990
+						</Prices>
+						<KR>
+								kr
+						</KR>
 					</PricesContainer>
 					<MOMS>EX. MOMS</MOMS>
 					<ButtonYellow>
@@ -695,7 +706,7 @@ const Priskategori = () => {
 									stroke-linejoin='round'
 								/>
 							</svg>
-							kreativ design{' '}
+							Teambaserad design i <A href="https://www.figma.com/">figma</A>{' '}
 						</Text>
 						<Text>
 							<svg
