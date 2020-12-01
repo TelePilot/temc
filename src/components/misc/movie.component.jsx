@@ -13,8 +13,8 @@ const Iframe = styled(ReactPlayer)`
 	height: 354px;
 
 	@media screen and (max-width: 700px) {
-		width: 100vw;
-		height: auto;
+		width: 100% !important;
+		height: auto !important;
 	}
 `
 
@@ -30,6 +30,8 @@ const Movie = ({ inView }) => {
 					playing={inView ? true : false}
 					url='https://player.vimeo.com/video/485527634'
 					muted='true'
+					width=''
+					height=''
 				></Iframe>
 			</Video>
 		</Container>

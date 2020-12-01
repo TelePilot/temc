@@ -1,6 +1,6 @@
 {
   "short_name": "TEMC. Snyggt och enkelt",
-  "name": "temc",
+  "name": "TEMC. Snyggt och enkelt",
   "icons": [
     {
       "src": "temc.ico",
@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "temc.ico",
+      "type": "image/x-icon",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "temc.ico",
+      "type": "image/x-icon",
       "sizes": "512x512"
     }
   ],
