@@ -749,7 +749,7 @@ const Priskategori = () => {
 									stroke-linejoin='round'
 								/>
 							</svg>
-							Egen domän{' '}
+							Proffessionell domän
 						</Text>
 						<Text>
 							<svg
@@ -785,7 +785,7 @@ const Priskategori = () => {
 									stroke-linejoin='round'
 								/>
 							</svg>
-							Sociala media länkar
+							Integrera dina sociala medier
 						</Text>
 						<Text>
 							<svg

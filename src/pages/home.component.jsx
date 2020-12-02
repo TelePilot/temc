@@ -8,6 +8,7 @@ import TextBubbleLeft from '../components/misc/textbubbleleft'
 import Priskategori from '../components/misc/Priskategori.component'
 import IconDisplayer from '../components/misc/icon-display.component'
 import Arrow from '../components/header/arrows.component'
+import Tagline from '../components/misc/tagline.component'
 const transition = { duration: 0.3, ease: [0.43, 0.013, 0.23, 0.96] }
 const Home = () => {
 	return (
@@ -19,13 +20,14 @@ const Home = () => {
 		>
 			<Header />
 			<Arrow />
+			<Tagline />
 			<Priskategori />
-			<ScrollDetect>
-				<Sample />
-			</ScrollDetect>
 			<TextBubbleLeft />
 			<ScrollDetect>
 				<Movie />
+			</ScrollDetect>
+			<ScrollDetect>
+				<Sample />
 			</ScrollDetect>
 
 			<IconDisplayer />
