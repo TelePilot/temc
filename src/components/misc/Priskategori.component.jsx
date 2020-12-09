@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { KategoriContext } from '../../store/priskategori.context'
+import imageUrlBuilder from '@sanity/image-url'
+import sanityClient from '../../Client'
 
 const Container = styled.div`
 	height: 100%;
@@ -244,13 +247,16 @@ const TextCont = styled.div`
 `
 
 const Priskategori = () => {
+
+	const { kategori } = useContext(KategoriContext)
+
 	return (
 		<Container id='container'>
 			<HeaderText>Tre olika paket</HeaderText>
 			<PrisWrapper>
 				<Card>
 					<CardColorYellow />
-					<Title>B a s i c</Title>
+					<Title>{kategori.title}</Title>
 					<Icon src='/media/bike.svg' />
 					<MiniTitle>Skaffa ditt digitala visitkort</MiniTitle>
 					<TextCont>

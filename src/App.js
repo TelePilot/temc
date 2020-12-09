@@ -14,6 +14,7 @@ import About from './pages/about.component'
 import AboutContextProvider from './store/about.context'
 import NavigationDesktop from './components/navbar/navigation.component'
 import ProjectsContextProvider from './store/projects.context'
+import KategoriContextProvider from './store/kategori.context'
 
 function App() {
 	return (
@@ -33,7 +34,9 @@ function App() {
 									<Route exact path={'/'}>
 										<TaglineContextProvider>
 											<HeaderContextProvider>
-												<Home key={location.id} />
+												<KategoriContextProvider>
+													<Home key={location.id} />
+												</KategoriContextProvider>
 											</HeaderContextProvider>
 										</TaglineContextProvider>
 									</Route>
