@@ -19,7 +19,7 @@ const PrisWrapper = styled.div`
 	margin: 0 auto;
 	display: flex;
 	flex: flex-wrap;
-	align-items: center;
+	align-items: flex-start;
 	box-sizing: border-box;
 	gap: 15px;
 
