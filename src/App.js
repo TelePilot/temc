@@ -15,10 +15,45 @@ import AboutContextProvider from './store/about.context'
 import NavigationDesktop from './components/navbar/navigation.component'
 import ProjectsContextProvider from './store/projects.context'
 import KategoriContextProvider from './store/kategori.context'
+import ReactGA from 'react-ga'
+import CookieConsent from 'react-cookie-consent'
+
+const [cookie, cookieTrigger] = useState(false)
+useEffect(() => {
+  if (cookie) {
+	ReactGA.initialize("G-VSHBRMDLTT")
+	window.localStorage.setItem("cookieAccepted", true)
+	ReactGA.pageview(window.location.pathname + window.location.search)
+  }
+}, [cookie])
+useEffect(() => {
+  window.localStorage.cookieAccepted
+	? cookieTrigger(true)
+	: cookieTrigger(false)
+}, [])
 
 function App() {
 	return (
 		<div className='App'>
+		<CookieConsent
+        enableDeclineButton
+        disableStyles={true}
+        flipButtons
+        declineButtonClasses="decline-button"
+        buttonClasses="cookie-button"
+        buttonText={"Acceptera"}
+        declineButtonText={"Nej Tack"}
+        containerClasses="cookie-container"
+        onAccept={() => cookieTrigger(true)}
+      >
+        Den här webbplatsen använder cookies, som samlar information om hur du
+        interagerar med sidan. Genom att acceptera tillåter du att vi samlar och
+        behandlar dina personuppgifter enligt vår{" "}
+        <Link style={{ color: "white" }} to="./integritets-policy">
+          integritetspolicy
+        </Link>
+      </CookieConsent>
+
 			<NavigationDesktop />
 			<Example />
 			<PageContainer>

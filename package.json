@@ -9,8 +9,9 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "framer-motion": "^2.9.4",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.1",
     "react": "^17.0.1",
+    "react-cookie-consent": "^6.2.3",
     "react-dom": "^17.0.1",
     "react-player": "^2.7.0",
     "react-router": "^3.2.6",
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-ga": "^3.3.0"
   }
 }

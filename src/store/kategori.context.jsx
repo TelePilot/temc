@@ -10,9 +10,11 @@ const KategoriContextProvider = props => {
 	useEffect(() => {
 		const kategoriQuery = `*[_type == "priskategori"]`
 		sanityClient.fetch(kategoriQuery).then(kategori => {
+			const kategoriArray = []
 			kategori.forEach(kategori => {
-				setKategori(kategori)
+				kategoriArray.push(kategori)
 			})
+			setKategori(kategoriArray)
 			setLoaded(true)
 		})
 		return
